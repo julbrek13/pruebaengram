@@ -53,7 +53,8 @@ Scripts disponibles:
 
 - `npm run dev` → ejecuta `src/main.ts` con `tsx`
 - `npm run build` → compila TypeScript con `tsc`
-- `npm run test` → corre tests con `vitest`
+- `npm run test` → ejecuta tests en **one-shot** (`vitest run`) y **sale**; usalo para checks rápidos, CI y validaciones no interactivas
+- `npm run test:watch` → ejecuta `vitest` en **watch mode**; usalo durante desarrollo cuando querés reruns automáticos al guardar
 
 ---
 
