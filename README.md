@@ -1,0 +1,120 @@
+# pruebaengram
+
+Starter educativo para practicar **GentleAI + SDD Orchestrator + Engram + Git** con foco en una idea simple: **primero decidimos, después ejecutamos**.
+
+---
+
+## 🎯 Objetivo del repo
+
+Pasar de **Beginner → Engineer** construyendo un sistema operativo personal de trabajo:
+
+- decisiones explícitas antes de tocar código
+- uso correcto de SDD según complejidad (no-SDD / parcial / full)
+- trazabilidad con Engram (`topic_key` estable)
+- disciplina Git (commits atómicos, claros, auditables)
+
+---
+
+## 🧠 Modelo operativo: decisión primero, comando después
+
+No arrancamos por “qué comando tiro”, arrancamos por **qué tipo de problema tengo**.
+
+| Tipo de cambio | Modo | Qué hacer |
+|---|---|---|
+| Typo, rename aislado, ajuste mecánico (1 archivo) | **no-SDD** | ejecutar directo + commit chico + `mem_save` si hubo decisión |
+| Cambio acotado con 1-2 decisiones técnicas | **SDD parcial** | `explore → propose → apply → verify` |
+| Cambio de arquitectura, múltiples capas, alto riesgo | **SDD full** | ciclo completo `init → explore → propose → spec → design → tasks → apply → verify → archive` |
+
+> Regla práctica: si no podés explicar el **por qué** del cambio en 2 frases, todavía no estás para ejecutar.
+
+---
+
+## 🧭 Responsabilidades: Humano vs Orchestrator
+
+| Humano (vos) | SDD Orchestrator |
+|---|---|
+| Define objetivo, alcance y restricciones | Orquesta fases y selecciona subagente/flujo |
+| Aprueba decisiones clave (propuesta, diseño, riesgos) | Genera artefactos por fase |
+| Prioriza tradeoffs de producto | Ejecuta implementación según tareas aprobadas |
+| Decide cuándo mergear / releasear | Persiste contexto y resultados en Engram |
+
+**Principio:** AI ejecuta, humano gobierna.
+
+---
+
+## 🚀 Quick start del repo
+
+```bash
+npm install
+npm run dev
+```
+
+Scripts disponibles:
+
+- `npm run dev` → ejecuta `src/main.ts` con `tsx`
+- `npm run build` → compila TypeScript con `tsc`
+- `npm run test` → corre tests con `vitest`
+
+---
+
+## 🧱 Estructura base
+
+```text
+pruebaengram/
+├─ .atl/
+│  └─ skill-registry.md
+├─ docs/
+│  ├─ ROADMAP_GENTLEAI.md
+│  ├─ MINI_PROJECTS_PLAN.md
+│  ├─ ENGRAM_CONTEXT_MAP.md
+│  └─ SDD_ENGRAM_OPERATING_MODEL.md
+├─ src/
+├─ tests/
+└─ README.md
+```
+
+---
+
+## 📚 Guías operativas (orden recomendado)
+
+1. `docs/SDD_ENGRAM_OPERATING_MODEL.md` → modelo completo de operación
+2. `docs/ROADMAP_GENTLEAI.md` → plan de madurez Beginner → Engineer
+3. `docs/MINI_PROJECTS_PLAN.md` → práctica incremental por pilar
+4. `docs/ENGRAM_CONTEXT_MAP.md` → mapa de `topic_key` + recovery runbook
+
+---
+
+## ✅ Checklist de sesión
+
+Antes de empezar:
+
+- [ ] `git status`
+- [ ] recuperar contexto (`mem_context`)
+- [ ] si falta contexto: `mem_search` y `mem_get_observation`
+- [ ] definir modo (no-SDD / parcial / full)
+
+Al terminar:
+
+- [ ] guardar decisiones/hallazgos (`mem_save`)
+- [ ] cerrar con `mem_session_summary`
+- [ ] commit atómico con conventional commits
+
+---
+
+## 🧪 Referencias oficiales usadas
+
+Esta remodelación se alinea con los docs oficiales en `docs/gentlaireadme/`:
+
+- `intended-usage.md` (modelo mental)
+- `components.md` (Engram + SDD + skills)
+- `usage.md` (comandos de mantenimiento `gentle-ai`)
+- `agents.md` (rol del orchestrator y delegación)
+- `rollback.md` (backup y recuperación)
+
+---
+
+## 📝 Regla de oro
+
+- 1 decisión clara → 1 ejecución concreta
+- 1 ejecución concreta → 1 commit entendible
+- 1 sesión cerrada → memoria persistente útil
