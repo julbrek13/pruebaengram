@@ -23,7 +23,7 @@ No arrancamos por “qué comando tiro”, arrancamos por **qué tipo de problem
 |---|---|---|
 | Typo, rename aislado, ajuste mecánico (1 archivo) | **no-SDD** | ejecutar directo + commit chico + `mem_save` si hubo decisión |
 | Cambio acotado con 1-2 decisiones técnicas | **SDD parcial** | `explore → propose → apply → verify` |
-| Cambio de arquitectura, múltiples capas, alto riesgo | **SDD full** | ciclo completo `init → explore → propose → spec → design → tasks → apply → verify → archive` |
+| Cambio de arquitectura, múltiples capas, alto riesgo | **SDD full** | ciclo completo `explore → propose → spec → design → tasks → apply → verify → archive` *(con `sdd-init` ya resuelto para el proyecto)* |
 
 > Regla práctica: si no podés explicar el **por qué** del cambio en 2 frases, todavía no estás para ejecutar.
 
@@ -68,7 +68,8 @@ pruebaengram/
 │  ├─ ROADMAP_GENTLEAI.md
 │  ├─ MINI_PROJECTS_PLAN.md
 │  ├─ ENGRAM_CONTEXT_MAP.md
-│  └─ SDD_ENGRAM_OPERATING_MODEL.md
+│  ├─ SDD_ENGRAM_OPERATING_MODEL.md
+│  └─ GSR_MODEL_ROUTING_INTEGRATION.md
 ├─ src/
 ├─ tests/
 └─ README.md
@@ -82,6 +83,7 @@ pruebaengram/
 2. `docs/ROADMAP_GENTLEAI.md` → plan de madurez Beginner → Engineer
 3. `docs/MINI_PROJECTS_PLAN.md` → práctica incremental por pilar
 4. `docs/ENGRAM_CONTEXT_MAP.md` → mapa de `topic_key` + recovery runbook
+5. `docs/GSR_MODEL_ROUTING_INTEGRATION.md` → integración de routing por fase + fallback
 
 ---
 
@@ -111,6 +113,8 @@ Esta remodelación se alinea con los docs oficiales en `docs/gentlaireadme/`:
 - `usage.md` (comandos de mantenimiento `gentle-ai`)
 - `agents.md` (rol del orchestrator y delegación)
 - `rollback.md` (backup y recuperación)
+- `refactoriced.md` (GSR: límite no-ejecutor + capas gentle/sdd/router)
+- `GUIA-SDD-COMPLETA.pdf` (asignación de modelos por fase/perfil)
 
 ---
 

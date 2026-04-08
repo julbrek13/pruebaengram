@@ -1,0 +1,910 @@
+<div align="center">
+
+<a href="assets/img/gsr-logo.png">
+<img src="assets/img/gsr-logo.png" alt="GSR — Gentle SDD Router" width="360">
+</a>
+
+<h1>Gentle SDD Router</h1>
+
+<p><strong>AI context system. Dynamic workflow factory. Multi-model routing. Three pillars, one name.</strong></p>
+
+<p>
+<img src="https://img.shields.io/badge/status-BETA-orange?style=for-the-badge" alt="Beta">
+</p>
+
+<p>
+<a href="https://github.com/osmelpv/gentle-sdd-router/releases"><img src="https://img.shields.io/github/v/release/osmelpv/gentle-sdd-router" alt="Release"></a>
+<img src="https://img.shields.io/badge/license-UNLICENSED-lightgrey.svg" alt="License: UNLICENSED">
+<img src="https://img.shields.io/badge/Node.js-20+-339933?logo=node.js&logoColor=white" alt="Node.js 20+">
+<img src="https://img.shields.io/badge/platform-macOS%20%7C%20Linux%20%7C%20Windows%20WSL-lightgrey" alt="Platform">
+</p>
+
+<blockquote>
+<p>⚠️ <strong>Beta</strong> — This project is under active development. APIs, schema, and presets may change. <a href="https://github.com/osmelpv/gentle-sdd-router/issues">Report issues</a>.</p>
+</blockquote>
+
+</div>
+
+---
+
+## Why Are You Here?
+
+**"I want multi-model routing with fallbacks"** → Jump to [Router — Model Routing](#-router--model-routing)
+
+**"I want custom AI workflows with cross-team collaboration"** → Jump to [SDD — Dynamic Workflow Factory](#-sdd--dynamic-workflow-factory)
+
+**"I want consistent AI personas across all my agents"** → Jump to [Gentle — AI Context System](#-gentle--ai-context-system)
+
+**"I want all three"** → Read on. The name IS the architecture, and they compose naturally.
+
+---
+
+## The Name IS the Architecture
+
+Here's the thing — most tools name themselves after a feature. `gsr` names itself after its *entire model of the world*:
+
+| Pillar | WHO / WHAT / WITH WHAT | What it does |
+|--------|------------------------|--------------|
+| **gentle** | **WHO** your agents are | Identity, AGENTS.md inheritance, persona contracts |
+| **sdd** | **WHAT** they do | Custom phases, cross-SDD invocation, department workflows |
+| **router** | **WITH WHAT** they work | Phase-based model assignment, fallbacks, judge/radar patterns |
+
+Think of it this way: **Gentle** gives your agents personality. **SDD** gives them purpose. **Router** gives them the right tools for each job. All three compose into one coherent AI operations layer — declarative, non-executing, report-only.
+
+`gsr` reads YAML, resolves routes, and writes records. **It never calls models, runs providers, or executes orchestration.** Execution belongs to the host.
+
+---
+
+## For AI Agents — Operational Context
+
+> **This README is your operational manual.** An AI agent can install, configure, and manage GSR for any project by following these instructions. No human intervention needed.
+
+### Install & Initialize
+
+```bash
+npm install -g gentle-sdd-router
+cd <project>
+gsr setup install
+gsr sync
+gsr status
+```
+
+### Common Operations
+
+```bash
+gsr route use <preset>                     # Switch routing preset
+gsr preset create <name>                   # Create preset (auto-syncs)
+gsr sdd create <name>                      # Create custom SDD workflow (contracts + hidden phase agents auto-created)
+gsr sdd global-sync                        # Materialize global sdd-* agents from GSR presets
+gsr identity show                          # Check resolved agent identity
+gsr sdd invoke <target-sdd>/<entry> \
+  --from <caller-sdd>/<entry> \
+  --phase <phase>                          # Cross-SDD invocation record
+gsr sync                                   # Full sync (idempotent, always safe)
+```
+
+### What You Need to Know
+
+- `gsr sdd create` and the SDD TUI flows leave a new SDD functional immediately — contracts are scaffolded and project-local hidden `sdd-<sdd>-<phase>` agents are materialized automatically.
+- `gsr sync` does EVERYTHING — contracts, overlay, commands, validation, and SDD agent reconciliation. Run it freely when YAML was edited manually or something drifted.
+- `gsr sdd global-sync` patches the global inherited `sdd-*` agents (the ones in `~/.config/opencode/opencode.json`) so they also route through GSR presets like `local-hybrid`.
+- Creating presets auto-triggers sync. You don't need to call it manually after that.
+- `gsr status` tells you if everything is OK — shows full state, presets, environment, and routes in one call.
+- Identity inherits from `AGENTS.md` automatically — no manual configuration needed.
+- **GSR NEVER executes** — it writes config and records that the host reads and acts on.
+- Invocation IDs use the `inv-` prefix: `inv-{uuid}` (e.g., `inv-550e8400-e29b-41d4-a716-446655440000`).
+
+### Decision Tree for AI
+
+| Situation | Action |
+|-----------|--------|
+| User asks to set up GSR | `gsr setup install && gsr sync` |
+| User wants a different model | `gsr route use <preset>` |
+| User needs a custom workflow | `gsr sdd create <name>` |
+| User needs department collaboration | Set up `invoke` in `sdd.yaml`, then `gsr sdd invoke` |
+| Something seems wrong | `gsr status` |
+| User modified agents manually | `gsr sync` (or `gsr sync --force` to overwrite) |
+| No router config found | `gsr setup install` |
+
+---
+
+## Installation
+
+### From npm (recommended)
+
+```bash
+npm install -g gentle-sdd-router
+```
+
+### From source
+
+```bash
+git clone https://github.com/osmelpv/gentle-sdd-router.git
+cd gentle-sdd-router
+npm install && npm link
+```
+
+---
+
+## Quick Start
+
+```bash
+# 1. Install globally
+npm install -g gentle-sdd-router
+
+# 2. Initialize in your project
+cd your-project
+gsr setup install
+
+# 3. Sync everything (contracts + overlay + commands + validation)
+gsr sync
+
+# 4. Check status
+gsr status
+```
+
+> **Example**: After `gsr sync` you'll see:
+> ```
+> Synced 9 role contracts + 10 phase compositions (19 total).
+> Manifest: router/contracts/.sync-manifest.json
+> 3 agent(s) synced to opencode.json.
+> Commands: 5 written, 0 already up to date.
+> Synchronized.
+> ```
+
+> **Example**: `gsr status` shows:
+> ```
+> ✅ Ready — Synchronized
+>
+> Preset      multivendor (8 phases)
+> Catalog     default (SDD-Orchestrator)
+> Identity    AGENTS.md inherited
+> Debug       sdd-debug-mono → on_issues
+> Catalogs    2 enabled: default, sdd-debug
+> Connections SDD-Orchestrator/verify → sdd-debug-mono (on_issues)
+> ```
+
+See [Getting Started](docs/getting-started.md) for the full AI-operable setup guide with expected outputs per step.
+
+---
+
+## Three Pillars
+
+### 🟣 Gentle — AI Context System
+
+The **gentle** pillar manages agent identity and context. It:
+
+- Inherits `AGENTS.md` context through directory trees (project → global → user)
+- Defines per-preset persona overrides (Gentleman style, neutral, custom)
+- Ships 9 role contracts + 10 phase compositions as skills
+- Publishes `/gsr-fallback` slash command for managing fallback models in the host TUI
+
+```bash
+gsr identity show [--preset <name>]   # Resolve layered AGENTS.md context
+gsr sync                               # Push contracts to host (idempotent)
+```
+
+> **Example**: `gsr identity show` resolves the full context chain:
+> ```
+> === multivendor ===
+> Sources: global-agents-md, project-agents-md
+> Prompt:
+> # Senior Architect, 15+ years experience...
+> (inherited from AGENTS.md — no manual config needed)
+> ```
+
+> **Example**: Adding identity to a preset YAML:
+> ```yaml
+> # router/profiles/my-preset.router.yaml
+> name: my-preset
+> identity:
+>   inherit_agents_md: true    # checked by default in TUI
+>   persona: gentleman
+>   context: "Extra context for this specific preset"
+> phases:
+>   orchestrator:
+>     - target: anthropic/claude-opus-4-6
+> ```
+
+Start here if you want **consistent AI personas** and **inherited context** across all your agents.
+
+---
+
+### 🔵 SDD — Dynamic Workflow Factory
+
+The **sdd** pillar turns your project into a factory of named SDDs. Each SDD defines its own phases, role contracts, and — most powerfully — **cross-SDD invocations**.
+
+#### Custom SDDs
+
+```bash
+gsr sdd create game-design            # Scaffold a new SDD
+gsr sdd list                          # List all SDD workflows
+gsr sdd show game-design              # Show phases and invoke declarations
+```
+
+An `sdd.yaml` defines your workflow structure:
+
+```yaml
+name: game-design
+version: 1
+description: "Game design workflow"
+phases:
+  concept:
+    intent: "Define the game concept"
+    mode: multi
+    agent_execution: parallel
+    radar: false
+  level-design:
+    intent: "Design levels and encounters"
+    depends_on:
+      - concept
+    invoke:
+      catalog: art-production
+      sdd: asset-pipeline
+      payload_from: output
+      await: true
+```
+
+#### Cross-SDD Invocation — The Key Differentiator
+
+A phase can declare its intent to **invoke another SDD**. `gsr` writes an invocation record to `.gsr/invocations/` — a pure data operation. **No execution happens here.** The host or orchestrator reads the record and launches the callee.
+
+##### How to connect two SDDs
+
+Here's the full flow for connecting `game-design` → `art-production` with debug-aware invocation:
+
+**Step 1 — Declare the invoke in sdd.yaml**
+
+```yaml
+# router/catalogs/game-design/sdd.yaml
+name: game-design
+version: 1
+phases:
+  level-design:
+    intent: "Design levels and encounters"
+    invoke:
+      catalog: art-production
+      sdd: asset-pipeline      # optional — defaults to catalog name
+      payload_from: output     # output | input | custom
+      await: true
+      trigger: on_issues       # on_issues | always | never | manual
+      input_from: phase_output
+      required_fields:
+        - issues
+        - affected_files
+```
+
+Or use the CLI to add/update the invoke declaration on an existing phase:
+
+```bash
+gsr phase invoke level-design \
+  --sdd game-design \
+  --target art-production/asset-pipeline \
+  --trigger on_issues \
+  --input-from phase_output \
+  --required-fields "issues,affected_files"
+```
+
+**Step 2 — Create the invocation record** (during execution, when the phase completes)
+
+```bash
+gsr sdd invoke art-production/asset-pipeline \
+  --from game-design/game-design \
+  --phase level-design \
+  --payload "Level 3 assets needed"
+# Output: Invocation created: inv-550e8400-e29b-41d4-a716-446655440000
+```
+
+**Step 3 — invoke-complete** (when the callee finishes all its phases)
+
+```bash
+gsr sdd invoke-complete inv-550e8400-e29b-41d4-a716-446655440000 \
+  --result "Assets delivered: tree_bioluminescent.fbx"
+```
+
+**Step 4 — Re-verify if needed**
+
+If the callee reported issues, the `trigger: on_issues` declaration means the orchestrator should re-verify the caller's phase. GSR writes the record — the orchestrator decides what to do with it.
+
+> **Presets with `debug_invoke` built-in**: The built-in presets (multivendor, claude, openai, etc.) ship with a `debug_invoke` block pre-configured. When a verify phase fails, no manual wiring is needed — the preset already declares when and how to invoke the debug SDD. Custom SDDs need to declare their own invoke blocks using `gsr phase invoke` or by editing `sdd.yaml` directly.
+
+```bash
+# Create an invocation record (data-only, non-executing)
+gsr sdd invoke art-production/asset-pipeline \
+  --from game-design/game-design \
+  --phase level-design \
+  --payload "Level 3 assets needed"
+
+# The command prints the invocation id:
+# Invocation created: inv-550e8400-e29b-41d4-a716-446655440000
+
+# When the callee completes, mark it:
+gsr sdd invoke-complete inv-550e8400-e29b-41d4-a716-446655440000 --result "Assets delivered"
+
+# Check status:
+gsr sdd invoke-status inv-550e8400-e29b-41d4-a716-446655440000
+
+# List all invocations (filter by status):
+gsr sdd invocations [--status pending|completed|failed]
+```
+
+**Non-executing boundary**: `gsr` writes the record. The record declares intent. Execution belongs to the host.
+
+#### Built-in Example: sdd-debug — How GSR Uses Its Own Invocation System
+
+GSR ships with a real cross-SDD invocation out of the box: **sdd-debug**. This is not a toy example — it's how the default SDD-Orchestrator handles bugs found during verify.
+
+**How it works:**
+
+```
+SDD-Orchestrator (default)
+  └─ verify phase finds issues
+       └─ debug_invoke.trigger = on_issues → INVOKES sdd-debug
+             └─ sdd-debug runs 5 phases:
+                  analyze-area → implant-logs → collect-and-diagnose
+                  → apply-fixes → finalize
+            └─ returns standardized debug_result
+       └─ verify re-runs
+            └─ PASS → continue to archive ✅
+            └─ FAIL → judge evaluates: revert | escalate | retry (max 2 cycles)
+```
+
+**The sdd-debug SDD** (`router/catalogs/sdd-debug/`) ships globally with GSR and includes:
+- **5 phases** with a strict dependency chain — no shortcuts
+- **4 role contracts** (debug-analyst, log-implanter, fix-implementer, debug-archiver) — each with professional constraints, red lines, and security-first rules
+- **Key features**: AI-first execution, interactive user checkpoint, guard position registry with SDD-DBG-GXXX markers, orchestrator-retained strategic phases (collect-and-diagnose, finalize)
+- **5 phase contracts** with input/output specifications and required skills
+- **Standardized `debug_result` output** so the caller knows exactly what happened
+
+**Two preset variants** ship with GSR:
+
+| Preset | Agents per phase | Judge | Models |
+|--------|-----------------|-------|--------|
+| `sdd-debug-mono` | 1 | No | GPT-5.4 across all phases |
+| `sdd-debug-multi` | 2 + judge | Yes (mandatory, reasoning model) | GPT-5.4 + Claude + Gemini judge |
+
+> **Key constraint**: `apply-fixes` is ALWAYS 1 agent — even in multi mode. No parallel code writing during debug.
+
+Every built-in preset (multivendor, claude, local-hybrid, etc.) comes with a `debug_invoke` block pre-wired:
+
+```yaml
+# Inside multivendor.router.yaml
+debug_invoke:
+  preset: sdd-debug-mono       # which debug variant to use
+  trigger: on_issues            # only when verify finds problems
+  input_from: verify_output     # payload comes from verify's findings
+  required_fields:              # mandatory fields — missing any = no invoke
+    - issues
+    - affected_files
+    - last_change_files
+    - test_baseline
+```
+
+**You don't configure this.** It works out of the box. Install GSR → verify finds a bug → sdd-debug runs automatically.
+
+#### Do the Same for Your Own SDDs
+
+The sdd-debug pattern is exactly what you'd build for any cross-SDD workflow. You can connect any SDD to any other SDD from any phase:
+
+> **Example**: A game studio with department collaboration:
+> ```bash
+> # 1. Create department SDDs
+> gsr sdd create game-design
+> gsr sdd create art-production
+> gsr sdd create sound-design
+>
+> # 2. Connect level-design → art-production
+> gsr phase invoke level-design \
+>   --sdd game-design \
+>   --target art-production/asset-pipeline \
+>   --trigger always \
+>   --input-from phase_output \
+>   --required-fields "level_name,art_style,faction"
+>
+> # 3. Add rich context to the invocation (in sdd.yaml):
+> #    invoke:
+> #      catalog: art-production
+> #      sdd: asset-pipeline
+> #      payload_from: output
+> #      await: true
+> #      on_failure: escalate
+> #      input_context:
+> #        - artifact: level-layout
+> #          field: zones.north
+> #      output_expected:
+> #        - artifact: fbx-model
+> #          format: "FBX rigged"
+>
+> # 4. During execution, the sub-agent creates the invocation:
+> gsr sdd invoke art-production/asset-pipeline \
+>   --from game-design/game-design \
+>   --phase level-design \
+>   --payload "Forest level — bioluminescent trees, Nature faction style"
+> # → Invocation created: inv-a1b2c3d4-...
+>
+> # 5. When art-production completes:
+> gsr sdd invoke-complete inv-a1b2c3d4-... \
+>   --result "Assets delivered: tree_bioluminescent.fbx, forest_ground.png"
+>
+> # 6. See all declared connections for an SDD:
+> gsr sdd invocations game-design
+>
+> # 7. Validate everything is wired correctly:
+> gsr sdd validate game-design
+> ```
+
+The pattern is always the same: **declare the intent in sdd.yaml → GSR writes the record → the host executes**. Whether it's the built-in sdd-debug or your own department workflows.
+
+Start here if you want **named development workflows** with **cross-team coordination**.
+
+---
+
+### 🔴 Router — Model Routing
+
+The **router** pillar assigns AI models to development phases with fallbacks, multi-vendor diversity, and judge/radar patterns.
+
+#### The Octopus Pattern: Multi-Agent by Phase
+
+```
+    PREPARATION                  EXECUTION                VERIFICATION
+    (the tentacles)              (the brain)              (the sabuesos)
+    ─────────────                ─────────                ─────────────
+    N agents from                ONE agent                Specialized
+    different providers          writes code              testers in
+    explore the same             with full                parallel
+    prompt                       context                  verify
+         │                           │                         │
+         ▼                           ▼                         ▼
+    ┌───────────────┐          ┌───────────┐            ┌───────────┐
+    │ Judge         │          │           │            │ Code Test │
+    │  |- Minister A│ GPT-5    │  Apply    │            │ UI Test   │
+    │  |- Minister B│ Claude   │  (best    │            │ Risk Det. │
+    │  |- Minister C│ Gemini   │   coder)  │            │ Security  │
+    │  |- Radar     │ scans    │           │            │ Judge     │
+    └───────────────┘          └───────────┘            └───────────┘
+          |
+          | file-based channel (.tribunal/)
+          | heartbeat monitoring
+          v
+    Judge synthesizes + decides
+```
+
+**An army prepares context. ONE king executes. A team of sabuesos verifies.**
+
+#### The Tribunal: Multi-Agent Debate
+
+When a phase needs multiple perspectives, the Tribunal system orchestrates structured debate:
+
+```
+Orchestrator
+  +- delegates to Judge (sub-orchestrator)
+       +- Minister 1 ----+
+       +- Minister 2 ----|-- file-based channel (.tribunal/)
+       +- Minister N ----|   with heartbeat monitoring
+       +- Radar (opt) ---+
+```
+
+**Roles:**
+
+| Role | Required | What it does |
+|------|----------|-------------|
+| **Judge** | Yes (in multiagent phases) | Directs debate, manages rounds, synthesizes decision |
+| **Ministers** | 2+ per phase | Analyze independently, defend positions, challenge each other |
+| **Radar** | Optional | Investigates codebase, identifies risks, feeds questions to Judge |
+
+**Round Protocol:**
+1. **Independent** — Each minister responds without seeing others
+2. **Brainstorming** — Judge formulates directed questions per dimension
+3. **Comparison** — Judge presents matrix, ministers evaluate each other
+4. **Synthesis** — Judge proposes combined response, ministers confirm or defend
+5. **Tiebreak** — If no consensus: judge decides or escalates to user
+
+**Communication:** All agents communicate via JSON files in `.tribunal/{sdd}/{phase}/`. Each message has `from`/`to` routing. Ministers poll every 3-5 seconds for judge instructions.
+
+**Heartbeat monitoring:** Every agent writes a heartbeat file every 5-15 seconds. If an agent stops reporting for 90 seconds, the Judge replaces it with a fallback model.
+
+**Configuration in profile YAML:**
+```yaml
+phases:
+  explore:
+    - kind: orchestrator
+      role: agent
+      target: anthropic/claude-opus
+    tribunal:
+      enabled: true
+      max_rounds: 4
+      escalate_after: 4
+    judge:
+      model: anthropic/claude-opus
+    ministers:
+      - model: openai/gpt-5
+      - model: google/gemini-pro
+      - model: anthropic/claude-sonnet
+    radar:
+      model: google/gemini-1.5-pro
+      enabled: true
+    minister_fallbacks:
+      - openai/gpt-4o
+```
+
+#### 10 SDD Phases
+
+| Phase | Job | Composition | Execution |
+|-------|-----|-------------|-----------|
+| **orchestrator** | Coordinate the pipeline | 1 agent + optional judge | Sequential |
+| **explore** | Investigate codebase | 2+ agents + judge + radar + minister | **Parallel** |
+| **propose** | Structure a formal proposal | 1 agent + optional judge | Sequential |
+| **spec** | Write requirements | 2+ agents + judge + investigator + minister | **Parallel** |
+| **design** | Architecture and decisions | 2+ agents + judge + radar + minister | **Parallel** |
+| **tasks** | Task checklist + TDD tests | 1 agent | Sequential |
+| **apply** | Write code. **Always ONE agent.** | 1 agent only | Sequential |
+| **verify** | Validate implementation | 2+ sabuesos + judge + radar + minister | **Parallel** |
+| **debug** | Diagnose bugs | Full mini-SDD cycle | **Conditional** |
+| **archive** | Sync specs, archive change. **Always ONE agent.** | 1 agent only | Sequential |
+
+#### Built-in Presets
+
+| Preset | Best for |
+|--------|----------|
+| **multivendor** | Best model per phase across all providers |
+| **claude** | Anthropic-only workflows |
+| **openai** | GPT-focused workflows |
+| **multiagent** | Cross-provider validation (2 lanes per phase) |
+| **ollama** | 100% local models, zero cloud costs |
+| **local-hybrid** | Local first, free cloud fallbacks |
+| **cheap** | Budget models with solid performance |
+| **heavyweight** | Maximum depth (5 lanes: 3 models + judge + radar) |
+| **safety** | Read-only analysis mode |
+
+```bash
+gsr route use multivendor             # Switch preset
+gsr route show                        # See resolved routes
+gsr status                            # Current state + pricing
+```
+
+> **Example**: A preset YAML assigns models per phase with fallbacks:
+> ```yaml
+> # router/profiles/multivendor.router.yaml
+> name: multivendor
+> phases:
+>   orchestrator:
+>     - target: anthropic/claude-opus-4-6
+>       kind: lane
+>       role: agent
+>   explore:
+>     - target: openai/gpt-5.4
+>       kind: lane
+>       role: agent
+>       fallbacks:
+>         - anthropic/claude-sonnet-4-6
+>         - google/gemini-3-pro
+>   verify:
+>     - target: openai/gpt-5.4
+>       kind: lane
+>       role: judge
+> ```
+
+> **Example**: Switch presets instantly:
+> ```bash
+> gsr route use ollama        # switch to 100% local models
+> gsr route use multivendor   # switch back to multi-provider
+> gsr route show              # see what model goes where
+> ```
+
+Start here if you want **multi-model routing** with **fallbacks and judge/radar patterns**.
+
+---
+
+## Commands
+
+```
+gsr status                          Current state, presets, environment, routes
+gsr version                         Installed version
+gsr help [command]                  Help for any command
+gsr sync [--dry-run] [--force]      Full sync: contracts + overlay + commands
+
+gsr route use <preset>              Switch active preset
+gsr route show                      Show resolved routes
+gsr route activate                  gsr takes routing control
+gsr route deactivate                Host takes control back
+
+gsr preset list                     List presets with SDD/scope/visibility info
+gsr preset show [name]              Show routes for a preset
+gsr preset create <name>            Create empty preset (auto-syncs)
+gsr preset delete <name>            Delete preset
+gsr preset rename <old> <new>       Rename preset
+gsr preset copy <src> <dest>        Clone preset
+gsr preset export <name>            Export for sharing (--compact)
+gsr preset import <source>          Import from file/URL/gsr://
+
+gsr fallback list <preset>           Show fallback chains for a preset
+gsr fallback add <preset> <phase> <model>   Add fallback model
+gsr fallback remove <preset> <phase> <idx>  Remove fallback by index
+gsr fallback promote <preset> <phase> <idx> Promote fallback to primary
+gsr fallback set <preset> <phase> <models>  Replace entire chain
+
+gsr setup install                   Install router config
+gsr setup uninstall [--confirm]     Remove gsr overlay + router/ (with backup)
+gsr setup bootstrap                 Guided first-time setup
+gsr setup update [--apply]          Config migrations
+gsr setup apply <target> [--apply]  Generate TUI overlay (writes to ./opencode.json)
+
+gsr identity show [--preset <name>] Resolve and display agent identity
+
+gsr sdd create <name>               Create custom SDD workflow
+gsr sdd list                        List custom SDDs
+gsr sdd show <name>                 Show SDD phases and triggers
+gsr sdd delete <name> [--yes]       Delete custom SDD
+
+gsr sdd invoke <target-sdd>/<entry> Create cross-SDD invocation record
+  --from <caller-sdd>/<entry>         Caller identity (required)
+  --phase <name>                      Calling phase name (required)
+  --payload <string>                  Data to pass to callee (optional)
+
+gsr sdd invoke-complete <id>        Mark invocation as completed
+  --result <string>                   Result data (optional)
+  --failed                            Mark as failed instead
+
+gsr sdd invoke-status <id>          Show invocation record details
+gsr sdd invocations                 List all invocations
+  --status <filter>                   Filter: pending | running | completed | failed
+
+gsr role create <name> --sdd <sdd>  Create role contract for a custom SDD
+gsr phase create <name> --sdd <sdd> Create phase contract for a custom SDD
+gsr phase invoke <name> --sdd <sdd> --target <target-sdd>/<entry> --trigger <trigger>
+                                     Add/update invoke declaration on a phase
+
+gsr skill-install [--global]        Install skills to detected environments
+```
+
+Each category supports `help`: `gsr route help`, `gsr preset help`, `gsr sdd help`, etc.
+
+---
+
+## Architecture
+
+### Watchdog & Fallback
+
+Sub-agents write heartbeat files to `.gsr/watchdog/{taskId}.json` every 15-30 seconds. The orchestrator monitors these to detect dead agents (stale heartbeat > 90 seconds) and replaces them using the fallback chain from the profile.
+
+Tribunal agents use a parallel heartbeat in `.tribunal/{sdd}/{phase}/heartbeat-{name}.json`, monitored by the Judge.
+
+```
+Agent writes heartbeat -> Orchestrator polls -> Stale? -> Read fallback chain -> Spawn replacement
+```
+
+### Non-executing boundary
+
+`gsr` is a **report-only, non-executing** tool. It:
+
+- Reads and writes YAML configuration
+- Resolves phase routes and fallback chains
+- Writes invocation records to `.gsr/invocations/` (pure data)
+- Reports compatibility and boundary metadata
+- **Never** calls models, providers, or agents
+- **Never** evaluates `invoke` declarations — only persists them as records
+
+Execution belongs to the host (gentle-ai, agent-teams-lite, or your own orchestrator).
+
+### Invocation Records
+
+When a phase declares `invoke:`, `gsr sdd invoke` writes:
+
+```
+.gsr/invocations/inv-{uuid}.json
+```
+
+```json
+{
+  "id": "inv-550e8400-e29b-41d4-a716-446655440000",
+  "status": "pending",
+  "caller": { "catalog": "game-design", "sdd": "game-design", "phase": "level-design" },
+  "callee": { "catalog": "art-production", "sdd": "asset-pipeline" },
+  "payload": "Level 3 assets needed",
+  "result": null,
+  "created_at": "2026-04-01T00:00:00.000Z",
+  "updated_at": "2026-04-01T00:00:00.000Z",
+  "completed_at": null
+}
+```
+
+The record is data. Your orchestrator decides what to do with it.
+
+### Schema versions
+
+| Version | Structure | Status |
+|---------|-----------|--------|
+| v1 | Single file, profiles with phases | Supported (backward compat) |
+| v3 | Single file, internal sources with presets and metadata | Supported (backward compat) |
+| v4 | Multi-file: core + profiles directory | Supported (backward compat) |
+| v5 | Multi-file: core + profiles directory + active_sdd/sdds | **Current** (default for new installs) |
+
+---
+
+## Preset Structure
+
+### Multi-file v5 layout
+
+```
+router/
+  router.yaml                    # core config
+  profiles/
+    multivendor.router.yaml      # one preset per file
+    claude.router.yaml
+    ...
+```
+
+### Core file (`router/router.yaml`)
+
+```yaml
+version: 5
+active_sdd: agent-orchestrator
+active_preset: multivendor
+activation_state: active
+metadata:
+  installation_contract:
+    source_of_truth: router/router.yaml
+    runtime_execution: false
+sdds:
+  agent-orchestrator:
+    displayName: SDD-Orchestrator
+```
+
+---
+
+## Sync Manifest Versions
+
+The `.sync-manifest.json` file version reflects what the active SDD set contains:
+
+| Version | When generated | Contents |
+|---------|---------------|----------|
+| v1 | No custom SDDs | Global contracts only |
+| v2 | Custom SDDs, no invoke | + custom_sdds array |
+| v3 | Any phase has `invoke` | + invoke declarations per phase |
+
+---
+
+## Agent Contracts
+
+`gsr` ships with 19 contracts:
+
+```
+router/contracts/
+  roles/                          # 9 role contracts
+    agent.md                      # Generic sub-agent
+    judge.md                      # Debate director (anonymous synthesis)
+    radar.md                      # Blind-spot scanner
+    tester.md                     # TDD test writer (tests must FAIL first)
+    risk-detector.md              # Incompatibility/regression scanner
+    security-auditor.md           # Security vulnerability detector
+    investigator.md               # External research (APIs, prior art)
+    judge-debate-protocol.md      # Master debate protocol
+    radar-context-protocol.md     # How radar feeds the judge
+  phases/                         # 10 phase compositions
+    orchestrator.md ... archive.md
+```
+
+`gsr sync` generates `.sync-manifest.json` so the host TUI can discover and consume all contracts.
+
+### Skills
+
+`gsr` ships with 6 skills that teach agents how to operate:
+
+```
+router/skills/
+  gsr-usage.md              # Complete gsr CLI and concepts reference
+  tribunal-judge.md         # Judge agentic leadership + round protocol
+  tribunal-minister.md      # Minister debate rules + polling protocol
+  tribunal-radar.md         # Radar investigation + risk mapping
+  watchdog-heartbeat.md     # Sub-agent heartbeat protocol
+  watchdog-monitor.md       # Orchestrator monitoring + fallback switching
+```
+
+Skills are auto-installed to detected environments on `npm install` (global), `gsr install`, and `gsr sync`.
+
+---
+
+## Standalone Mode
+
+**GSR is its own ecosystem. gentle-ai enhances it but is not required.**
+
+`gsr` works with or without [gentle-ai](https://github.com/Gentleman-Programming/gentle-ai) installed:
+
+| Mode | Controller | Execution owners | Persona | Persistence |
+|------|-----------|-----------------|---------|-------------|
+| **With gentle-ai** | `Alan/gentle-ai` | `gentle-ai`, `agent-teams-lite` | Gentleman | Engram memory |
+| **Without gentle-ai** | `host` | `host` | Neutral (no accent) | File-based (.gsr/watchdog/, .tribunal/) |
+
+### When gentle-ai is NOT installed
+
+- GSR uses a **neutral agent persona** — no Gentleman accent, no ecosystem branding
+- All SDD contracts ship **with GSR** (self-contained) — no dependency on gentle-ai files
+- **File-based persistence** is used instead of Engram
+- **All features work** — routing, custom SDDs, cross-SDD invocations, identity resolution, TUI
+- The controller label defaults to `host` and execution owners to `['host']`
+
+### When gentle-ai IS installed
+
+- GSR **auto-detects** gentle-ai and switches to use `AGENTS.md`, Engram, and the Gentleman persona
+- No manual configuration needed — detection is automatic
+- Identity layering uses global `AGENTS.md` → project `AGENTS.md` → preset overrides
+
+> **Note**: The standalone fallback implementation (file-based Engram substitute, persona switching) is defined by a separate SDD. This section documents the intent and expected user experience.
+
+---
+
+## Migrations
+
+```bash
+gsr setup update                 # preview pending migrations (dry-run)
+gsr setup update --apply         # apply with automatic backup
+```
+
+---
+
+## Boundary Notes
+
+These phrases form the contractual boundary of `gsr` and are referenced by coherence tests. They read as a functional summary of what `gsr` does and does not do.
+
+**Core boundary**: external router boundary, non-executing. `router/router.yaml` is the source of truth. `gsr` does not execute models, providers, or agent orchestration.
+
+**Session sync**: `gsr` exposes `/gsr-fallback` as a slash command in the host TUI for managing fallback models (preset picker → phase → promote/add/remove). The router stays external and non-executing.
+
+**Visibility and metadata**: browse/compare visibility flags are explicit for availability, pricing, labels, and guidance; hidden metadata stays redacted. Multimodel browse/compare expose shareable schema v3 metadata only. Inspect shareable multimodel metadata projected from schema v3 without recommending or executing anything. Compare two shareable multimodel projections without recommending or executing anything.
+
+**Render and orchestration**: render opencode also surfaces a multimodel orchestration manager plan that only labels split/dispatch/merge/judge/radar steps. Preview the OpenCode provider-execution, host-session sync, handoff, schema metadata, and multimodel orchestration manager boundaries without implying execution.
+
+**Compatibility and routing**: compatibility is explicit: schema v1, v3, and v4 are supported; v3 powers multimodel browse/compare and v4 is the current multi-file format. Compatibility: router.yaml versions 1, 3, and 4 are supported; v3 powers multimodel browse/compare and v4 is the current multi-file format. Select the active preset in router/router.yaml without changing who is in control.
+
+**Setup and status**: Quickstart: run gsr status, then gsr bootstrap if router/router.yaml is missing. Show current router status. Use --verbose or --debug for full details. Inspect or apply a YAML-first install intent to router/router.yaml. Show or apply a step-by-step bootstrap path for adoption.
+
+**Invocation records**: Invocation records (`.gsr/invocations/`) are pure data — non-executing, report-only.
+
+### Minimal v1 setup
+
+Save this as `router/router.yaml`:
+
+```yaml
+version: 1
+active_profile: default
+profiles:
+  default:
+    phases:
+      orchestrator:
+        - anthropic/claude-sonnet
+      explore:
+        - openai/gpt-4o-mini
+```
+
+- `gsr sync` generates the overlay automatically
+
+---
+
+## Documentation
+
+| Topic | Description |
+|-------|-------------|
+| [Getting Started](docs/getting-started.md) | AI-operable setup guide: install, sync, status, identity, SDDs, invoke |
+| [Architecture](docs/architecture.md) | How gsr works, module structure, invocation flow, design decisions |
+| [Presets Guide](docs/presets-guide.md) | Built-in presets, creating custom presets, sharing |
+| [Import/Export Guide](docs/import-export.md) | Export presets, compact sharing strings, import flows |
+| [Migration Guide](docs/migration-guide.md) | Upgrading schema versions safely |
+| [Release Checklist](docs/release-checklist.md) | npm publish readiness and launch checklist |
+| [Host Adoption (EN)](docs/host-adoption.en.md) | Host-local install/uninstall for OpenCode and other TUIs |
+| [Host Adoption (ES)](docs/host-adoption.es.md) | Adopcion host-local para OpenCode y otros TUIs |
+
+---
+
+## Contributing
+
+This project follows [Spec-Driven Development](https://github.com/Gentleman-Programming/gentle-ai) (SDD). Changes go through: explore → propose → spec → design → tasks → apply → verify → (debug if needed) → archive.
+
+---
+
+<div align="center">
+
+<p>Recommended with <a href="https://github.com/Gentleman-Programming/gentle-ai">gentle-ai</a> for the full experience. Works independently without it.</p>
+
+<img src="https://img.shields.io/badge/license-UNLICENSED-lightgrey.svg" alt="License: UNLICENSED">
+
+</div>

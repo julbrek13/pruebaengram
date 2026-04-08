@@ -8,6 +8,8 @@ Basado en referencias oficiales bajo `docs/gentlaireadme/`:
 - `usage.md`
 - `agents.md`
 - `rollback.md`
+- `refactoriced.md`
+- `GUIA-SDD-COMPLETA.pdf`
 
 ---
 
@@ -186,7 +188,32 @@ Este modelo está bien aplicado cuando:
 
 ---
 
-## 8) Checklist operativo por sesión
+## 8) Integración con GSR (router) y perfiles de modelo
+
+Tomado de `refactoriced.md`:
+
+- **GSR NO ejecuta** modelos ni orquestación runtime.
+- GSR declara `routing + fallback + contratos`.
+- El **orchestrator** ejecuta; **Engram** persiste evidencia.
+
+Tomado de `GUIA-SDD-COMPLETA.pdf`:
+
+- Usar perfiles por costo/capacidad (`premium`, `mixto`, `free`).
+- Aplicar separación por fase:
+  - razonamiento: `explore/propose/verify`
+  - código: `apply`
+  - velocidad/costo: `tasks/archive`
+
+### Reglas operativas
+
+1. No gastar frontier models en fases administrativas.
+2. Mantener fallback por fase cuando la plataforma lo soporte.
+3. Si hay degradación de modelo, registrar en Engram (`mem_save`).
+4. Si cambia el perfil activo de la sesión, documentarlo en `mem_session_summary`.
+
+---
+
+## 9) Checklist operativo por sesión
 
 Inicio:
 - [ ] `mem_context`
