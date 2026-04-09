@@ -18,6 +18,7 @@ Generated: `2026-04-07`
 | `judgment-day` | `~/.config/opencode/skills/judgment-day/SKILL.md` | Triggered by “judgment day”/dual adversarial review requests |
 | `metodologia-ensenanza-paso-a-paso` | `.agent/skills/metodologia-ensenanza-paso-a-paso/SKILL.md` | Triggered by concept-first, “paso a paso”, or deep-learning requests |
 | `skill-creator` | `~/.config/opencode/skills/skill-creator/SKILL.md` | Creating new reusable AI skills and agent instructions |
+| `trazabilidad-commits-curso` | `.agent/skills/trazabilidad-commits-curso/SKILL.md` | Triggered by course sessions requiring commit checkpoints per concept and key-file changes |
 
 ## Exclusions
 - `sdd-*` skills excluded by policy.
@@ -34,3 +35,4 @@ Generated: `2026-04-07`
 - “judgment day” / adversarial dual review → load `judgment-day`.
 - “explicame el concepto” / “paso a paso” / “modo curso” → load `metodologia-ensenanza-paso-a-paso`.
 - New skill authoring/documentation → load `skill-creator`.
+- Course traceability / commit evidence / checkpoint requests → load `trazabilidad-commits-curso`.
