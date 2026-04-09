@@ -27,6 +27,12 @@ No arrancamos por “qué comando tiro”, arrancamos por **qué tipo de problem
 
 > Regla práctica: si no podés explicar el **por qué** del cambio en 2 frases, todavía no estás para ejecutar.
 
+### ⚡ Cómo elijo modo SDD en 30 segundos
+
+- **no-SDD**: cambio mecánico y aislado (ej: typo, rename simple, docs de 1 archivo) sin decisiones técnicas relevantes.
+- **SDD parcial**: cambio acotado con 1-2 decisiones técnicas y validación necesaria (ej: script + documentación + check funcional).
+- **SDD full**: cambio de arquitectura, convenciones de equipo o múltiples capas con impacto alto y necesidad de trazabilidad completa.
+
 ---
 
 ## 🧭 Responsabilidades: Humano vs Orchestrator
@@ -54,6 +60,7 @@ Scripts disponibles:
 - `npm run dev` → ejecuta `src/main.ts` con `tsx`
 - `npm run build` → compila TypeScript con `tsc`
 - `npm run test` → ejecuta tests en **one-shot** (`vitest run`) y **sale**; usalo para checks rápidos, CI y validaciones no interactivas
+- `npm run test:ci` → alias explícito para CI (también ejecuta `vitest run` en modo no interactivo)
 - `npm run test:watch` → ejecuta `vitest` en **watch mode**; usalo durante desarrollo cuando querés reruns automáticos al guardar
 
 ---
