@@ -7,13 +7,13 @@ vi.mock("../src/lib/notifications.js", () => ({
 import { sendNotification } from "../src/lib/notifications.js";
 import { fetchUserAndNotify } from "../src/lib/user-service.js";
 
-describe("mocks and stubs", () => {
+describe("tp4 unit suite (aislamiento con mocks)", () => {
   afterEach(() => {
     vi.restoreAllMocks();
     vi.unstubAllGlobals();
   });
 
-  it("mocks external fetch and verifies module stub + spy calls", async () => {
+  it("aísla dependencias y verifica contratos de llamadas", async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
       json: async () => ({ id: "u-1", name: "Ada" }),
@@ -30,15 +30,16 @@ describe("mocks and stubs", () => {
     expect(user).toEqual({ id: "u-1", name: "Ada" });
   });
 
-  it("throws when fetch returns non-ok response", async () => {
+  it("propaga error del canal de notificación en modo unit", async () => {
     const fetchMock = vi.fn().mockResolvedValue({
-      ok: false,
-      json: async () => ({}),
+      ok: true,
+      json: async () => ({ id: "u-2", name: "Grace" }),
     });
+    vi.mocked(sendNotification).mockRejectedValueOnce(new Error("notify failed"));
 
     vi.stubGlobal("fetch", fetchMock);
 
-    await expect(fetchUserAndNotify("u-2")).rejects.toThrow("Failed to fetch user");
-    expect(sendNotification).not.toHaveBeenCalled();
+    await expect(fetchUserAndNotify("u-2")).rejects.toThrow("notify failed");
+    expect(sendNotification).toHaveBeenCalledWith("u-2", "Welcome Grace");
   });
 });
