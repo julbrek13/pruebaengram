@@ -5,6 +5,9 @@ node_modules/
 dist/
 coverage/
 
+# Local SDD snapshots (Engram is source of truth)
+sdd/
+
 # Environment files
 .env
 .env.*

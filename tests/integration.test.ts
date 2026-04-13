@@ -1,4 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { sendNotification } from "../src/lib/notifications.js";
 import { fetchUserAndNotify } from "../src/lib/user-service.js";
 
 // Suite de integración real: NO mockear notifications.
@@ -39,5 +40,9 @@ describe("tp4 integration suite", () => {
 
     expect(result).toEqual({ id: "2", name: "Beto" });
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("Beto"));
+  });
+
+  it("guardrail: la suite de integración usa notifications real (sin vi.mock)", () => {
+    expect(vi.isMockFunction(sendNotification)).toBe(false);
   });
 });
