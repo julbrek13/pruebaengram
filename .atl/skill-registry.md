@@ -17,6 +17,7 @@ Generated: `2026-04-07`
 | `issue-creation` | `~/.config/opencode/skills/issue-creation/SKILL.md` | Creating GitHub issues for bugs/features |
 | `judgment-day` | `~/.config/opencode/skills/judgment-day/SKILL.md` | Triggered by “judgment day”/dual adversarial review requests |
 | `metodologia-ensenanza-paso-a-paso` | `.agent/skills/metodologia-ensenanza-paso-a-paso/SKILL.md` | Triggered by concept-first, “paso a paso”, or deep-learning requests |
+| `metodologia-ramas-tp-curso` | `.agent/skills/metodologia-ramas-tp-curso/SKILL.md` | Triggered by TP planning/start, branch-definition requests, or code-vs-doc branch separation decisions |
 | `skill-creator` | `~/.config/opencode/skills/skill-creator/SKILL.md` | Creating new reusable AI skills and agent instructions |
 | `trazabilidad-doble-canal` | `.agent/skills/trazabilidad-doble-canal/SKILL.md` | Triggered by requests to separate repo file changes from Engram memory changes |
 | `trazabilidad-commits-curso` | `.agent/skills/trazabilidad-commits-curso/SKILL.md` | Triggered by course sessions requiring commit checkpoints per concept and key-file changes |
@@ -35,6 +36,7 @@ Generated: `2026-04-07`
 - Go testing work → load `go-testing`.
 - “judgment day” / adversarial dual review → load `judgment-day`.
 - “explicame el concepto” / “paso a paso” / “modo curso” → load `metodologia-ensenanza-paso-a-paso`.
+- Planificación/inicio de TP técnico, convención de ramas por TP, o separación código-docs por ramas → load `metodologia-ramas-tp-curso`.
 - trazabilidad por canales (repo vs memoria), “dejar asentado”, o dudas con `mem_*` → load `trazabilidad-doble-canal`.
 - New skill authoring/documentation → load `skill-creator`.
 - Course traceability / commit evidence / checkpoint requests → load `trazabilidad-commits-curso`.
