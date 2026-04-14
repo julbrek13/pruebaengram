@@ -106,8 +106,10 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 ### GE-1: Commits atómicos y claros
 - **Modo:** no-SDD
 - **Checklist:**
-  - [ ] 5 commits con conventional commits correctos
-  - [ ] mensaje con qué + por qué
+  - [x] 5 commits con conventional commits correctos
+  - [x] mensaje con qué + por qué
+  - [x] working tree limpio antes de pasar a parcial-SDD
+  - [x] política definida para snapshots locales (`sdd/` ignorado; Engram manda)
 
 ### GE-2: PR efectivo
 - **Modo:** parcial-SDD
@@ -131,7 +133,7 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 | BASE-0 | Curso | no-SDD | ✅ | 2026-04-07 | `2b85dc7` |
 | TP-1 | Tests | no-SDD | 🔲 | — | — |
 | EN-1 | Engram | no-SDD | ✅ | 2026-04-07 | `c361377` |
-| GE-1 | Git | no-SDD | 🔲 | — | — |
+| GE-1 | Git | no-SDD | ✅ | 2026-04-13 | `46587d1` |
 | TP-2 | Tests | parcial-SDD | 🔲 | — | — |
 | EN-2 | Engram | parcial-SDD | 🔲 | — | — |
 | GE-2 | Git | parcial-SDD | 🔲 | — | — |

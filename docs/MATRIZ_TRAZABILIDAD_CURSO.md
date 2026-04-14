@@ -50,10 +50,28 @@ Para cada bloque de trabajo:
 - [ ] El mensaje de commit explica **por qué** (no solo qué).
 - [ ] Se guardó memoria útil en Engram (`mem_save`) si hubo decisión/hallazgo.
 - [ ] El reporte al usuario está separado en dos canales: **repo** vs **Engram**.
+- [ ] Si el cambio mezcla documentación y operación sin mismo objetivo, se separa en commits distintos.
+- [ ] Si el bloque conceptual crece demasiado, se corta en 2 checkpoints en vez de forzar 1 commit grande.
 
 ---
 
-## 5) Formato obligatorio de reporte (consigna asentada)
+## 5) Heurísticas de corte para commits del curso
+
+Usar estas reglas para decidir si un bloque va en **1 commit** o en **2+ commits**:
+
+| Situación | Decisión recomendada | Motivo |
+|---|---|---|
+| Un solo objetivo y mismos archivos/razón | 1 commit | Mantiene historia simple |
+| Documentación + cambio operativo con objetivos distintos | 2 commits | Evita mensajes ambiguos |
+| Un TP trae dos conceptos enseñables distintos | 2 checkpoints | Mejora revisión comparativa |
+| Hay cleanup técnico sin valor didáctico central | commit separado `chore:` | No contaminar el concepto principal |
+| Snapshot/local cache/tooling auxiliar | ignorar o aislar | Reduce ruido en Git |
+
+> Regla práctica: si el mensaje del commit necesita una “y” que une objetivos distintos, probablemente tenés que partirlo.
+
+---
+
+## 6) Formato obligatorio de reporte (consigna asentada)
 
 Desde este punto, todo avance del curso se reporta SIEMPRE con esta estructura:
 
@@ -75,7 +93,7 @@ Si no hubo cambios en alguno de los canales, debe declararse explícitamente:
 
 ---
 
-## 6) Plantilla rápida para cada nuevo bloque
+## 7) Plantilla rápida para cada nuevo bloque
 
 ```md
 ### Bloque
@@ -89,7 +107,7 @@ Si no hubo cambios en alguno de los canales, debe declararse explícitamente:
 
 ---
 
-## 7) Criterio de calidad (tu semáforo)
+## 8) Criterio de calidad (tu semáforo)
 
 - 🟢 **Excelente**: objetivo claro, diff acotado, validación completa, commit auditables, memoria guardada.
 - 🟡 **Aceptable**: funciona, pero falta una pieza de trazabilidad (ej. memoria o justificación de commit).
