@@ -5,6 +5,11 @@ export interface MockUser {
   role: "student" | "mentor";
 }
 
+export interface ApiUser {
+  id: string;
+  name: string;
+}
+
 const baseUser: MockUser = {
   id: "user-001",
   name: "Maca",
@@ -16,6 +21,35 @@ export function createMockUser(overrides: Partial<MockUser> = {}): MockUser {
   return {
     ...baseUser,
     ...overrides,
+  };
+}
+
+export function createApiUser(overrides: Partial<ApiUser> = {}): ApiUser {
+  return {
+    id: "1",
+    name: "Ana",
+    ...overrides,
+  };
+}
+
+interface UserFetchResponseOptions {
+  ok?: boolean;
+  user?: ApiUser;
+  jsonError?: Error;
+}
+
+export function createUserFetchResponse(options: UserFetchResponseOptions = {}) {
+  const { ok = true, user = createApiUser(), jsonError } = options;
+
+  return {
+    ok,
+    json: async () => {
+      if (jsonError) {
+        throw jsonError;
+      }
+
+      return user;
+    },
   };
 }
 

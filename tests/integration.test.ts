@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { sendNotification } from "../src/lib/notifications.js";
 import { fetchUserAndNotify } from "../src/lib/user-service.js";
+import { createApiUser, createUserFetchResponse } from "./fixtures.js";
 
 // Suite de integración real: NO mockear notifications.
 describe("tp4 integration suite", () => {
@@ -10,10 +11,9 @@ describe("tp4 integration suite", () => {
   });
 
   it("flujo feliz integra user-service + notifications", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ id: "1", name: "Ana" }),
-    });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValue(createUserFetchResponse({ user: createApiUser() }));
     const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
 
     vi.stubGlobal("fetch", fetchMock);
@@ -28,17 +28,17 @@ describe("tp4 integration suite", () => {
   });
 
   it("flujo feliz no está hardcodeado y preserva el contrato User", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ id: "2", name: "Beto" }),
-    });
+    const user = createApiUser({ id: "2", name: "Beto" });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValue(createUserFetchResponse({ user }));
     const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
 
     vi.stubGlobal("fetch", fetchMock);
 
     const result = await fetchUserAndNotify("2");
 
-    expect(result).toEqual({ id: "2", name: "Beto" });
+    expect(result).toEqual(user);
     expect(logSpy).toHaveBeenCalledWith(expect.stringContaining("Beto"));
   });
 

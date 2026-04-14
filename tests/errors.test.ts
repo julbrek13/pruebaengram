@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import * as notificationsModule from "../src/lib/notifications.js";
 import { fetchUserAndNotify } from "../src/lib/user-service.js";
+import { createApiUser, createUserFetchResponse } from "./fixtures.js";
 
 describe("tp4 async error paths", () => {
   afterEach(() => {
@@ -9,10 +10,9 @@ describe("tp4 async error paths", () => {
   });
 
   it("rechaza cuando HTTP no es OK", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: false,
-      json: async () => ({ id: "1", name: "Ana" }),
-    });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValue(createUserFetchResponse({ ok: false }));
     const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
 
     vi.stubGlobal("fetch", fetchMock);
@@ -33,12 +33,11 @@ describe("tp4 async error paths", () => {
   });
 
   it("rechaza cuando response.json falla", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => {
-        throw new Error("Invalid JSON");
-      },
-    });
+    const fetchMock = vi.fn().mockResolvedValue(
+      createUserFetchResponse({
+        jsonError: new Error("Invalid JSON"),
+      })
+    );
     const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
 
     vi.stubGlobal("fetch", fetchMock);
@@ -48,10 +47,9 @@ describe("tp4 async error paths", () => {
   });
 
   it("rechaza cuando sendNotification falla", async () => {
-    const fetchMock = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ id: "1", name: "Ana" }),
-    });
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValue(createUserFetchResponse({ user: createApiUser() }));
     const notifySpy = vi
       .spyOn(notificationsModule, "sendNotification")
       .mockRejectedValueOnce(new Error("Notification channel down"));
