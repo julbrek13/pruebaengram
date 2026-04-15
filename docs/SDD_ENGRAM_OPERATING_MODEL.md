@@ -80,19 +80,26 @@ Principio rector: **AI ejecuta; humano gobierna**.
 
 ## 5) Session recovery runbook
 
-Cuando retomás contexto después de pausa:
+El runbook operativo y determinístico vive en:
 
-1. `mem_context`  
-   Recupera últimas sesiones y observaciones recientes.
-2. `mem_search "<change-name o tema>"`  
-   Filtra por foco de trabajo.
-3. `mem_get_observation <id>`  
-   Trae contenido completo de la observación clave.
+- `docs/ENGRAM_RECOVERY_RUNBOOK.md`
+
+Resumen mínimo obligatorio:
+
+1. `git status --short --branch` + `git log --oneline --decorate -10` (estado repo).
+2. `mem_context` (estado reciente Engram).
+3. `mem_search "<change-name o tema>"` + `mem_get_observation <id>` (evidencia completa).
+
+Regla de conflicto (fuente de verdad):
+
+- **Engram manda** para estado de artefactos SDD y decisiones.
+- **Repo Git manda** para contenido actual de archivos.
+- `docs/**` de progreso se corrigen como artefacto derivado cuando hay drift.
 
 ### Señales de recuperación exitosa
 - Podés explicar estado actual en < 2 minutos.
 - Sabés próximo paso sin releer todo el código.
-- Identificás riesgos pendientes.
+- Identificás riesgos pendientes y su evidencia (hash/observation).
 
 ---
 

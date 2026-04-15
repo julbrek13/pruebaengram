@@ -40,13 +40,14 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 - **Pipeline:** `/sdd-explore` → `/sdd-propose` → `/sdd-apply` → `/sdd-verify`
 - **Archivos:** `tests/fixtures.ts` + refactor tests actuales
 - **Checklist:**
-  - [ ] fixture de usuario mock
+  - [x] fixture de usuario mock
   - [ ] helper de setup/teardown
   - [ ] refactor de test repetitivo
 
 ### TP-3: Edge cases con criterio
 - **Modo:** parcial-SDD
 - **Archivo:** `tests/edge-cases.test.ts`
+- **Nota de naming:** este TP-3 es de **tests**. No confundir con el bloque metodológico transversal “TP-3 flujo de ramas”.
 - **Checklist:**
   - [ ] vacío
   - [ ] null/undefined
@@ -59,9 +60,9 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 - **Pipeline completo:** `explore → propose → spec → design → tasks → apply → verify → archive` *(con `sdd-init` ya resuelto para el proyecto)*
 - **Archivos sugeridos:** `tests/integration.test.ts`, `tests/errors.test.ts`, módulos de soporte
 - **Checklist:**
-  - [ ] test de integración entre módulos
-  - [ ] cobertura de rutas de error
-  - [ ] evidencia de verify y archive
+  - [x] test de integración entre módulos
+  - [x] cobertura de rutas de error
+  - [x] evidencia de verify y archive
 
 ---
 
@@ -71,17 +72,19 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 - **Modo:** no-SDD
 - **Objetivo:** guardar decisiones en caliente
 - **Checklist:**
-  - [ ] 3 observaciones con formato What/Why/Where
-  - [ ] verificación de recuperación en `mem_context`
+  - [x] 3 observaciones con formato What/Why/Where
+  - [x] verificación de recuperación en `mem_context`
 
 ### EN-2: Recovery runbook
 - **Modo:** parcial-SDD
 - **Objetivo:** recuperar contexto en forma determinística
+- **Rama técnica objetivo:** `tech/en-2-recovery-runbook`
 - **Checklist:**
-  - [ ] ejecutar `mem_context`
-  - [ ] refinar con `mem_search`
-  - [ ] abrir detalle con `mem_get_observation`
-  - [ ] documentar tiempo total de recuperación
+  - [x] ejecutar `mem_context`
+  - [x] refinar con `mem_search`
+  - [x] abrir detalle con `mem_get_observation`
+  - [x] documentar protocolo determinístico en `docs/ENGRAM_RECOVERY_RUNBOOK.md`
+  - [x] explicitar regla de conflicto repo vs Engram
 
 ### EN-3: Topic keys evolutivos
 - **Modo:** parcial-SDD
@@ -95,9 +98,9 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 - **Modo:** full-SDD
 - **Objetivo:** conectar cada fase SDD con su topic_key
 - **Checklist:**
-  - [ ] proposal/spec/design/tasks persistidos
-  - [ ] apply-progress actualizado
-  - [ ] verify y archive guardados
+  - [x] proposal/spec/design/tasks persistidos
+  - [x] apply-progress actualizado
+  - [x] verify y archive guardados
 
 ---
 
@@ -128,18 +131,19 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 
 ## 📊 Registro de progreso
 
-| ID | Pilar | Modo | Estado | Fecha | Commit |
-|----|-------|------|--------|-------|--------|
-| BASE-0 | Curso | no-SDD | ✅ | 2026-04-07 | `2b85dc7` |
-| TP-1 | Tests | no-SDD | 🔲 | — | — |
-| EN-1 | Engram | no-SDD | ✅ | 2026-04-07 | `c361377` |
-| GE-1 | Git | no-SDD | ✅ | 2026-04-13 | `46587d1` |
-| TP-2 | Tests | parcial-SDD | 🔲 | — | — |
-| EN-2 | Engram | parcial-SDD | 🔲 | — | — |
-| GE-2 | Git | parcial-SDD | 🔲 | — | — |
-| TP-4 | Tests | full-SDD | 🔲 | — | — |
-| EN-4 | Engram | full-SDD | 🔲 | — | — |
-| GE-3 | Git | full-SDD | 🔲 | — | — |
+| ID | Pilar | Modo | Estado | Fecha evidencia | Evidencia |
+|----|-------|------|--------|----------------|-----------|
+| BASE-0 | Curso | no-SDD | ✅ | 2026-04-07 | commit `2b85dc7` |
+| TP-1 (tests) | Tests | no-SDD | 🔲 | — | sin evidencia verificable en repo/memoria |
+| EN-1 | Engram | no-SDD | ✅ | 2026-04-07 | commit `dea9150`, commit `c361377` |
+| GE-1 | Git | no-SDD | ✅ | 2026-04-13 | commit `46587d1` |
+| TP-2 (fixtures/helpers) | Tests | parcial-SDD | 🟡 | 2026-04-13 | commit `9a98f3c` (fixture mínimo verificado) |
+| TP-3 flujo de ramas (metodológico) | Curso transversal | parcial-SDD | ✅ | 2026-04-14 | commit `eae7cf3` + memoria `#224` |
+| EN-2 | Engram | parcial-SDD | ✅ | 2026-04-15 | runbook `docs/ENGRAM_RECOVERY_RUNBOOK.md` |
+| GE-2 | Git | parcial-SDD | 🔲 | — | pendiente |
+| TP-4 (integración/errores) | Tests | full-SDD | ✅ | 2026-04-10 | commit `27daf9f` + memoria `#205/#208` (archive) |
+| EN-4 | Engram | full-SDD | ✅ | 2026-04-10 | memoria `#205` (`archive-report`) |
+| GE-3 | Git | full-SDD | 🔲 | — | pendiente |
 
 ---
 
@@ -148,5 +152,9 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 1. no-SDD: TP-1 → EN-1 → GE-1
 2. parcial-SDD: TP-2 → EN-2 → GE-2
 3. full-SDD: TP-4 → EN-4 → GE-3
+
+### Siguiente bloque técnico sugerido
+
+- `tech/en-2-recovery-runbook` (documentación operativa + trazabilidad repo/Engram)
 
 Si no podés justificar el modo elegido, frená y redefiní alcance.

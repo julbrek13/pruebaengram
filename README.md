@@ -89,9 +89,10 @@ pruebaengram/
 1. `docs/SDD_ENGRAM_OPERATING_MODEL.md` → modelo completo de operación
 2. `docs/ROADMAP_GENTLEAI.md` → plan de madurez Beginner → Engineer
 3. `docs/MINI_PROJECTS_PLAN.md` → práctica incremental por pilar
-4. `docs/MATRIZ_TRAZABILIDAD_CURSO.md` → mapa operativo para auditar cada cambio del curso
-5. `docs/ENGRAM_CONTEXT_MAP.md` → mapa de `topic_key` + recovery runbook
-6. `docs/GSR_MODEL_ROUTING_INTEGRATION.md` → integración de routing por fase + fallback
+4. `docs/ENGRAM_RECOVERY_RUNBOOK.md` → recuperación determinística + regla repo vs Engram
+5. `docs/MATRIZ_TRAZABILIDAD_CURSO.md` → mapa operativo para auditar cada cambio del curso
+6. `docs/ENGRAM_CONTEXT_MAP.md` → mapa de `topic_key`
+7. `docs/GSR_MODEL_ROUTING_INTEGRATION.md` → integración de routing por fase + fallback
 
 ---
 
