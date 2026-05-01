@@ -155,6 +155,6 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 
 ### Siguiente bloque técnico sugerido
 
-- `tech/en-2-recovery-runbook` (documentación operativa + trazabilidad repo/Engram)
+- `GE-2` (PR efectivo): avanzar sobre el PR `#1` de `tech/en-2-recovery-runbook` hacia `tech/tp-3-flujo-ramas` con Summary/Why/How to test y cierre de feedback.
 
 Si no podés justificar el modo elegido, frená y redefiní alcance.

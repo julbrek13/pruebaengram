@@ -116,4 +116,4 @@ Si falta una respuesta, la recuperación está incompleta.
 
 - Drift observado: snapshot local histórico de `sdd/tp4-integracion-manejo-errores/*` vs cierre formal en Engram.
 - Resolución aplicada: Engram como fuente de verdad para estado SDD (`archive-report` y `state`), repo como fuente de verdad para archivos presentes.
-- Siguiente bloque técnico recomendado: `EN-2` en `tech/en-2-recovery-runbook`.
+- Siguiente bloque técnico recomendado: `GE-2` (PR efectivo) sobre el PR `#1` de `tech/en-2-recovery-runbook` contra `tech/tp-3-flujo-ramas`.
