@@ -68,6 +68,16 @@ Cuando retomás sin contexto:
 2. `mem_search "<tema/cambio>"` → filtrar por foco.
 3. `mem_get_observation <id>` → abrir detalle completo.
 
+Runbook detallado y determinístico:
+
+- `docs/ENGRAM_RECOVERY_RUNBOOK.md`
+
+Regla de conflicto:
+
+- Engram manda para estado SDD/decisiones.
+- Repo manda para contenido actual de archivos.
+- Docs de progreso se corrigen como artefacto derivado.
+
 Si con esos 3 pasos no podés resumir estado actual en 1 minuto, faltó calidad en la memoria guardada.
 
 ---

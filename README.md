@@ -71,16 +71,25 @@ Scripts disponibles:
 pruebaengram/
 ├─ .atl/
 │  └─ skill-registry.md
+├─ .agent/
+│  └─ skills/
 ├─ docs/
 │  ├─ ROADMAP_GENTLEAI.md
 │  ├─ MINI_PROJECTS_PLAN.md
 │  ├─ ENGRAM_CONTEXT_MAP.md
 │  ├─ SDD_ENGRAM_OPERATING_MODEL.md
-│  └─ GSR_MODEL_ROUTING_INTEGRATION.md
+│  ├─ ENGRAM_RECOVERY_RUNBOOK.md
+│  ├─ MATRIZ_TRAZABILIDAD_CURSO.md
+│  ├─ PROJECT_STRUCTURE.md
+│  ├─ GSR_MODEL_ROUTING_INTEGRATION.md
+│  └─ gentlaireadme/
 ├─ src/
 ├─ tests/
+├─ sdd/              # snapshots locales ignorados; Engram es la fuente de verdad SDD
 └─ README.md
 ```
+
+Para criterios de ubicación, ownership y cuándo mover archivos, ver `docs/PROJECT_STRUCTURE.md`.
 
 ---
 
@@ -89,9 +98,11 @@ pruebaengram/
 1. `docs/SDD_ENGRAM_OPERATING_MODEL.md` → modelo completo de operación
 2. `docs/ROADMAP_GENTLEAI.md` → plan de madurez Beginner → Engineer
 3. `docs/MINI_PROJECTS_PLAN.md` → práctica incremental por pilar
-4. `docs/MATRIZ_TRAZABILIDAD_CURSO.md` → mapa operativo para auditar cada cambio del curso
-5. `docs/ENGRAM_CONTEXT_MAP.md` → mapa de `topic_key` + recovery runbook
-6. `docs/GSR_MODEL_ROUTING_INTEGRATION.md` → integración de routing por fase + fallback
+4. `docs/ENGRAM_RECOVERY_RUNBOOK.md` → recuperación determinística + regla repo vs Engram
+5. `docs/MATRIZ_TRAZABILIDAD_CURSO.md` → mapa operativo para auditar cada cambio del curso
+6. `docs/PROJECT_STRUCTURE.md` → reglas de estructura y reestructuración incremental
+7. `docs/ENGRAM_CONTEXT_MAP.md` → mapa de `topic_key`
+8. `docs/GSR_MODEL_ROUTING_INTEGRATION.md` → integración de routing por fase + fallback
 
 ---
 

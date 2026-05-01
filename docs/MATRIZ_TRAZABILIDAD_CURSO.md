@@ -71,7 +71,22 @@ Usar estas reglas para decidir si un bloque va en **1 commit** o en **2+ commits
 
 ---
 
-## 6) Formato obligatorio de reporte (consigna asentada)
+## 6) Protocolo cuando repo y Engram difieren
+
+Aplicar siempre en este orden:
+
+1. Declarar el conflicto explícitamente (`repo: X` / `Engram: Y`).
+2. Resolver fuente de verdad por tipo:
+   - **Artefactos SDD/decisiones:** Engram manda.
+   - **Contenido de archivos versionados:** repo Git manda.
+   - **Tablas de progreso en docs:** son derivadas y deben corregirse.
+3. Dejar evidencia concreta (hash de commit + observation id) en el reporte.
+
+> Sin evidencia dual (repo + memoria), el estado queda en 🟡 como “no concluyente”.
+
+---
+
+## 7) Formato obligatorio de reporte (consigna asentada)
 
 Desde este punto, todo avance del curso se reporta SIEMPRE con esta estructura:
 
@@ -93,7 +108,7 @@ Si no hubo cambios en alguno de los canales, debe declararse explícitamente:
 
 ---
 
-## 7) Plantilla rápida para cada nuevo bloque
+## 8) Plantilla rápida para cada nuevo bloque
 
 ```md
 ### Bloque
@@ -107,7 +122,7 @@ Si no hubo cambios en alguno de los canales, debe declararse explícitamente:
 
 ---
 
-## 8) Criterio de calidad (tu semáforo)
+## 9) Criterio de calidad (tu semáforo)
 
 - 🟢 **Excelente**: objetivo claro, diff acotado, validación completa, commit auditables, memoria guardada.
 - 🟡 **Aceptable**: funciona, pero falta una pieza de trazabilidad (ej. memoria o justificación de commit).
