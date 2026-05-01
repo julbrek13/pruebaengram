@@ -117,8 +117,8 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 ### GE-2: PR efectivo
 - **Modo:** parcial-SDD
 - **Checklist:**
-  - [ ] PR con Summary / Why / How to test
-  - [ ] resolver al menos 1 feedback
+  - [x] PR con Summary / Why / How to test
+  - [x] resolver al menos 1 feedback
 
 ### GE-3: Caso real punta a punta
 - **Modo:** full-SDD
@@ -140,7 +140,7 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 | TP-2 (fixtures/helpers) | Tests | parcial-SDD | 🟡 | 2026-04-13 | commit `9a98f3c` (fixture mínimo verificado) |
 | TP-3 flujo de ramas (metodológico) | Curso transversal | parcial-SDD | ✅ | 2026-04-14 | commit `eae7cf3` + memoria `#224` |
 | EN-2 | Engram | parcial-SDD | ✅ | 2026-04-15 | runbook `docs/ENGRAM_RECOVERY_RUNBOOK.md` |
-| GE-2 | Git | parcial-SDD | 🔲 | — | pendiente |
+| GE-2 | Git | parcial-SDD | ✅ | 2026-05-01 | PR `#1` mergeado (`a7069b6`) con body efectivo y feedback resuelto |
 | TP-4 (integración/errores) | Tests | full-SDD | ✅ | 2026-04-10 | commit `27daf9f` + memoria `#205/#208` (archive) |
 | EN-4 | Engram | full-SDD | ✅ | 2026-04-10 | memoria `#205` (`archive-report`) |
 | GE-3 | Git | full-SDD | 🔲 | — | pendiente |
@@ -155,6 +155,6 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 
 ### Siguiente bloque técnico sugerido
 
-- `GE-2` (PR efectivo): avanzar sobre el PR `#1` de `tech/en-2-recovery-runbook` hacia `tech/tp-3-flujo-ramas` con Summary/Why/How to test y cierre de feedback.
+- `GE-3` (caso real punta a punta): practicar un cambio complejo con pipeline SDD completo y merge con historial entendible.
 
 Si no podés justificar el modo elegido, frená y redefiní alcance.
