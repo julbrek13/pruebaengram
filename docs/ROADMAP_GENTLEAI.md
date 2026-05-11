@@ -8,6 +8,7 @@ Roadmap de madurez para operar con **SDD Orchestrator + Engram** sin improvisaci
 2. **Modo correcto para cada problema**: no-SDD, parcial-SDD o full-SDD.
 3. **Trazabilidad obligatoria**: Git + Engram en cada paso relevante.
 4. **Control humano activo**: el orquestador ejecuta, vos gobernás.
+5. **Entorno como aula**: Gentleman.Dots no se trata como decoración; se usa para entrenar hábitos profesionales.
 
 ---
 
@@ -19,12 +20,44 @@ Tener entorno y hábitos mínimos para no perder contexto.
 ### Checklist
 - [ ] Instalar dependencias (`npm install`)
 - [ ] Entender scripts (`dev`, `build`, `test`)
+- [ ] Leer `docs/GENTLEMAN_DOTS_LEARNING_PATH.md`
+- [ ] Abrir `docs/ObsidianVaults-GentleAI-Course/` como vault de seguimiento visual
+- [ ] Distinguir responsabilidades: Gentleman.Dots = entorno; gentle-ai = capa IA; este repo = curso/práctica
 - [ ] Revisar `docs/SDD_ENGRAM_OPERATING_MODEL.md`
 - [ ] Ejecutar `mem_context` al inicio de sesión
 
 ### Done criteria
 - README y docs alineados al modelo decisión-primero
+- Separación `.dots` / `gentle-ai` explicable sin ambigüedad
+- Dashboard Obsidian inicial conectado a conceptos, prácticas y evidencia
 - Primera sesión cerrada con `mem_session_summary`
+
+---
+
+## Fase 0.5 — Taller profesional con Gentleman.Dots
+
+### Objetivo
+Convertir el entorno instalado por Gentleman.Dots en una plataforma de práctica diaria.
+
+### Tiempo sugerido
+2 a 4 semanas, en paralelo con las fases Beginner/Junior.
+
+### Subfases
+- **Terminal/shell:** moverse, ejecutar y diagnosticar sin depender de UI.
+- **Neovim/LazyVim:** navegación, LSP, búsqueda, edición modal y Vim Mastery Trainer.
+- **Tmux/Zellij:** sesiones reproducibles por repo/TP.
+- **AI layer:** conectar el flujo del entorno con Engram, SDD y skills.
+
+### Prácticas
+- [ ] Crear una sesión de trabajo por proyecto.
+- [ ] Ejecutar checklist de inicio: Git + Engram + modo SDD.
+- [ ] Usar Neovim para modificar docs/tests sin perder navegación.
+- [ ] Registrar aprendizajes con topic keys `course/dots/*`.
+- [ ] Mantener el graph de Obsidian sin notas huérfanas críticas.
+
+### Done criteria
+- Podés retomar una sesión anterior sin pedir contexto desde cero.
+- Tu editor, terminal, agente y memoria trabajan como un sistema, no como herramientas sueltas.
 
 ---
 
@@ -134,6 +167,7 @@ Escalar consistencia del sistema de trabajo.
 
 ## Próximo paso sugerido en este repo
 
-1. Ejecutar un caso **parcial-SDD** real y documentarlo.
-2. Ejecutar un caso **full-SDD** corto con evidencia completa.
-3. Consolidar aprendizaje en `docs/MINI_PROJECTS_PLAN.md` y `docs/ENGRAM_CONTEXT_MAP.md`.
+1. Completar `DOTS-0` y `DOTS-1` del pilar `.dots` en `docs/MINI_PROJECTS_PLAN.md`.
+2. Ejecutar un caso **parcial-SDD** real y documentarlo.
+3. Ejecutar un caso **full-SDD** corto con evidencia completa.
+4. Consolidar aprendizaje en `docs/MINI_PROJECTS_PLAN.md` y `docs/ENGRAM_CONTEXT_MAP.md`.

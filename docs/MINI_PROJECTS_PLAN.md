@@ -1,6 +1,6 @@
 # Plan de Mini-Proyectos: 3 Pilares + 3 Modos SDD
 
-Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criterio operativo real.
+Plan práctico para dominar **Tests**, **Engram**, **Git en equipo** y **Gentleman.Dots** con criterio operativo real.
 
 ---
 
@@ -129,6 +129,60 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 
 ---
 
+## PILAR 4 — GENTLEMAN.DOTS COMO TALLER PROFESIONAL
+
+### DOTS-0: Separación entorno vs IA
+- **Modo:** no-SDD
+- **Objetivo:** entender qué resuelve Gentleman.Dots y qué resuelve gentle-ai.
+- **Guía:** `docs/GENTLEMAN_DOTS_LEARNING_PATH.md`
+- **Vault:** `docs/ObsidianVaults-GentleAI-Course/30-PRACTICE/Tracks/DOTS-TRACKER.md`
+- **Checklist:**
+  - [ ] explicar `.dots` en 2 frases
+  - [ ] explicar `gentle-ai` en 2 frases
+  - [ ] mapear editor/shell/terminal/memoria/workflow
+  - [ ] guardar decisión inicial en Engram con `topic_key: course/dots/foundation`
+
+### DOTS-1: Supervivencia terminal + Git
+- **Modo:** no-SDD
+- **Objetivo:** operar el repo sin depender de memoria visual ni comandos copiados.
+- **Checklist:**
+  - [ ] abrir el repo desde terminal
+  - [ ] ejecutar `git status`, `git diff`, `git log`
+  - [ ] explicar qué cambió antes de editar
+  - [ ] cerrar sesión con `mem_session_summary`
+
+### DOTS-2: Neovim productivo
+- **Modo:** parcial-SDD
+- **Objetivo:** convertir Neovim/LazyVim en herramienta real de edición y navegación.
+- **Pipeline:** `/sdd-explore` → `/sdd-propose` → `/sdd-apply` → `/sdd-verify`
+- **Checklist:**
+  - [ ] documentar keymaps críticos usados en el curso
+  - [ ] completar práctica inicial del Vim Mastery Trainer
+  - [ ] modificar docs/tests desde Neovim
+  - [ ] guardar aprendizajes en `course/dots/neovim`
+
+### DOTS-3: Workspace reproducible con Tmux/Zellij
+- **Modo:** parcial-SDD
+- **Objetivo:** trabajar con sesiones por proyecto/TP.
+- **Checklist:**
+  - [ ] definir layout mínimo editor + comandos + agente
+  - [ ] nombrar sesión por repo o TP
+  - [ ] documentar cómo retomar una sesión
+  - [ ] guardar convención en `course/dots/multiplexer`
+
+### DOTS-4: Flujo completo editor + agente + memoria
+- **Modo:** full-SDD
+- **Objetivo:** integrar Gentleman.Dots y gentle-ai en un workflow completo de mejora continua.
+- **Pipeline completo:** `explore → propose → spec → design → tasks → apply → verify → archive`
+- **Dashboard Obsidian:** `docs/ObsidianVaults-GentleAI-Course/00-HQ/Dashboards/COURSE-DASHBOARD.md`
+- **Checklist:**
+  - [ ] definir flujo de inicio/cierre de sesión
+  - [ ] conectar Engram con decisiones de entorno
+  - [ ] decidir cuándo una convención pasa a skill
+  - [ ] verificar recuperación de contexto en menos de 5 minutos
+
+---
+
 ## 📊 Registro de progreso
 
 | ID | Pilar | Modo | Estado | Fecha evidencia | Evidencia |
@@ -144,17 +198,22 @@ Plan práctico para dominar **Tests**, **Engram** y **Git en equipo** con criter
 | TP-4 (integración/errores) | Tests | full-SDD | ✅ | 2026-04-10 | commit `27daf9f` + memoria `#205/#208` (archive) |
 | EN-4 | Engram | full-SDD | ✅ | 2026-04-10 | memoria `#205` (`archive-report`) |
 | GE-3 | Git | full-SDD | 🔲 | — | pendiente |
+| DOTS-0 | Gentleman.Dots | no-SDD | 🔲 | — | pendiente |
+| DOTS-1 | Gentleman.Dots | no-SDD | 🔲 | — | pendiente |
+| DOTS-2 | Gentleman.Dots | parcial-SDD | 🔲 | — | pendiente |
+| DOTS-3 | Gentleman.Dots | parcial-SDD | 🔲 | — | pendiente |
+| DOTS-4 | Gentleman.Dots | full-SDD | 🔲 | — | pendiente |
 
 ---
 
 ## Ruta recomendada
 
-1. no-SDD: TP-1 → EN-1 → GE-1
-2. parcial-SDD: TP-2 → EN-2 → GE-2
-3. full-SDD: TP-4 → EN-4 → GE-3
+1. no-SDD: DOTS-0 → DOTS-1 → TP-1 → EN-1 → GE-1
+2. parcial-SDD: DOTS-2 → DOTS-3 → TP-2 → EN-2 → GE-2
+3. full-SDD: TP-4 → EN-4 → DOTS-4 → GE-3
 
 ### Siguiente bloque técnico sugerido
 
-- `GE-3` (caso real punta a punta): practicar un cambio complejo con pipeline SDD completo y merge con historial entendible.
+- `DOTS-0` y `DOTS-1`: consolidar la base de entorno antes de seguir escalando el curso.
 
 Si no podés justificar el modo elegido, frená y redefiní alcance.

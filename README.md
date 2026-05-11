@@ -12,6 +12,7 @@ Pasar de **Beginner → Engineer** construyendo un sistema operativo personal de
 - uso correcto de SDD según complejidad (no-SDD / parcial / full)
 - trazabilidad con Engram (`topic_key` estable)
 - disciplina Git (commits atómicos, claros, auditables)
+- dominio progresivo de **Gentleman.Dots** como taller profesional de aprendizaje
 
 ---
 
@@ -103,6 +104,8 @@ Para criterios de ubicación, ownership y cuándo mover archivos, ver `docs/PROJ
 6. `docs/PROJECT_STRUCTURE.md` → reglas de estructura y reestructuración incremental
 7. `docs/ENGRAM_CONTEXT_MAP.md` → mapa de `topic_key`
 8. `docs/GSR_MODEL_ROUTING_INTEGRATION.md` → integración de routing por fase + fallback
+9. `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` → curva de aprendizaje para aprovechar `.dots` + gentle-ai
+10. `docs/ObsidianVaults-GentleAI-Course/` → vault Obsidian para seguimiento visual, grafo nodal y evidencia del curso
 
 ---
 

@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {"id":"dashboard","type":"file","file":"00-HQ/Dashboards/COURSE-DASHBOARD.md","x":0,"y":0,"width":320,"height":180},
+    {"id":"knowledge","type":"file","file":"20-KNOWLEDGE/Indexes/KNOWLEDGE-MAP.md","x":420,"y":0,"width":320,"height":180},
+    {"id":"dots","type":"file","file":"30-PRACTICE/Tracks/DOTS-TRACKER.md","x":0,"y":260,"width":320,"height":180},
+    {"id":"ge3","type":"file","file":"30-PRACTICE/Tracks/GE-3-TRACKER.md","x":420,"y":260,"width":320,"height":180},
+    {"id":"evidence","type":"file","file":"40-EVIDENCE/Indexes/EVIDENCE-REGISTER.md","x":840,"y":130,"width":320,"height":180},
+    {"id":"runbook","type":"file","file":"90-AUTOMATION/Runbooks/SESSION-RUNBOOK.md","x":420,"y":520,"width":320,"height":180}
+  ],
+  "edges": [
+    {"id":"e1","fromNode":"dashboard","fromSide":"right","toNode":"knowledge","toSide":"left"},
+    {"id":"e2","fromNode":"dashboard","fromSide":"bottom","toNode":"dots","toSide":"top"},
+    {"id":"e3","fromNode":"knowledge","fromSide":"bottom","toNode":"ge3","toSide":"top"},
+    {"id":"e4","fromNode":"dots","fromSide":"right","toNode":"evidence","toSide":"left"},
+    {"id":"e5","fromNode":"ge3","fromSide":"right","toNode":"evidence","toSide":"left"},
+    {"id":"e6","fromNode":"runbook","fromSide":"top","toNode":"dashboard","toSide":"bottom"}
+  ]
+}

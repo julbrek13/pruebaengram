@@ -31,6 +31,19 @@ Objetivo: usar Engram como memoria operacional del repo, no como bloc de notas s
 - `course/git/commit-style`
 - `course/git/pr-patterns`
 
+### Gentleman.Dots / entorno profesional
+- `course/dots/foundation`
+- `course/dots/shell`
+- `course/dots/neovim`
+- `course/dots/multiplexer`
+- `course/dots/ai-layer`
+- `course/dots/progress`
+
+### Obsidian / seguimiento visual
+- `course/obsidian/vault-structure`
+- `course/obsidian/graph-workflow`
+- `course/obsidian/evidence-register`
+
 ### Operación SDD (global)
 - `sdd/operating-model`
 - `sdd/recovery-runbook`
