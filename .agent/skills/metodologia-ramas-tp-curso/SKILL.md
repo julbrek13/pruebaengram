@@ -43,6 +43,25 @@ metadata:
 
 ## Convención de nombres
 
+### Patrón oficial GE-3
+
+- Técnica: `^tech/tp-[0-9]+-[a-z0-9-]+$`
+- Documentación: `^docs/tp-[0-9]+-[a-z0-9-]+$`
+
+Ejemplos válidos:
+- `tech/tp-3-flujo-ramas`
+- `docs/tp-3-flujo-ramas`
+
+Ejemplos inválidos:
+- `feature/tp-3-flujo-ramas` (prefijo fuera de política)
+- `tech/tp-x-flujo-ramas` (N no numérico)
+- `tech/tp-3-Flujo-Ramas` (mayúsculas no permitidas)
+
+Manejo de no conformidad:
+1. Marcar rama como no conforme en checklist operativo.
+2. Renombrar local/remoto o recrear rama con convención correcta.
+3. Revalidar con `npm run verify:ge3` antes de continuar.
+
 - TP 1 autenticación: `tech/tp-1-autenticacion`
 - TP 2 api-rest: `tech/tp-2-api-rest`
 - Docs TP 2 (si aplica): `docs/tp-2-api-rest`

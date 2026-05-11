@@ -12,9 +12,10 @@ La idea no es “instalar dotfiles y listo”. Eso sería consumo pasivo. La ide
 |---|---|---|
 | Entorno de trabajo | `Gentleman.Dots` | Neovim, terminales, shells, Tmux/Zellij, instalador y hábitos de navegación |
 | Capa de IA | `gentle-ai` | Engram, SDD, skills, agentes, routing, persona y documentación viva |
+| Contrato de agentes | `AGENTS.md` | Instrucciones estables para agentes que entran al repo |
 | Curso/práctica | `pruebaengram` | Ejercicios, decisiones, trazabilidad, mini-proyectos y evaluación progresiva |
 
-**Regla:** Gentleman.Dots te da el taller; gentle-ai te da método, memoria y agentes; este repo convierte todo eso en entrenamiento progresivo.
+**Regla:** Gentleman.Dots te da el taller; gentle-ai te da método, memoria y agentes; `AGENTS.md` fija el contrato operativo; este repo convierte todo eso en entrenamiento progresivo.
 
 ---
 
@@ -31,6 +32,7 @@ La idea no es “instalar dotfiles y listo”. Eso sería consumo pasivo. La ide
 | 4. Engram operativo | 1 semana | `mem_context`, `mem_search`, `mem_get_observation`, `mem_save`, summaries | No perdés decisiones ni aprendizajes |
 | 5. SDD aplicado | 2-4 semanas | no-SDD, parcial-SDD, full-SDD según riesgo | Elegís proceso por criterio, no por ansiedad |
 | 6. Skills y mejora continua | continuo | crear/refinar skills, conventions y guías | El sistema aprende con vos |
+| 7. Contrato AGENTS.md | continuo | instrucciones estables para agentes, testing, PR y memoria | Los agentes entran al repo sin improvisar reglas |
 
 ---
 
@@ -201,6 +203,7 @@ Guías a crear/usar:
 
 - Skill authoring.
 - Registry de skills.
+- AGENTS.md como contrato operativo de repo.
 - Convenciones de curso.
 - Retro de sesiones.
 
@@ -208,6 +211,7 @@ Prácticas:
 
 - [ ] Detectar una convención repetida.
 - [ ] Convertirla en skill solo si aplica a futuras sesiones.
+- [ ] Decidir si una regla pertenece a `AGENTS.md`, skill, docs o Engram.
 - [ ] Actualizar registry.
 - [ ] Guardar el porqué en Engram.
 
@@ -230,6 +234,8 @@ Agregar un cuarto pilar transversal:
 | DOTS-2 | parcial-SDD | guía personal de Neovim productivo | doc/nota + práctica Vim Trainer |
 | DOTS-3 | parcial-SDD | workspace Tmux/Zellij por proyecto | sesión reproducible documentada |
 | DOTS-4 | full-SDD | rediseñar flujo de trabajo completo editor + AI + memoria | artefactos SDD + verify/archive |
+| AGENTS-0 | no-SDD | entender `AGENTS.md` como README para agentes | nota Engram `course/agents-md/foundation` |
+| AGENTS-1 | parcial-SDD | auditar instrucciones del repo | checklist Obsidian + Engram `course/agents-md/audit` |
 
 ---
 
@@ -271,6 +277,10 @@ La estructura toma como referencia el vault de ciberseguridad de `docs/ObsidianV
 ### Regla de integración
 
 Obsidian conecta ideas. Git prueba cambios. Engram preserva decisiones. Si una práctica no aparece en los tres cuando corresponde, falta trazabilidad.
+
+### Nodo obligatorio: AGENTS.md
+
+El vault incluye [[agents-md-contract]] y [[AGENTS-MD-TRACKER]] para que el contrato operativo de agentes sea parte visible del grafo, no una regla escondida.
 
 ---
 

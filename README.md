@@ -13,6 +13,7 @@ Pasar de **Beginner → Engineer** construyendo un sistema operativo personal de
 - trazabilidad con Engram (`topic_key` estable)
 - disciplina Git (commits atómicos, claros, auditables)
 - dominio progresivo de **Gentleman.Dots** como taller profesional de aprendizaje
+- contrato operativo para agentes con **AGENTS.md**
 
 ---
 
@@ -74,6 +75,7 @@ pruebaengram/
 │  └─ skill-registry.md
 ├─ .agent/
 │  └─ skills/
+├─ AGENTS.md
 ├─ docs/
 │  ├─ ROADMAP_GENTLEAI.md
 │  ├─ MINI_PROJECTS_PLAN.md
@@ -106,6 +108,7 @@ Para criterios de ubicación, ownership y cuándo mover archivos, ver `docs/PROJ
 8. `docs/GSR_MODEL_ROUTING_INTEGRATION.md` → integración de routing por fase + fallback
 9. `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` → curva de aprendizaje para aprovechar `.dots` + gentle-ai
 10. `docs/ObsidianVaults-GentleAI-Course/` → vault Obsidian para seguimiento visual, grafo nodal y evidencia del curso
+11. `docs/AGENTS_MD_COURSE_INTEGRATION.md` → contrato operativo para agentes de código
 
 ---
 
@@ -134,6 +137,7 @@ Esta remodelación se alinea con los docs oficiales en `docs/gentlaireadme/`:
 - `components.md` (Engram + SDD + skills)
 - `usage.md` (comandos de mantenimiento `gentle-ai`)
 - `agents.md` (rol del orchestrator y delegación)
+- `https://github.com/agentsmd/agents.md` (formato abierto AGENTS.md como README para agentes)
 - `rollback.md` (backup y recuperación)
 - `refactoriced.md` (GSR: límite no-ejecutor + capas gentle/sdd/router)
 - `GUIA-SDD-COMPLETA.pdf` (asignación de modelos por fase/perfil)

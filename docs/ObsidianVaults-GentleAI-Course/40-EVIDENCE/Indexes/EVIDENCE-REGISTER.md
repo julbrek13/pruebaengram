@@ -22,6 +22,8 @@ Cada evidencia debe incluir:
 |---|---|---|---|---|---|
 | — | DOTS-0 | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` | `course/dots/foundation` | [[DOTS-TRACKER]] | Pendiente |
 | — | DOTS-1 | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` | `course/dots/shell` | [[DOTS-TRACKER]] | Pendiente |
+| — | AGENTS-0 | `AGENTS.md` | `course/agents-md/foundation` | [[AGENTS-MD-TRACKER]] | Pendiente |
+| — | AGENTS-1 | `AGENTS.md` + PR template | `course/agents-md/audit` | [[AGENTS-MD-TRACKER]] | Pendiente |
 | — | GE-3 | pendiente | `sdd/ge-3-caso-real/*` | [[GE-3-TRACKER]] | Pendiente |
 
 ## Anti-patrón

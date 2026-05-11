@@ -44,6 +44,11 @@ Objetivo: usar Engram como memoria operacional del repo, no como bloc de notas s
 - `course/obsidian/graph-workflow`
 - `course/obsidian/evidence-register`
 
+### AGENTS.md / contrato operativo de agentes
+- `course/agents-md/foundation`
+- `course/agents-md/audit`
+- `course/agents-md/contract-updates`
+
 ### Operación SDD (global)
 - `sdd/operating-model`
 - `sdd/recovery-runbook`

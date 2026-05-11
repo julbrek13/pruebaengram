@@ -234,3 +234,28 @@ Durante:
 Cierre:
 - [ ] `mem_session_summary`
 - [ ] documentar próximos pasos concretos
+
+---
+
+## 10) GE-3 Operación obligatoria (inicio/cierre)
+
+### Inicio GE-3
+1. Crear rama conforme (`tech/tp-N-...` o `docs/tp-N-...`).
+2. Confirmar artefactos base del cambio en Engram:
+   - `sdd/ge-3-caso-real/spec`
+   - `sdd/ge-3-caso-real/design`
+   - `sdd/ge-3-caso-real/tasks`
+3. Abrir/actualizar PR con contrato obligatorio y trazabilidad dual.
+
+### Cierre GE-3
+1. Ejecutar `npm run verify:ge3` y registrar salida en PR.
+2. Confirmar evidencia repo + Engram en checklist de PR.
+3. Guardar estado de cierre en topics del cambio (`sdd/ge-3-caso-real/apply-progress`, `.../verify-report`, `.../archive-report` según fase).
+
+### Topic keys explícitos requeridos
+- `sdd/ge-3-caso-real/spec`
+- `sdd/ge-3-caso-real/design`
+- `sdd/ge-3-caso-real/tasks`
+- `sdd/ge-3-caso-real/apply-progress`
+- `sdd/ge-3-caso-real/verify-report`
+- `sdd/ge-3-caso-real/archive-report`

@@ -11,14 +11,15 @@ type: index
 - [[engram-memory]]: memoria persistente y recuperación.
 - [[sdd-operating-model]]: proceso según riesgo.
 - [[git-teamwork]]: colaboración verificable.
+- [[agents-md-contract]]: contrato operativo para agentes.
 
 ## Relaciones clave
 
 ```text
-gentleman-dots-workshop -> sdd-operating-model -> git-teamwork
-              |                    |
-              v                    v
-        engram-memory ------> evidence-register
+gentleman-dots-workshop -> agents-md-contract -> sdd-operating-model -> git-teamwork
+              |                         |                    |
+              v                         v                    v
+        engram-memory ------------> evidence-register <------+
 ```
 
 ## Cómo usar este mapa

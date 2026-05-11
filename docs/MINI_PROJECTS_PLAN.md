@@ -123,9 +123,21 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo** y **Gentlem
 ### GE-3: Caso real punta a punta
 - **Modo:** full-SDD
 - **Checklist:**
-  - [ ] branch con cambio complejo
-  - [ ] evidencia de pipeline SDD completo
+  - [x] branch con cambio complejo
+  - [x] evidencia de pipeline SDD completo
   - [ ] merge con historial entendible
+
+#### GE-3 tracking por fase SDD
+
+| Fase | Estado | Evidencia |
+|---|---|---|
+| proposal | ✅ | Engram `sdd/ge-3-caso-real/proposal` |
+| spec | ✅ | Engram `sdd/ge-3-caso-real/spec` |
+| design | ✅ | Engram `sdd/ge-3-caso-real/design` |
+| tasks | ✅ | Engram `sdd/ge-3-caso-real/tasks` |
+| apply | 🟡 | En progreso en working tree (policy docs + verify script) |
+| verify | 🔲 | pendiente ejecución/evidencia final |
+| archive | 🔲 | pendiente cierre formal |
 
 ---
 
@@ -183,6 +195,38 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo** y **Gentlem
 
 ---
 
+## PILAR 5 — AGENTS.md COMO CONTRATO OPERATIVO
+
+### AGENTS-0: Entender AGENTS.md
+- **Modo:** no-SDD
+- **Objetivo:** entender `AGENTS.md` como README para agentes de código.
+- **Guía:** `docs/AGENTS_MD_COURSE_INTEGRATION.md`
+- **Vault:** `docs/ObsidianVaults-GentleAI-Course/30-PRACTICE/Tracks/AGENTS-MD-TRACKER.md`
+- **Checklist:**
+  - [ ] explicar `AGENTS.md` en 2 frases
+  - [ ] diferenciar `README.md`, `AGENTS.md`, skills y Engram
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/agents-md/foundation`
+
+### AGENTS-1: Auditar instrucciones del repo
+- **Modo:** parcial-SDD
+- **Objetivo:** validar que las instrucciones del repo no se contradigan entre sí.
+- **Checklist:**
+  - [ ] revisar `AGENTS.md` vs `README.md`
+  - [ ] revisar `AGENTS.md` vs `docs/SDD_ENGRAM_OPERATING_MODEL.md`
+  - [ ] revisar compatibilidad con template PR GE-3
+  - [ ] guardar auditoría en Engram con `topic_key: course/agents-md/audit`
+
+### AGENTS-2: Promover reglas estables
+- **Modo:** parcial-SDD o full-SDD según impacto
+- **Objetivo:** decidir cuándo una regla repetida pasa a contrato de repo, skill, doc o memoria.
+- **Checklist:**
+  - [ ] detectar regla repetida
+  - [ ] decidir ubicación correcta
+  - [ ] documentar tradeoff
+  - [ ] actualizar contrato solo si la regla es estable
+
+---
+
 ## 📊 Registro de progreso
 
 | ID | Pilar | Modo | Estado | Fecha evidencia | Evidencia |
@@ -203,14 +247,17 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo** y **Gentlem
 | DOTS-2 | Gentleman.Dots | parcial-SDD | 🔲 | — | pendiente |
 | DOTS-3 | Gentleman.Dots | parcial-SDD | 🔲 | — | pendiente |
 | DOTS-4 | Gentleman.Dots | full-SDD | 🔲 | — | pendiente |
+| AGENTS-0 | AGENTS.md | no-SDD | 🔲 | — | pendiente |
+| AGENTS-1 | AGENTS.md | parcial-SDD | 🔲 | — | pendiente |
+| AGENTS-2 | AGENTS.md | parcial/full-SDD | 🔲 | — | pendiente |
 
 ---
 
 ## Ruta recomendada
 
-1. no-SDD: DOTS-0 → DOTS-1 → TP-1 → EN-1 → GE-1
-2. parcial-SDD: DOTS-2 → DOTS-3 → TP-2 → EN-2 → GE-2
-3. full-SDD: TP-4 → EN-4 → DOTS-4 → GE-3
+1. no-SDD: DOTS-0 → DOTS-1 → AGENTS-0 → TP-1 → EN-1 → GE-1
+2. parcial-SDD: DOTS-2 → DOTS-3 → AGENTS-1 → TP-2 → EN-2 → GE-2
+3. full-SDD: TP-4 → EN-4 → DOTS-4 → AGENTS-2 → GE-3
 
 ### Siguiente bloque técnico sugerido
 

@@ -22,6 +22,8 @@ Cada bloque importante debe poder responder:
 | DOTS-0 | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` | `course/dots/foundation` | [[DOTS-TRACKER]] | #status/todo |
 | DOTS-1 | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` | `course/dots/shell` | [[DOTS-TRACKER]] | #status/todo |
 | DOTS-4 | `docs/MINI_PROJECTS_PLAN.md` | `course/dots/ai-layer` | [[gentleman-dots-workshop]] | #status/todo |
+| AGENTS-0 | `AGENTS.md`, `docs/AGENTS_MD_COURSE_INTEGRATION.md` | `course/agents-md/foundation` | [[AGENTS-MD-TRACKER]] | #status/todo |
+| AGENTS-1 | `AGENTS.md`, `.github/pull_request_template.md` | `course/agents-md/audit` | [[AGENTS-MD-TRACKER]] | #status/todo |
 | GE-3 | pendiente policy-as-code | `sdd/ge-3-caso-real/*` | [[GE-3-TRACKER]] | #status/todo |
 
 ## Enlaces operativos

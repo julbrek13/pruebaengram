@@ -22,6 +22,7 @@ Tener entorno y hábitos mínimos para no perder contexto.
 - [ ] Entender scripts (`dev`, `build`, `test`)
 - [ ] Leer `docs/GENTLEMAN_DOTS_LEARNING_PATH.md`
 - [ ] Abrir `docs/ObsidianVaults-GentleAI-Course/` como vault de seguimiento visual
+- [ ] Leer `docs/AGENTS_MD_COURSE_INTEGRATION.md` y ubicar `AGENTS.md` como contrato de agentes
 - [ ] Distinguir responsabilidades: Gentleman.Dots = entorno; gentle-ai = capa IA; este repo = curso/práctica
 - [ ] Revisar `docs/SDD_ENGRAM_OPERATING_MODEL.md`
 - [ ] Ejecutar `mem_context` al inicio de sesión
@@ -29,6 +30,7 @@ Tener entorno y hábitos mínimos para no perder contexto.
 ### Done criteria
 - README y docs alineados al modelo decisión-primero
 - Separación `.dots` / `gentle-ai` explicable sin ambigüedad
+- Diferencia `README.md` / `AGENTS.md` / skills / Engram explicable sin ambigüedad
 - Dashboard Obsidian inicial conectado a conceptos, prácticas y evidencia
 - Primera sesión cerrada con `mem_session_summary`
 
@@ -58,6 +60,23 @@ Convertir el entorno instalado por Gentleman.Dots en una plataforma de práctica
 ### Done criteria
 - Podés retomar una sesión anterior sin pedir contexto desde cero.
 - Tu editor, terminal, agente y memoria trabajan como un sistema, no como herramientas sueltas.
+
+---
+
+## Fase 0.6 — Contrato operativo con AGENTS.md
+
+### Objetivo
+Hacer que cualquier agente pueda entrar al repo y entender restricciones, verificaciones y trazabilidad sin depender del chat actual.
+
+### Prácticas
+- [ ] Leer `AGENTS.md` como README para agentes.
+- [ ] Explicar qué instrucciones van en `AGENTS.md` y cuáles van a skills/Engram/docs.
+- [ ] Auditar que `AGENTS.md`, README, SDD docs y PR template no se contradigan.
+- [ ] Registrar aprendizajes con topic keys `course/agents-md/*`.
+
+### Done criteria
+- El contrato de agentes es estable, corto y accionable.
+- Las reglas de no-build, no-push, memoria, SDD y PR son recuperables desde el repo.
 
 ---
 

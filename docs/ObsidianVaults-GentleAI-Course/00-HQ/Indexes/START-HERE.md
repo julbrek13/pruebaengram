@@ -21,6 +21,7 @@ Este vault organiza el curso como sistema vivo: [[COURSE-DASHBOARD]] muestra el 
 ## Mapa rápido
 
 - Entorno profesional: [[gentleman-dots-workshop]]
+- Contrato de agentes: [[agents-md-contract]]
 - Memoria persistente: [[engram-memory]]
 - Proceso SDD: [[sdd-operating-model]]
 - Colaboración Git: [[git-teamwork]]

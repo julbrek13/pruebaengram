@@ -129,3 +129,23 @@ Si no hubo cambios en alguno de los canales, debe declararse explícitamente:
 - 🔴 **Débil**: cambios mezclados, sin validación o sin relación con objetivo.
 
 Si queda en amarillo o rojo, se corrige **antes** de avanzar al siguiente bloque del curso.
+
+---
+
+## 10) GE-3 — Política operativa (policy-as-code)
+
+### Criterios de apertura
+- Rama inicia en convención GE-3: `tech/tp-N-<tema>` o `docs/tp-N-<tema>`.
+- Existe contrato de PR en `.github/pull_request_template.md`.
+- Se declara trazabilidad dual objetivo: repo + Engram.
+
+### Criterios de cierre
+- `npm run verify:ge3` ejecuta con salida exitosa (`exit 0`).
+- PR incluye evidencia de verify y checklist GE-3 completo.
+- Engram registra progreso/cierre del cambio en topics `sdd/ge-3-caso-real/*`.
+
+### Evidencia obligatoria por canal
+| Canal | Evidencia mínima |
+|---|---|
+| Repo | Ruta de archivos cambiados + referencia de rama + salida de `verify:ge3` |
+| Engram | `topic_key` y/o observation ids para spec/design/tasks/apply/verify/archive |

@@ -24,6 +24,7 @@ pruebaengram/
 │  └─ gentlaireadme/     # material de referencia/importado, no fuente principal del curso
 ├─ .agent/skills/        # skills locales que codifican convenciones del proyecto
 ├─ .atl/                 # registro de skills resuelto para Agent Teams Lite
+├─ AGENTS.md             # contrato operativo estable para agentes de código
 ├─ sdd/                  # snapshots locales ignorados; Engram mantiene el estado persistente
 ├─ package.json          # scripts y dependencias del entorno TS
 └─ README.md             # entrada principal y orden recomendado de lectura
@@ -54,6 +55,7 @@ Es la fuente curada del curso en el repo.
 - Los documentos raíz de `docs/` explican operación, progreso y trazabilidad.
 - `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` conecta Gentleman.Dots con la curva de aprendizaje del curso.
 - `docs/ObsidianVaults-GentleAI-Course/` es el vault de seguimiento visual del curso; usa dashboards, trackers, evidencia y grafo nodal.
+- `docs/AGENTS_MD_COURSE_INTEGRATION.md` explica cómo usar `AGENTS.md` como contrato operativo para agentes.
 - `docs/gentlaireadme/` es referencia importada: sirve como consulta, no como estado canónico del curso.
 - Si Engram y repo discrepan sobre estado SDD, usar la regla documentada en `ENGRAM_RECOVERY_RUNBOOK.md`.
 
@@ -63,6 +65,15 @@ Contiene convenciones ejecutables por agentes.
 
 - Una skill debe capturar una regla reutilizable, no una instrucción puntual.
 - Si la regla solo vale para una sesión, va a Engram o a docs, no a una skill.
+
+### `AGENTS.md`
+
+Contrato operativo para agentes que entren al repo.
+
+- Debe contener instrucciones estables, no estado temporal.
+- Debe apuntar a docs largas en lugar de duplicarlas.
+- Debe alinear restricciones de comandos, memoria, SDD y PR.
+- Si una regla cambia por una sesión puntual, no la metas acá: guardala en Engram o en el prompt de la sesión.
 
 ### `sdd/`
 

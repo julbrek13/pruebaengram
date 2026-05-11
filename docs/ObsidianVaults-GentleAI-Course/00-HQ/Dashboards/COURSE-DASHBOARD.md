@@ -10,6 +10,7 @@ type: dashboard
 | Área | Estado | Próxima acción | Nodo |
 |---|---|---|---|
 | Gentleman.Dots | #status/doing | Completar DOTS-0/DOTS-1 | [[DOTS-TRACKER]] |
+| AGENTS.md | #status/doing | Completar AGENTS-0/AGENTS-1 | [[AGENTS-MD-TRACKER]] |
 | Git en equipo | #status/todo | Retomar GE-3 con baseline limpio | [[GE-3-TRACKER]] |
 | Engram | #status/doing | Mantener summaries y topic keys | [[engram-memory]] |
 | SDD | #status/doing | Elegir modo por riesgo | [[sdd-operating-model]] |
