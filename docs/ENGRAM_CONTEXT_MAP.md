@@ -49,6 +49,40 @@ Objetivo: usar Engram como memoria operacional del repo, no como bloc de notas s
 - `course/agents-md/audit`
 - `course/agents-md/contract-updates`
 
+### Agent Harnesses / disciplina operativa de agentes
+- `course/agent-harnesses/foundation`
+- `course/agent-harnesses/pi-gentle-pi-gentle-engram`
+- `course/agent-harnesses/subagent-visibility`
+- `course/agent-harnesses/plan-mode-guardrails`
+- `course/agent-harnesses/telemetry-calibration`
+- `course/agent-harnesses/closed-loop`
+- `course/agent-harnesses/gentle-pi-onboarding`
+- `course/agent-harnesses/gentle-pi-troubleshooting`
+
+### VPS / conexión a infraestructura real
+- `course/vps-connection/foundation`
+- `course/vps-connection/manual-deploy`
+- `course/vps-connection/security-boundaries`
+- `course/vps-connection/engram-cloud-spaces`
+- `course/vps-connection/nested-runbook`
+
+### Engram Cloud en VPS
+- `course/engram-cloud-vps/foundation`
+- `course/engram-cloud-vps/context-spaces`
+- `course/engram-cloud-vps/availability-control`
+- `course/engram-cloud-vps/adminweb-boundary`
+
+### API Bridge / integración visual
+- `course/api-bridge/pattern`
+- `course/api-bridge/secure-flow-contract`
+- `course/api-bridge/qontera-service-workspaces`
+
+### Criterio profesional
+- `course/professional-criteria/technical-critique`
+- `course/professional-criteria/scope-negotiation`
+- `course/professional-criteria/poc-mvp-product`
+- `course/professional-criteria/portfolio-evidence`
+
 ### Operación SDD (global)
 - `sdd/operating-model`
 - `sdd/recovery-runbook`

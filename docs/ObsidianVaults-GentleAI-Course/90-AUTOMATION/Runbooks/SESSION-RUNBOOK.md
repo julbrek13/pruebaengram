@@ -19,6 +19,8 @@ type: runbook
 2. Registrar decisiones importantes en Engram.
 3. Mantener prácticas conectadas a evidencia.
 4. Evitar mezclar cambios no relacionados.
+5. Si hay subagentes, registrar qué se observó en [[sub-agent-statusline]] y qué quedó como evidencia persistente.
+6. Si hay telemetry, registrar qué métrica de [[metronous]] justifica la decisión y cuál es su límite.
 
 ## Cierre de sesión
 

@@ -30,7 +30,7 @@ Tags recomendados:
 
 - `#status/todo`, `#status/doing`, `#status/done`
 - `#mode/no-sdd`, `#mode/partial-sdd`, `#mode/full-sdd`
-- `#pillar/tests`, `#pillar/engram`, `#pillar/git`, `#pillar/dots`
+- `#pillar/tests`, `#pillar/engram`, `#pillar/git`, `#pillar/dots`, `#pillar/agents-md`, `#pillar/agent-harnesses`
 - `#evidence/repo`, `#evidence/engram`, `#evidence/pr`
 
 La regla es simple: el grafo tiene que mostrar relaciones reales, no decoración. Si una nota no tiene enlaces de entrada ni salida, probablemente no está integrada al aprendizaje.

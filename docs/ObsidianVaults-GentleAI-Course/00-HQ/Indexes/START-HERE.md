@@ -14,7 +14,7 @@ Este vault organiza el curso como sistema vivo: [[COURSE-DASHBOARD]] muestra el 
 1. Abrí [[COURSE-DASHBOARD]] para ver el foco actual.
 2. Revisá [[MASTER-TRACEABILITY]] antes de cerrar o abrir un bloque.
 3. Estudiá conceptos desde [[KNOWLEDGE-MAP]].
-4. Ejecutá práctica desde [[DOTS-TRACKER]] o [[GE-3-TRACKER]].
+4. Ejecutá práctica desde [[DOTS-TRACKER]], [[AGENTS-MD-TRACKER]], [[AGENT-HARNESSES-TRACKER]] o [[GE-3-TRACKER]].
 5. Cerrá evidencia en [[EVIDENCE-REGISTER]].
 6. Si el flujo se repite, promovelo a [[SESSION-RUNBOOK]].
 
@@ -25,6 +25,17 @@ Este vault organiza el curso como sistema vivo: [[COURSE-DASHBOARD]] muestra el 
 - Memoria persistente: [[engram-memory]]
 - Proceso SDD: [[sdd-operating-model]]
 - Colaboración Git: [[git-teamwork]]
+- Disciplina de agentes: [[agent-harnesses]]
+- Runtime de agente: [[pi-runtime]]
+- Capa gentle sobre Pi: [[gentle-pi]]
+- Visibilidad operacional: [[sub-agent-statusline]]
+- Telemetry/calibración: [[metronous]]
+- Guardrails de planificación: [[pi-plan-lock]]
+- Recuperación de flujo: [[sdd-flow-recovery]]
+- Conexión a VPS real: [[vps-connection]]
+- Engram Cloud en VPS: [[engram-cloud-vps]]
+- Integración visual de APIs: [[api-bridge-pattern]]
+- Criterio profesional: [[professional-criteria]]
 
 ## Regla de oro
 

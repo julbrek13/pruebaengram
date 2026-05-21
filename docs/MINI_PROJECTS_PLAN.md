@@ -1,6 +1,6 @@
-# Plan de Mini-Proyectos: 3 Pilares + 3 Modos SDD
+# Plan de Mini-Proyectos: 6 Pilares + 3 Modos SDD
 
-Plan práctico para dominar **Tests**, **Engram**, **Git en equipo** y **Gentleman.Dots** con criterio operativo real.
+Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentleman.Dots**, **AGENTS.md**, **Agent Harnesses**, **conexión VPS real**, **API Bridge** y **criterio profesional** con evidencia operativa.
 
 ---
 
@@ -227,6 +227,158 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo** y **Gentlem
 
 ---
 
+## PILAR 6 — AGENT HARNESSES COMO DISCIPLINA OPERATIVA
+
+Un harness no es “otra app de IA”: es la **estructura que contiene, mide y disciplina** al agente. Este pilar enseña a pasar de usar agentes sueltos a operar un sistema observable, gobernado y recuperable.
+
+### AH-0: Entender qué es un Agent Harness
+- **Modo:** no-SDD
+- **Objetivo:** explicar el harness como contenedor operativo: interfaz, reglas, memoria, delegación, medición, visibilidad y verificación.
+- **Guía:** `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`
+- **Vault:** `docs/ObsidianVaults-GentleAI-Course/30-PRACTICE/Tracks/AGENT-HARNESSES-TRACKER.md`
+- **Checklist:**
+  - [ ] diferenciar modelo, agente, orquestador y harness
+  - [ ] explicar por qué SDD + Engram + AGENTS.md forman un harness educativo
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/agent-harnesses/foundation`
+
+### AH-1: Pi, gentle-pi y gentle-engram como capas de harness
+- **Modo:** parcial-SDD
+- **Objetivo:** mapear una progresión de menor a mayor disciplina operativa.
+- **FAQ base:** `docs/GENTLE_PI_BEGINNER_FAQ.md`
+- **Checklist:**
+  - [ ] Pi: terminal coding harness minimalista
+  - [ ] gentle-pi: SDD, subagentes, guardrails, skills y model routing
+  - [ ] gentle-engram: memoria persistente, recuperación y continuidad entre sesiones
+  - [ ] documentar tradeoff simplicidad vs disciplina
+  - [ ] responder “¿qué agrega Pi si ya uso Claude Code/OpenCode?” sin vender humo
+  - [ ] inventariar packages con `pi list` y clasificar qué problema resuelve cada uno
+
+### AH-2: Visibilidad de subagentes con `sub-agent-statusline`
+- **Modo:** parcial-SDD
+- **Fuente:** `https://github.com/Joaquinvesapa/sub-agent-statusline`
+- **Objetivo:** enseñar que delegar sin visibilidad es perder control operativo.
+- **Despiece curricular:** estado de subagentes, fallos, tiempo transcurrido, navegación a sesiones hijas y uso de tokens/contexto cuando está disponible.
+- **Checklist:**
+  - [ ] explicar el problema “los subagentes desaparecen en background”
+  - [ ] diseñar una práctica con 2 subagentes paralelos y tracking manual
+  - [ ] definir qué evidencia mínima debe verse antes de confiar en una delegación
+  - [ ] registrar si el agente mantiene o pierde el flujo cuando el usuario interactúa a mitad de SDD
+  - [ ] guardar decisión en Engram con `topic_key: course/agent-harnesses/subagent-visibility`
+
+### AH-2b: Plan mode y guardrails de ejecución
+- **Modo:** parcial-SDD
+- **Fuente conceptual:** dudas de foro sobre `/plan`, `@porche/pi-plan-lock` y miedo a que la IA edite sin permiso.
+- **Objetivo:** separar planificación read-only de ejecución y mostrar que un guardrail de runtime vale más que “portate bien” en prompt.
+- **Checklist:**
+  - [ ] explicar diferencia entre plan mode y SDD design
+  - [ ] simular exploración read-only sin escribir archivos
+  - [ ] documentar qué tools quedan permitidas/bloqueadas
+  - [ ] explicar por qué bloquear MCP/Engram en plan mode puede ser correcto
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/agent-harnesses/plan-mode-guardrails`
+
+### AH-3: Medición y calibración con `metronous`
+- **Modo:** full-SDD
+- **Fuente:** `https://github.com/kiosvantra/metronous`
+- **Objetivo:** enseñar que un agente profesional se calibra con datos, no con sensaciones.
+- **Despiece curricular:** telemetry local, sesiones, tool calls, costos, benchmarks, thresholds, ROI, recomendaciones de cambio de modelo y dashboard TUI.
+- **Checklist:**
+  - [ ] definir métricas mínimas: costo por sesión, errores, accuracy aproximada, ROI y sample size
+  - [ ] explicar `KEEP` / `SWITCH` / `URGENT_SWITCH` / `INSUFFICIENT_DATA`
+  - [ ] diseñar un ejercicio de comparación entre agentes/fases SDD
+  - [ ] guardar decisión en Engram con `topic_key: course/agent-harnesses/telemetry-calibration`
+
+### AH-4: Harness completo: gobernar, observar, medir, corregir
+- **Modo:** full-SDD
+- **Objetivo:** integrar SDD, Engram, AGENTS.md, statusline y telemetry como circuito cerrado de mejora.
+- **Checklist:**
+  - [ ] planificar un cambio con SDD
+  - [ ] delegar con visibilidad de subagentes
+  - [ ] registrar decisiones y recovery en Engram
+  - [ ] verificar `sdd-init` antes de exigir delegación SDD
+  - [ ] confirmar que phases SDD delegan a `sdd-*` y no a workers genéricos cuando corresponde
+  - [ ] evaluar costo/calidad antes de cambiar modelo o flujo
+  - [ ] cerrar con evidencia repo + Engram + dashboard/tracker
+
+### AH-5: Conexión VPS orquestada como caso real
+- **Modo:** full-SDD
+- **Guía:** `docs/VPS_CONNECTION_COURSE_INTEGRATION.md`
+- **Runbook anidado:** `docs/VPS_ENGRAM_CLOUD_COURSE_RUNBOOK.md`
+- **Fuente real:** `/home/maca/qontera-platform-infrastructure`
+- **Objetivo:** entender la VPS como infraestructura gobernada por contratos: SSH, deploy user, deploy keys, Nginx, rutas runtime, validación pública y Engram Cloud.
+- **Checklist:**
+  - [ ] explicar proveedor/OS/topología sin tocar secretos
+  - [ ] diferenciar `root`, `deploy`, deploy keys y aliases SSH por repo
+  - [ ] mapear `repo → /opt/qontera/<service> → build → Nginx → dominio`
+  - [ ] justificar “manual first” antes de CI/CD
+  - [ ] explicar espacios Engram Cloud por proyecto
+  - [ ] explicar flujo anidado provisioning → SSH → deploy user → Nginx → TLS
+  - [ ] diferenciar operación AdminWeb vs operación Infra
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/vps-connection/foundation`
+
+### AH-5b: Engram Cloud montado en VPS
+- **Modo:** full-SDD
+- **Guía:** `docs/VPS_ENGRAM_CLOUD_COURSE_RUNBOOK.md`
+- **Fuente real:** `/home/maca/qontera-platform-infrastructure/docs/engram-cloud.md`
+- **Objetivo:** comprender Engram Cloud como memoria compartida con espacios aislados por repo/orquestador.
+- **Checklist:**
+  - [ ] explicar runtime `/opt/qontera/engram`, Nginx site y listener loopback
+  - [ ] mapear `qontera-web`, `qontera-admin-wb`, `qontera-app`, `qontera-platform-infrastructure`
+  - [ ] explicar `ENGRAM_CLOUD_SERVER`, `ENGRAM_CLOUD_TOKEN`, `ENGRAM_PROJECT` sin exponer secretos
+  - [ ] diferenciar token de autenticación vs `project` como frontera de contexto
+  - [ ] explicar estados `online`, `public-offline`, `stopped`
+  - [ ] justificar por qué no usar `docker compose down -v`
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/engram-cloud-vps/foundation`
+
+### AH-6: API Bridge como integración visual y webhook mapper
+- **Modo:** full-SDD
+- **Guía:** `docs/API_BRIDGE_COURSE_INTEGRATION.md`
+- **Fuente:** `https://github.com/AlannFernandez/api-bridge`
+- **Objetivo:** estudiar API Bridge como patrón de integración visual: nodos, execution engine, data mapper, proxy y webhook output.
+- **Checklist:**
+  - [ ] explicar `flow config → execution engine → mapped response → webhook endpoint`
+  - [ ] separar UI visual de motor de ejecución
+  - [ ] listar riesgos: SSRF, secrets, auth, rate limits, logs y tenant isolation
+  - [ ] diseñar contrato mínimo de flow seguro
+  - [ ] conectar el patrón con Qontera Service Workspaces
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/api-bridge/pattern`
+
+---
+
+## BLOQUE TRANSVERSAL — CRITERIO PROFESIONAL
+
+Este bloque toma preguntas reales de comunidad y las convierte en entrenamiento de decisión, comunicación y criterio.
+
+### CP-0: Crítica técnica vs preferencia tecnológica
+- **Modo:** no-SDD
+- **Guía:** `docs/PROFESSIONAL_CRITERIA_COURSE_INTEGRATION.md`
+- **Objetivo:** distinguir feedback técnico útil de “mi stack es mejor que el tuyo”.
+- **Checklist:**
+  - [ ] identificar restricción real
+  - [ ] separar riesgo de gusto
+  - [ ] estimar costo de migración
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/professional-criteria/technical-critique`
+
+### CP-1: Negociar alcance y “detalles adicionales”
+- **Modo:** parcial-SDD
+- **Objetivo:** convertir cambios aparentemente chicos en impacto visible.
+- **Checklist:**
+  - [ ] describir cambio solicitado
+  - [ ] estimar impacto en plazo/riesgo
+  - [ ] proponer fase 2 o tradeoff
+  - [ ] redactar respuesta profesional
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/professional-criteria/scope-negotiation`
+
+### CP-2: POC vs MVP vs producto
+- **Modo:** parcial-SDD
+- **Objetivo:** clasificar una idea antes de construirla.
+- **Checklist:**
+  - [ ] definir hipótesis técnica
+  - [ ] definir hipótesis de usuario
+  - [ ] decidir qué NO construir todavía
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/professional-criteria/poc-mvp-product`
+
+---
+
 ## 📊 Registro de progreso
 
 | ID | Pilar | Modo | Estado | Fecha evidencia | Evidencia |
@@ -250,17 +402,30 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo** y **Gentlem
 | AGENTS-0 | AGENTS.md | no-SDD | 🔲 | — | pendiente |
 | AGENTS-1 | AGENTS.md | parcial-SDD | 🔲 | — | pendiente |
 | AGENTS-2 | AGENTS.md | parcial/full-SDD | 🔲 | — | pendiente |
+| AH-0 | Agent Harnesses | no-SDD | 🔲 | — | pendiente |
+| AH-1 | Agent Harnesses | parcial-SDD | 🔲 | — | pendiente |
+| AH-2 | Agent Harnesses | parcial-SDD | 🔲 | — | pendiente |
+| AH-2b | Agent Harnesses | parcial-SDD | 🔲 | — | pendiente |
+| AH-3 | Agent Harnesses | full-SDD | 🔲 | — | pendiente |
+| AH-4 | Agent Harnesses | full-SDD | 🔲 | — | pendiente |
+| AH-5 | VPS Connection | full-SDD | 🔲 | — | pendiente |
+| AH-5b | Engram Cloud VPS | full-SDD | 🔲 | — | pendiente |
+| AH-6 | API Bridge | full-SDD | 🔲 | — | pendiente |
+| CP-0 | Criterio profesional | no-SDD | 🔲 | — | pendiente |
+| CP-1 | Criterio profesional | parcial-SDD | 🔲 | — | pendiente |
+| CP-2 | Criterio profesional | parcial-SDD | 🔲 | — | pendiente |
 
 ---
 
 ## Ruta recomendada
 
-1. no-SDD: DOTS-0 → DOTS-1 → AGENTS-0 → TP-1 → EN-1 → GE-1
-2. parcial-SDD: DOTS-2 → DOTS-3 → AGENTS-1 → TP-2 → EN-2 → GE-2
-3. full-SDD: TP-4 → EN-4 → DOTS-4 → AGENTS-2 → GE-3
+1. no-SDD: DOTS-0 → DOTS-1 → AGENTS-0 → AH-0 → CP-0 → TP-1 → EN-1 → GE-1
+2. parcial-SDD: DOTS-2 → DOTS-3 → AGENTS-1 → AH-1 → AH-2 → AH-2b → CP-1 → CP-2 → TP-2 → EN-2 → GE-2
+3. full-SDD: TP-4 → EN-4 → DOTS-4 → AGENTS-2 → AH-3 → AH-4 → AH-5 → AH-5b → AH-6 → GE-3
 
 ### Siguiente bloque técnico sugerido
 
 - `DOTS-0` y `DOTS-1`: consolidar la base de entorno antes de seguir escalando el curso.
+- `AH-0`: introducir Agent Harnesses como marco mental antes de instalar o adoptar herramientas concretas.
 
 Si no podés justificar el modo elegido, frená y redefiní alcance.

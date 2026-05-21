@@ -220,6 +220,28 @@ Tomado de `GUIA-SDD-COMPLETA.pdf`:
 
 ---
 
+## 8.1) Agent Harnesses: cerrar el loop operativo
+
+SDD + Engram + AGENTS.md forman la base del harness educativo del repo. La integración de Agent Harnesses agrega dos preguntas nuevas:
+
+1. **Visibilidad:** ¿sé qué están haciendo mis subagentes mientras delego?
+2. **Medición:** ¿sé cuánto cuesta y qué calidad produce cada agente/modelo/fase?
+
+### Integraciones curriculares
+
+| Herramienta | Rol en el harness | Uso docente | Límite |
+|---|---|---|---|
+| `sub-agent-statusline` | Visibilidad de subagentes en OpenCode TUI | Enseñar delegación observable: running/done/failed, elapsed time y contexto/tokens cuando estén disponibles | No reemplaza Engram ni verify; muestra estado vivo |
+| `metronous` | Telemetry, benchmarks y calibración local | Enseñar decisiones por datos: costo, eventos, ROI, thresholds y recomendaciones de modelo | Métricas mal definidas producen malas decisiones automatizadas |
+
+### Regla operativa
+
+No cambiar modelo, agente o flujo por sensación si hay forma de observar o medir. Primero recuperar evidencia, después decidir.
+
+Referencia curricular: `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`.
+
+---
+
 ## 9) Checklist operativo por sesión
 
 Inicio:
