@@ -36,6 +36,7 @@ Este vault organiza el curso como sistema vivo: [[COURSE-DASHBOARD]] muestra el 
 - Engram Cloud en VPS: [[engram-cloud-vps]]
 - Integración visual de APIs: [[api-bridge-pattern]]
 - Criterio profesional: [[professional-criteria]]
+- Dashboard independiente de inteligencia/aprobación humana: [[INTELLIGENCE-DASHBOARD]]
 
 ## Regla de oro
 

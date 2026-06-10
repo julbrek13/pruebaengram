@@ -85,6 +85,7 @@ pruebaengram/
 │  ├─ MATRIZ_TRAZABILIDAD_CURSO.md
 │  ├─ PROJECT_STRUCTURE.md
 │  ├─ GSR_MODEL_ROUTING_INTEGRATION.md
+│  ├─ intelligence-pipeline/
 │  └─ gentlaireadme/
 ├─ src/
 ├─ tests/
@@ -109,6 +110,10 @@ Para criterios de ubicación, ownership y cuándo mover archivos, ver `docs/PROJ
 9. `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` → curva de aprendizaje para aprovechar `.dots` + gentle-ai
 10. `docs/ObsidianVaults-GentleAI-Course/` → vault Obsidian para seguimiento visual, grafo nodal y evidencia del curso
 11. `docs/AGENTS_MD_COURSE_INTEGRATION.md` → contrato operativo para agentes de código
+
+### Sistemas auxiliares independientes
+
+- `docs/intelligence-pipeline/evidence-pack-v1.md` → dashboard/capa independiente para recopilar, verificar y aprobar evidencia antes de decidir si se integra al curso, a Qontera Admin o a otra metadata general.
 
 ---
 

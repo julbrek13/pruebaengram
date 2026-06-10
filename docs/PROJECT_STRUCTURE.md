@@ -55,6 +55,7 @@ Es la fuente curada del curso en el repo.
 - Los documentos raíz de `docs/` explican operación, progreso y trazabilidad.
 - `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` conecta Gentleman.Dots con la curva de aprendizaje del curso.
 - `docs/ObsidianVaults-GentleAI-Course/` es el vault de seguimiento visual del curso; usa dashboards, trackers, evidencia y grafo nodal.
+- `docs/intelligence-pipeline/` define una capa independiente de revisión y aprobación humana para evidencia externa; vive en este repo por trazabilidad y posible auditoría hacia Qontera Admin, pero no forma parte del roadmap del curso salvo aprobación explícita del usuario.
 - `docs/AGENTS_MD_COURSE_INTEGRATION.md` explica cómo usar `AGENTS.md` como contrato operativo para agentes.
 - `docs/gentlaireadme/` es referencia importada: sirve como consulta, no como estado canónico del curso.
 - Si Engram y repo discrepan sobre estado SDD, usar la regla documentada en `ENGRAM_RECOVERY_RUNBOOK.md`.
