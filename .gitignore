@@ -8,6 +8,9 @@ coverage/
 # Local SDD snapshots (Engram is source of truth)
 sdd/
 
+# Local code intelligence cache (not course evidence)
+.codegraph/
+
 # Environment files
 .env
 .env.*
