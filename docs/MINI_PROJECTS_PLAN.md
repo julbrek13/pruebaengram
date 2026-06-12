@@ -231,6 +231,59 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentlema
 
 Un harness no es “otra app de IA”: es la **estructura que contiene, mide y disciplina** al agente. Este pilar enseña a pasar de usar agentes sueltos a operar un sistema observable, gobernado y recuperable.
 
+### AH-CG: CodeGraph como lectura estructural del repo
+- **Modo:** parcial-SDD
+- **Objetivo:** usar CodeGraph para entender estructura, símbolos y dependencias antes de experimentar con runtimes de agentes.
+- **Orden:** va antes de Hermes. Primero se aprende a leer el edificio; después se automatiza trabajo dentro del edificio.
+- **Política:** CodeGraph es exploración estructural read-only; Engram sigue siendo la memoria durable de decisiones, evidencia y contexto.
+- **Sandbox:** `.codegraph/` es cache local ignorada por Git, no evidencia del curso.
+- **Checklist:**
+  - [ ] generar o validar índice local sin commitear `.codegraph/`
+  - [ ] responder una pregunta estructural con CodeGraph y confirmar con lectura de archivos
+  - [ ] registrar evidencia como rutas del repo + topic key u observation ID de Engram
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/codegraph/foundation`
+
+### AH-CG-MCP: CodeGraph MCP dentro de OpenCode
+- **Modo:** parcial-SDD
+- **Objetivo:** practicar CodeGraph MCP como apoyo de navegación, no como prueba de implementación.
+- **Checklist:**
+  - [ ] usar MCP para ubicar relaciones entre archivos/símbolos
+  - [ ] verificar la conclusión con `Read`, diff o documentación del repo
+  - [ ] explicar por qué el cache `.codegraph/` no reemplaza evidencia Git/Engram
+  - [ ] guardar política en Engram con `topic_key: course/codegraph/mcp-policy`
+
+### AH-HERMES: Hermes como laboratorio avanzado de runtime
+- **Modo:** full-SDD
+- **Objetivo:** experimentar con perfiles, estado y runtime de agentes sin reemplazar OpenCode, GentleAI, SDD ni Engram.
+- **Prerequisito:** completar AH-CG y AH-CG-MCP.
+- **Sandbox:** usar `HERMES_HOME` aislado; no usar secretos de producción, VPS, Nginx, deploy flows ni configuración global.
+- **Checklist:**
+  - [ ] definir `HERMES_HOME` local del laboratorio antes de ejecutar cualquier comando
+  - [ ] demostrar que el perfil no toca configuración global
+  - [ ] documentar límites: sandbox-only, sin secretos y sin producción
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/hermes/sandbox-foundation`
+
+### AH-HERMES-CG: Integración Hermes + CodeGraph
+- **Modo:** full-SDD
+- **Objetivo:** combinar exploración estructural y runtime de agente sólo cuando ambos módulos standalone estén entendidos.
+- **Gate:** si falta CodeGraph o Hermes standalone, este laboratorio se difiere.
+- **Checklist:**
+  - [ ] plantear una pregunta estructural para CodeGraph
+  - [ ] usar Hermes sólo dentro del sandbox aislado
+  - [ ] separar exploración, ejecución y evidencia en el reporte
+  - [ ] guardar aprendizaje en Engram con `topic_key: course/hermes-codegraph/integration-lab`
+
+### AH-QONTERA-CG-HERMES: Transferencia controlada a Qontera
+- **Modo:** full-SDD
+- **Objetivo:** preparar adopción empresarial futura sin tocar producción.
+- **Repos:** `qontera-web`, `qontera-admin-wb`, `qontera-app` y `qontera-platform-infrastructure` mantienen fronteras separadas.
+- **Fuera de sandbox:** VPS, Nginx, deploy flows y secretos.
+- **Checklist:**
+  - [ ] asignar cada práctica al repo correcto
+  - [ ] mantener infraestructura sólo en `qontera-platform-infrastructure`
+  - [ ] marcar cualquier paso con VPS/Nginx/deploy/secrets como fuera de alcance
+  - [ ] guardar playbook en Engram con `topic_key: course/qontera/codegraph-hermes-transfer`
+
 ### AH-0: Entender qué es un Agent Harness
 - **Modo:** no-SDD
 - **Objetivo:** explicar el harness como contenedor operativo: interfaz, reglas, memoria, delegación, medición, visibilidad y verificación.
@@ -403,6 +456,11 @@ Este bloque toma preguntas reales de comunidad y las convierte en entrenamiento 
 | AGENTS-1 | AGENTS.md | parcial-SDD | 🔲 | — | pendiente |
 | AGENTS-2 | AGENTS.md | parcial/full-SDD | 🔲 | — | pendiente |
 | AH-0 | Agent Harnesses | no-SDD | 🔲 | — | pendiente |
+| AH-CG | CodeGraph foundation | parcial-SDD | 🔲 | — | pendiente |
+| AH-CG-MCP | CodeGraph MCP policy | parcial-SDD | 🔲 | — | pendiente |
+| AH-HERMES | Hermes sandbox runtime | full-SDD | 🔲 | — | pendiente |
+| AH-HERMES-CG | Hermes + CodeGraph lab | full-SDD | 🔲 | — | pendiente |
+| AH-QONTERA-CG-HERMES | Qontera transfer appendix | full-SDD | 🔲 | — | pendiente |
 | AH-1 | Agent Harnesses | parcial-SDD | 🔲 | — | pendiente |
 | AH-2 | Agent Harnesses | parcial-SDD | 🔲 | — | pendiente |
 | AH-2b | Agent Harnesses | parcial-SDD | 🔲 | — | pendiente |
@@ -420,8 +478,8 @@ Este bloque toma preguntas reales de comunidad y las convierte en entrenamiento 
 ## Ruta recomendada
 
 1. no-SDD: DOTS-0 → DOTS-1 → AGENTS-0 → AH-0 → CP-0 → TP-1 → EN-1 → GE-1
-2. parcial-SDD: DOTS-2 → DOTS-3 → AGENTS-1 → AH-1 → AH-2 → AH-2b → CP-1 → CP-2 → TP-2 → EN-2 → GE-2
-3. full-SDD: TP-4 → EN-4 → DOTS-4 → AGENTS-2 → AH-3 → AH-4 → AH-5 → AH-5b → AH-6 → GE-3
+2. parcial-SDD: DOTS-2 → DOTS-3 → AGENTS-1 → AH-CG → AH-CG-MCP → AH-1 → AH-2 → AH-2b → CP-1 → CP-2 → TP-2 → EN-2 → GE-2
+3. full-SDD: TP-4 → EN-4 → DOTS-4 → AGENTS-2 → AH-HERMES → AH-HERMES-CG → AH-QONTERA-CG-HERMES → AH-3 → AH-4 → AH-5 → AH-5b → AH-6 → GE-3
 
 ### Siguiente bloque técnico sugerido
 

@@ -59,6 +59,17 @@ Objetivo: usar Engram como memoria operacional del repo, no como bloc de notas s
 - `course/agent-harnesses/gentle-pi-onboarding`
 - `course/agent-harnesses/gentle-pi-troubleshooting`
 
+### CodeGraph / lectura estructural del repo
+- `course/codegraph/foundation`
+- `course/codegraph/mcp-policy`
+
+### Hermes / runtime sandbox de agentes
+- `course/hermes/sandbox-foundation`
+- `course/hermes-codegraph/integration-lab`
+
+### Qontera / transferencia CodeGraph + Hermes
+- `course/qontera/codegraph-hermes-transfer`
+
 ### VPS / conexión a infraestructura real
 - `course/vps-connection/foundation`
 - `course/vps-connection/manual-deploy`

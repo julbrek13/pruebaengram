@@ -126,7 +126,104 @@ Repositorio: <https://github.com/kiosvantra/metronous>
 
 **Qué NO copiar ciegamente:** telemetry no es verdad absoluta. Si la métrica está mal definida, solo automatiza una mala decisión. Primero se define qué significa “bueno” para el curso.
 
+### CodeGraph
+
+**Qué es para el curso:** una capa de inteligencia estructural del código. Ayuda a ubicar símbolos, relaciones y dependencias para formular mejores preguntas antes de editar.
+
+**Qué enseña:** lectura del sistema. Un agente más rápido sin comprensión estructural sólo acelera errores. CodeGraph entra antes de Hermes porque baja el riesgo: primero mapa, después runtime.
+
+**Política:** CodeGraph es read-only para aprendizaje. Su índice local `.codegraph/` es cache, no evidencia, y no debe commitearse.
+
+**Evidencia mínima:**
+- pregunta estructural respondida;
+- archivos reales leídos para confirmar;
+- reporte con rutas del repo y topic key `course/codegraph/foundation` o `course/codegraph/mcp-policy`.
+
+### Hermes
+
+**Qué es para el curso:** un laboratorio avanzado de runtime/perfiles de agente. Se enseña como sandbox, no como reemplazo de OpenCode, GentleAI, SDD ni Engram.
+
+**Gate pedagógico:** Hermes viene después de CodeGraph. Si el alumno todavía no distingue exploración estructural de evidencia durable, no está listo para experimentar con runtime de agentes.
+
+**Sandbox obligatorio:**
+- `HERMES_HOME` aislado por laboratorio;
+- sin secretos de producción;
+- sin VPS, Nginx ni deploy flows;
+- sin mutación de configuración global/default;
+- comandos opcionales sólo con aprobación explícita bajo las reglas actuales del repo.
+
+**Evidencia mínima:** configuración de sandbox documentada, límites explicados y memoria `course/hermes/sandbox-foundation`.
+
+### Hermes + CodeGraph
+
+La integración se ofrece sólo después de completar ambos módulos standalone. El laboratorio combina CodeGraph para exploración estructural y Hermes para runtime sandbox, manteniendo la evidencia en repo + Engram.
+
+Checklist del laboratorio:
+- [ ] CodeGraph standalone completado.
+- [ ] Hermes sandbox completado.
+- [ ] pregunta estructural definida antes de ejecutar runtime.
+- [ ] reporte separa exploración, ejecución y evidencia.
+- [ ] memoria guardada en `course/hermes-codegraph/integration-lab`.
+
+### Transferencia Qontera
+
+La transferencia a Qontera es appendix/playbook, no rollout de producción.
+
+| Repo | Límite |
+|---|---|
+| `qontera-web` | práctica web aislada, sin deploy |
+| `qontera-admin-wb` | práctica admin aislada, sin secretos |
+| `qontera-app` | práctica app aislada, sin credenciales productivas |
+| `qontera-platform-infrastructure` | única frontera para infraestructura, siempre fuera de sandbox productivo |
+
+Fuera de alcance del laboratorio: VPS, Nginx, deploy flows y secretos. Cualquier paso que toque esas áreas se marca como producción y se difiere.
+
 ## Módulos propuestos
+
+### AH-CG — CodeGraph foundation
+
+Objetivo: entender CodeGraph como mapa estructural read-only y separarlo de Engram.
+
+Evidencia mínima:
+- pregunta estructural;
+- confirmación con archivos del repo;
+- memoria `course/codegraph/foundation`.
+
+### AH-CG-MCP — CodeGraph MCP/OpenCode policy
+
+Objetivo: usar MCP como navegación asistida, no como prueba.
+
+Evidencia mínima:
+- regla de uso MCP escrita;
+- rutas revisadas;
+- memoria `course/codegraph/mcp-policy`.
+
+### AH-HERMES — Hermes sandbox runtime
+
+Objetivo: practicar perfiles/runtime con `HERMES_HOME` aislado.
+
+Evidencia mínima:
+- sandbox documentado;
+- límites de producción explícitos;
+- memoria `course/hermes/sandbox-foundation`.
+
+### AH-HERMES-CG — Hermes + CodeGraph integration
+
+Objetivo: combinar mapa estructural y runtime sólo en sandbox.
+
+Evidencia mínima:
+- prerequisitos completos;
+- reporte repo + Engram;
+- memoria `course/hermes-codegraph/integration-lab`.
+
+### AH-QONTERA-CG-HERMES — Qontera transfer appendix
+
+Objetivo: preparar adopción futura preservando fronteras entre Web/Admin/App/Infra.
+
+Evidencia mínima:
+- playbook sin producción;
+- exclusión explícita de VPS/Nginx/deploy/secrets;
+- memoria `course/qontera/codegraph-hermes-transfer`.
 
 ### AH-0 — Fundamentos de harness
 

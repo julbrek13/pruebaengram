@@ -42,6 +42,11 @@ Think of it as a README for agents: predictable context, constraints, and verifi
 - GE-3 tests: `npm test -- tests/ge3-policy.test.ts`.
 - Do not run `npm run build` under the current course rules.
 
+## Video transcription timebox
+
+- For Gentleman video transcription / AJ rebaseline work, use `.agent/skills/video-transcription-timebox/SKILL.md`.
+- If missing-bundle recovery takes more than 10 minutes, stop waiting and regenerate inventory as a new evidence lineage with a checkpoint.
+
 ## PR expectations
 
 Use `.github/pull_request_template.md` when opening or updating PRs. Every PR should explain:

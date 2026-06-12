@@ -33,6 +33,8 @@ External source + evidence + human review = integrable knowledge.
 
 ## Evidence Pack schema
 
+Use `docs/intelligence-pipeline/templates/evidence-pack-template.md` when drafting a local pack for human review.
+
 ```yaml
 id: evidence-YYYYMMDD-source-slug
 type: evidence-pack

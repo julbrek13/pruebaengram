@@ -242,6 +242,36 @@ Referencia curricular: `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`.
 
 ---
 
+## 8.2) CodeGraph, MCP y evidencia durable
+
+CodeGraph se incorpora al curso como lectura estructural del repositorio. Sirve para explorar relaciones entre archivos, símbolos y dependencias; no reemplaza SDD, Engram, Git, `Read`, diffs ni verificación enfocada.
+
+### Responsabilidades
+
+| Herramienta | Responsabilidad | No es |
+|---|---|---|
+| CodeGraph | mapa estructural local del código | memoria durable o prueba de implementación |
+| CodeGraph MCP en OpenCode | navegación y preguntas estructurales | autoridad final para cambios |
+| Engram | decisiones, evidencia, contexto y precedencia histórica | índice de símbolos del repo |
+| Git/repo | estado actual de archivos y diffs | memoria de intención si no está documentada |
+
+### Política operativa
+
+- `.codegraph/` es cache local y está fuera de la evidencia del curso.
+- Una conclusión obtenida con CodeGraph debe confirmarse con lectura de archivos, diff, docs o checks enfocados.
+- Los reportes deben separar rutas del repo de topic keys u observation IDs de Engram.
+- Si CodeGraph MCP no está disponible, el curso puede continuar con `Read`, `Grep`, `Glob` y evidencia repo/Engram.
+
+### Evidencia mínima del módulo
+
+| Resultado | Evidencia aceptada |
+|---|---|
+| Concepto CodeGraph vs Engram | explicación breve + `course/codegraph/foundation` |
+| Uso MCP/OpenCode | pregunta estructural + archivos confirmados + `course/codegraph/mcp-policy` |
+| Sandbox limpio | `git status` sin `.codegraph/` como evidencia committeable |
+
+---
+
 ## 9) Checklist operativo por sesión
 
 Inicio:
