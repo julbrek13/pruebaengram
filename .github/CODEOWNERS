@@ -1,0 +1,7 @@
+# CODEOWNERS is intentionally non-enforcing until real GitHub owners are confirmed.
+# Do not invent users or teams here. Replace the examples with valid owners before uncommenting.
+#
+# docs/workspace/ @org/workspace-owners
+# AGENTS.md @org/agent-contract-owners
+# docs/ENGRAM_CONTEXT_MAP.md @org/engram-memory-owners
+# .github/pull_request_template.md @org/review-process-owners
