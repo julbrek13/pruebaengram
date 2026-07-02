@@ -24,6 +24,8 @@ Think of it as a README for agents: predictable context, constraints, and verifi
 - Start by checking relevant Engram context when the user references previous work.
 - Save important decisions, discoveries, bug fixes, conventions, and configuration changes to Engram.
 - Use stable topic keys from `docs/ENGRAM_CONTEXT_MAP.md`.
+- For workspace onboarding, merge safety, Engram project boundaries, and cross-repo handoffs, use `docs/workspace/OPERATING_STANDARD.md` first.
+- For default guardrails and manual gaps, use `docs/workspace/GUARDRAIL_DEFAULTS.md` before changing workspace process docs.
 - For course work, preserve dual traceability:
   - repo evidence: files, commits, tests, PRs;
   - Engram evidence: topic keys / observation IDs.
@@ -65,5 +67,7 @@ Read these first when context is missing:
 2. `docs/SDD_ENGRAM_OPERATING_MODEL.md`
 3. `docs/MINI_PROJECTS_PLAN.md`
 4. `docs/ENGRAM_CONTEXT_MAP.md`
-5. `docs/AGENTS_MD_COURSE_INTEGRATION.md`
-6. `docs/ObsidianVaults-GentleAI-Course/00-HQ/Indexes/START-HERE.md`
+5. `docs/workspace/OPERATING_STANDARD.md`
+6. `docs/workspace/GUARDRAIL_DEFAULTS.md`
+7. `docs/AGENTS_MD_COURSE_INTEGRATION.md`
+8. `docs/ObsidianVaults-GentleAI-Course/00-HQ/Indexes/START-HERE.md`

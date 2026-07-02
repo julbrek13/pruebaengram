@@ -21,6 +21,18 @@ Objetivo: usar Engram como memoria operacional del repo, no como bloc de notas s
 - `course/preferences`
 - `course/progress`
 
+### Lanes, módulos y gates del curso
+- `course/lanes/foundations`
+- `course/lanes/sdd-engram`
+- `course/lanes/git-review`
+- `course/lanes/agent-harnesses`
+- `course/lanes/research-evidence-governance`
+- `course/lanes/transfer-infrastructure`
+- `course/gates/evidence-review`
+- `course/gates/transcript-lineage`
+- `course/gates/dashboard-sync`
+- `course/gates/branch-module-traceability`
+
 ### Testing
 - `course/testing/foundations`
 - `course/testing/patterns`
@@ -43,6 +55,13 @@ Objetivo: usar Engram como memoria operacional del repo, no como bloc de notas s
 - `course/obsidian/vault-structure`
 - `course/obsidian/graph-workflow`
 - `course/obsidian/evidence-register`
+- `course/obsidian/dashboard-sync`
+
+### Inteligencia, evidencia y transcripciones
+- `course/intelligence/review-queue`
+- `course/evidence/routing`
+- `course/evidence/approved-register`
+- `course/transcripts/lineage`
 
 ### AGENTS.md / contrato operativo de agentes
 - `course/agents-md/foundation`
@@ -82,6 +101,9 @@ Objetivo: usar Engram como memoria operacional del repo, no como bloc de notas s
 - `course/engram-cloud-vps/context-spaces`
 - `course/engram-cloud-vps/availability-control`
 - `course/engram-cloud-vps/adminweb-boundary`
+- `qontera/engram-cloud-guardrail-automation-gaps`
+- `qontera/workspace-guardrail-defaults`
+- `qontera/owner-handoff-conclusions`
 
 ### API Bridge / integración visual
 - `course/api-bridge/pattern`
