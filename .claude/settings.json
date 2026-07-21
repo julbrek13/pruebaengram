@@ -1,0 +1,35 @@
+{
+  "model": "opus",
+  "effortLevel": "high",
+  "permissions": {
+    "allow": [
+      "Read(/**)",
+      "Edit(/**)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(.git/**)",
+      "Read(credentials.json)",
+      "Read(secrets/**)",
+      "Read(node_modules/**)",
+      "Read(dist/**)",
+      "Read(build/**)",
+      "Read(.DS_Store)",
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Edit(.git/**)",
+      "Edit(credentials.json)",
+      "Edit(secrets/**)",
+      "Edit(node_modules/**)",
+      "Edit(dist/**)",
+      "Edit(build/**)"
+    ]
+  },
+  "sandbox": {
+    "enabled": false,
+    "network": {
+      "allowedDomains": ["*"]
+    }
+  }
+}
