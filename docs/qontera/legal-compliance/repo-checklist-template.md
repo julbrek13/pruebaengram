@@ -1,6 +1,6 @@
 # Plantilla de Checklist por Proyecto
 
-> Copiar esta plantilla al owner-repo correspondiente. Modelo de compliance, no asesoría legal.
+> Instanciar esta plantilla en el owner-repo correspondiente sólo vía handoff sanitizado / owner-orchestrator. Modelo de compliance, no asesoría legal.
 > `⚖️` marca ítems que requieren validación de counsel.
 
 ## Identificación
