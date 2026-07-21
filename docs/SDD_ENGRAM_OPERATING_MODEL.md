@@ -96,6 +96,17 @@ Regla de conflicto (fuente de verdad):
 - **Repo Git manda** para contenido actual de archivos.
 - `docs/**` de progreso se corrigen como artefacto derivado cuando hay drift.
 
+### Fuentes de verdad para el curso
+
+| Canal | Autoridad | No debe decidir |
+|---|---|---|
+| Repo docs | Contenido durable, navegación del curso, contratos operativos y estado verificable de archivos | Intención histórica no escrita ni decisiones fuera del diff |
+| Engram | Decisiones, hallazgos, artefactos SDD y continuidad entre sesiones | Contenido actual de archivos si Git difiere |
+| OpenSpec | Artefactos activos de cambios SDD y checklist ejecutable de fases | Currícula permanente después de archive sin sincronización explícita |
+| Obsidian | Navegación visual, dashboards, trackers e índices derivados | Fuente canónica de verdad curricular o aprobación de evidencia |
+
+Cuando dos canales difieren, se resuelve por autoridad del canal y se deja evidencia dual: ruta del repo + topic key u observation ID de Engram.
+
 ### Señales de recuperación exitosa
 - Podés explicar estado actual en < 2 minutos.
 - Sabés próximo paso sin releer todo el código.
@@ -173,7 +184,24 @@ Atajo habitual:
 
 - `/sdd-new` (cuando el agente/plataforma lo soporte)
 
-## E. Higiene Git mínima
+## E. Course change gates con inteligencia acumulada
+
+Todo cambio de curso que use inteligencia acumulada, Evidence Packs o transcripciones debe pasar por estos gates antes de integrarse como contenido estable.
+
+| Gate | Pregunta | Evidencia mínima | Bloquea si |
+|---|---|---|---|
+| Evidence review | ¿La fuente está aprobada o sigue pendiente? | Pack con `pending_human_review` preservado o decisión humana explícita | Se usa una afirmación pendiente como verdad curricular |
+| Transcript lineage | ¿La idea viene de un artefacto recuperable? | Manifiesto, lote, ruta scratch o extracto revisado; nunca dump bruto | No hay lineage auditable o se copia material bruto |
+| Dashboard sync | ¿La navegación visual refleja el cambio? | Dashboard/tracker actualizado en su slice correspondiente | Obsidian presenta un estado distinto al repo |
+| Branch/module traceability | ¿El bloque es revisable y recuperable? | Rama o commit esperado, rutas, topic key Engram y nodo Obsidian | El módulo no puede auditarse de punta a punta |
+
+### Política de review workload
+
+El presupuesto operativo de este curso es **1000 líneas cambiadas por PR** (`additions + deletions`) salvo excepción explícita del maintainer. Si el forecast supera o se acerca al presupuesto, el cambio se divide por work units revisables con estrategia de chain declarada.
+
+Para `restructure-course-from-intelligence`, la estrategia elegida es `feature-branch-chain`: el tracker agrupa la feature hacia `main`, PR #1 apunta al tracker branch y cada PR hijo posterior apunta al PR anterior. Cada slice debe tener alcance, verificación documental y rollback propios.
+
+## F. Higiene Git mínima
 
 ```bash
 git status

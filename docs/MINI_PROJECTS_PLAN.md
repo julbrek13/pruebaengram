@@ -1,6 +1,8 @@
-# Plan de Mini-Proyectos: 6 Pilares + 3 Modos SDD
+# Plan de Mini-Proyectos: Lanes, Módulos y Gates
 
 Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentleman.Dots**, **AGENTS.md**, **Agent Harnesses**, **conexión VPS real**, **API Bridge** y **criterio profesional** con evidencia operativa.
+
+El curso se organiza por **lanes**: rutas de aprendizaje con módulos, resultados esperados y gates de salida. Los pilares históricos siguen existiendo como módulos internos, pero la navegación principal ahora prioriza orden pedagógico, evidencia y trazabilidad.
 
 ---
 
@@ -13,6 +15,28 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentlema
 
 ---
 
+## Lanes del curso
+
+| Lane | Módulos incluidos | Resultado del learner | Gate de completitud |
+|---|---|---|---|
+| Foundations | Tests, criterio profesional inicial, contratos básicos del repo | Puede explicar y verificar un cambio chico sin depender del agente | Tests o revisión documental enfocada + reporte repo/Engram |
+| SDD+Engram | EN-1 a EN-4, recuperación, topic keys y artefactos SDD | Puede sostener continuidad entre sesiones y fases SDD | Artefactos `proposal/spec/design/tasks/apply-progress/verify/archive` recuperables |
+| Git+Review | GE-1 a GE-3, commits, PRs, feedback y review budget | Puede preparar cambios revisables y auditar su historia | Diff acotado, trazabilidad dual y evidencia de verificación |
+| Agent Harnesses | AGENTS.md, CodeGraph, Hermes, statusline, telemetry y circuitos cerrados | Puede operar agentes con límites, observabilidad y recuperación | Harness documentado con límites, evidencia y rollback |
+| Research+Evidence Governance | Intelligence pipeline, Evidence Packs, transcript lineage y review queue | Puede usar investigación sin convertir evidencia pendiente en verdad curricular | Evidence Packs siguen `pending_human_review` hasta aprobación explícita |
+| Transfer+Infrastructure | Qontera, VPS, Engram Cloud, API Bridge y transferencia profesional | Puede mapear aprendizaje local a infraestructura real sin tocar producción | Fronteras por repo/servicio, sin secretos y con runbook verificable |
+
+### Gates transversales
+
+| Gate | Aplica cuando | Evidencia mínima |
+|---|---|---|
+| Evidence review | Un módulo usa packs, papers, transcripts o inteligencia acumulada | Estado `pending_human_review` preservado o decisión explícita de aprobación |
+| Transcript lineage | Un módulo toma ideas de transcripciones o scratch externo | Referencia a manifiesto/lineage; nunca dump bruto de transcripts |
+| Dashboard sync | Cambian navegación, lane, módulo o gate visible al learner | Dashboard/Obsidian se sincroniza en su propia slice PR, no en PR 1 |
+| Branch/module traceability | Se abre o cierra un TP, lane o work unit | Rama o commit, rutas repo, topic key Engram y nodo Obsidian asociado |
+
+---
+
 ## Cómo elegir el modo en cada mini-proyecto
 
 | Condición | Modo |
@@ -22,6 +46,10 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentlema
 | Arquitectura, múltiples capas, riesgo alto | full-SDD |
 
 ---
+
+## LANE: Foundations
+
+Esta lane construye criterio mínimo antes de automatizar: pruebas, edge cases, lectura de contratos y decisiones pequeñas con evidencia.
 
 ## PILAR 1 — TESTS
 
@@ -66,6 +94,10 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentlema
 
 ---
 
+## LANE: SDD+Engram
+
+Esta lane enseña memoria persistente, recuperación determinística y artefactos SDD como fuente auditable de decisiones.
+
 ## PILAR 2 — ENGRAM
 
 ### EN-1: mem_save operativo
@@ -103,6 +135,10 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentlema
   - [x] verify y archive guardados
 
 ---
+
+## LANE: Git+Review
+
+Esta lane convierte cambios en unidades revisables: commits atómicos, PRs efectivos, feedback y presupuestos de revisión.
 
 ## PILAR 3 — GIT EN EQUIPO
 
@@ -142,6 +178,10 @@ Plan práctico para dominar **Tests**, **Engram**, **Git en equipo**, **Gentlema
 ---
 
 ## PILAR 4 — GENTLEMAN.DOTS COMO TALLER PROFESIONAL
+
+## LANE: Agent Harnesses
+
+Esta lane enseña el taller operativo donde agentes, editor, memoria, skills y telemetría trabajan con límites observables.
 
 ### DOTS-0: Separación entorno vs IA
 - **Modo:** no-SDD

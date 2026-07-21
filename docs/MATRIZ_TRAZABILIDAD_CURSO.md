@@ -30,7 +30,22 @@ Para cada bloque de trabajo:
 
 ---
 
-## 3) Matriz aplicada al repo actual (ejemplos reales)
+## 3) Trazabilidad por lane y módulo
+
+| Lane | Módulos / bloques | Repo paths | Rama o commit evidence | Engram topic keys | Obsidian nodes |
+|---|---|---|---|---|---|
+| Foundations | TP-1, TP-2, TP-3 tests, CP-0 | `src/**`, `tests/**`, `docs/PROFESSIONAL_CRITERIA_COURSE_INTEGRATION.md` | Rama `tech/tp-*` o commit `test:`/`docs:` por bloque | `course/testing/*`, `course/professional-criteria/technical-critique` | Trackers de práctica y START-HERE |
+| SDD+Engram | EN-1 a EN-4, recovery, topic keys | `docs/ENGRAM_RECOVERY_RUNBOOK.md`, `docs/ENGRAM_CONTEXT_MAP.md`, `openspec/changes/**` | Commits por fase o por work unit SDD | `course/engram/*`, `sdd/<change>/*` | Dashboards derivados y trackers Engram |
+| Git+Review | GE-1 a GE-3 | `.github/pull_request_template.md`, `docs/MATRIZ_TRAZABILIDAD_CURSO.md`, policy docs | Rama `tech/tp-3-flujo-ramas`, PRs y commits convencionales | `course/git/*`, `sdd/ge-3-caso-real/*` | Master traceability y review notes |
+| Agent Harnesses | AGENTS, DOTS, CodeGraph, Hermes, telemetry | `AGENTS.md`, `.agent/skills/**`, `.atl/**`, docs de integración | Commits `docs:`/`chore(skill):` separados por harness | `course/agents-md/*`, `course/agent-harnesses/*`, `course/dots/*`, `course/codegraph/*`, `course/hermes*` | Trackers AGENTS/DOTS/Harnesses |
+| Research+Evidence Governance | Evidence Packs, review queue, transcript lineage | `docs/intelligence-pipeline/**`, evidence indexes | Sólo después de review humana explícita | `course/evidence/*`, `course/transcripts/*`, `course/intelligence/*` | Intelligence dashboard y evidence register |
+| Transfer+Infrastructure | Qontera, VPS, Engram Cloud, API Bridge | `docs/VPS_*`, `docs/API_BRIDGE_*`, repo handoff docs | Ramas por repo dueño; no mezclar infraestructura con curso local | `course/qontera/*`, `course/vps-connection/*`, `course/engram-cloud-vps/*`, `course/api-bridge/*` | Master traceability y runbooks |
+
+> Regla: si un lane usa evidencia pendiente, la matriz debe decir “pendiente” y no convertirla en contenido aprobado.
+
+---
+
+## 4) Matriz aplicada al repo actual (ejemplos reales)
 
 | Caso del curso | Qué debería tocar | Qué NO debería tocar | Cómo se valida |
 |---|---|---|---|
@@ -42,7 +57,7 @@ Para cada bloque de trabajo:
 
 ---
 
-## 4) Checklist de trazabilidad por PR/commit
+## 5) Checklist de trazabilidad por PR/commit
 
 - [ ] El objetivo del cambio está escrito en 1-2 frases.
 - [ ] El diff coincide con la fila de matriz elegida.
@@ -52,10 +67,12 @@ Para cada bloque de trabajo:
 - [ ] El reporte al usuario está separado en dos canales: **repo** vs **Engram**.
 - [ ] Si el cambio mezcla documentación y operación sin mismo objetivo, se separa en commits distintos.
 - [ ] Si el bloque conceptual crece demasiado, se corta en 2 checkpoints en vez de forzar 1 commit grande.
+- [ ] Si el cambio toca lanes/módulos/gates, queda mapeado a repo paths, rama/commit, Engram y nodo Obsidian.
+- [ ] Si hay Evidence Packs o transcripts, quedan como input pendiente salvo aprobación humana explícita.
 
 ---
 
-## 5) Heurísticas de corte para commits del curso
+## 6) Heurísticas de corte para commits del curso
 
 Usar estas reglas para decidir si un bloque va en **1 commit** o en **2+ commits**:
 
@@ -71,7 +88,7 @@ Usar estas reglas para decidir si un bloque va en **1 commit** o en **2+ commits
 
 ---
 
-## 6) Protocolo cuando repo y Engram difieren
+## 7) Protocolo cuando repo y Engram difieren
 
 Aplicar siempre en este orden:
 
@@ -86,7 +103,7 @@ Aplicar siempre en este orden:
 
 ---
 
-## 7) Formato obligatorio de reporte (consigna asentada)
+## 8) Formato obligatorio de reporte (consigna asentada)
 
 Desde este punto, todo avance del curso se reporta SIEMPRE con esta estructura:
 
@@ -108,21 +125,23 @@ Si no hubo cambios en alguno de los canales, debe declararse explícitamente:
 
 ---
 
-## 8) Plantilla rápida para cada nuevo bloque
+## 9) Plantilla rápida para cada nuevo bloque
 
 ```md
 ### Bloque
+- Lane:
 - Tipo de cambio:
 - Objetivo:
 - Archivos esperados:
 - Validación mínima:
 - Topic key/memoria:
+- Nodo Obsidian:
 - Commit sugerido:
 ```
 
 ---
 
-## 9) Criterio de calidad (tu semáforo)
+## 10) Criterio de calidad (tu semáforo)
 
 - 🟢 **Excelente**: objetivo claro, diff acotado, validación completa, commit auditables, memoria guardada.
 - 🟡 **Aceptable**: funciona, pero falta una pieza de trazabilidad (ej. memoria o justificación de commit).
@@ -132,7 +151,7 @@ Si queda en amarillo o rojo, se corrige **antes** de avanzar al siguiente bloque
 
 ---
 
-## 10) GE-3 — Política operativa (policy-as-code)
+## 11) GE-3 — Política operativa (policy-as-code)
 
 ### Criterios de apertura
 - Rama inicia en convención GE-3: `tech/tp-N-<tema>` o `docs/tp-N-<tema>`.
