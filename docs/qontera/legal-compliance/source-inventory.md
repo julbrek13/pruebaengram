@@ -42,8 +42,53 @@
 | `docs/workspace/GUARDRAIL_DEFAULTS.md` | Guardrails por repo |
 | `AGENTS.md` | Contrato operativo del repo |
 
+## Evidencia local verificada (2026-07-21)
+
+Barrido read-only sobre `pruebaengram` (sin owner-repos, sin secretos). Registra el estado
+**técnico actual** del repo como línea base, separado de lo `🔎 source to verify`.
+
+### Manifiestos y licencias de primera parte
+
+| Ítem | Hallazgo | Nota |
+|---|---|---|
+| `package.json` (raíz) | `private: true`, `type: module`, **sin campo `license`** | Workspace, no paquete distribuible |
+| Dependencias runtime | **Ninguna**; solo 3 devDependencies (`tsx`, `typescript`, `vitest`) | Toolchain de desarrollo |
+| `package-lock.json` | Lockfile npm del toolchain dev | — |
+| Otros manifiestos (Python/Rust/Go/Ruby/PHP) | **No presentes** | — |
+
+### Artefactos de licencia / SBOM propios
+
+| Ítem | Hallazgo |
+|---|---|
+| LICENSE / COPYING / NOTICE de primera parte | **Ninguno** (los ~40 LICENSE están todos en `node_modules/`) |
+| Identificadores SPDX en código propio | **Ninguno** |
+| Archivos SBOM (`.spdx`, `.cdx.json`, `bom.xml`) | **Ninguno** |
+
+> Implicación: el modelo OSS/SBOM de este dossier es **aspiracional** hoy — no hay evidencia
+> técnica generada aún en este repo. La generación real (SBOM, SPDX, notices) corresponde a cada
+> owner-repo.
+
+### Menciones de privacidad fuera del dossier
+
+| Archivo | Contenido |
+|---|---|
+| `docs/intelligence-pipeline/source-connection-approval.md` | Campo `privacy_risk: low\|medium\|high\|unknown` en schema de aprobación de fuentes |
+| `docs/intelligence-pipeline/source-proposals/youtube-transcripts-local-trial.md` | Metadata `privacy_risk: low` |
+
+Sin coincidencias de `confidential`, `NDA`, `GDPR`, `datos personales`, `copyright` ni `counsel`
+fuera de este dossier → el contenido legal sustantivo vive solo acá y (por puntero) en los
+owner-repos off-limits.
+
+### Boundaries de repos ya documentados localmente
+
+| Archivo | Rol para el dossier |
+|---|---|
+| `docs/MINI_PROJECTS_PLAN.md` | Fronteras separadas de los 4 repos; infra solo en `qontera-platform-infrastructure` |
+| `openspec/changes/integrate-codegraph-hermes-course/specs/course-codegraph-hermes/spec.md` | Requisito de respetar las fronteras de los 4 repos |
+
 ## Estado de verificación
 
 - Fuentes legales: **0 verificadas** localmente → toda cita es `🔎 source to verify`.
 - Fuentes OSS: conceptuales de investigación previa → `🔎 verificar`.
 - Fuentes internas: verificadas por lectura directa en esta sesión.
+- Evidencia técnica local: verificada por barrido read-only (2026-07-21); ver sección anterior.
