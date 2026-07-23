@@ -16,6 +16,22 @@ Cada evidencia debe incluir:
 - Nodo del vault que explica el aprendizaje.
 - Resultado verificable.
 
+## Reglas de integración aprobada
+
+- Este registro lista evidencia aprobada o pendiente del curso; no convierte Evidence Packs pendientes en verdad curricular.
+- Un Evidence Pack con `pending_human_review` sólo puede aparecer como input de review, no como resultado aprobado.
+- La evidencia aprobada debe incluir el ID del pack, la decisión humana y la ruta donde se integró.
+- Las transcripciones se registran por lineage, manifiesto o extracto revisado; no se copian dumps brutos al curso.
+
+## Estados permitidos
+
+| Estado | Significado | Puede integrarse al curso |
+|---|---|---|
+| Pendiente | Falta revisión humana o verificación suficiente | No |
+| Aprobada | Decisión humana registrada y evidencia auditable | Sí, con referencia al pack o lineage |
+| Rechazada | No cumple criterios o queda fuera de alcance | No |
+| Necesita más evidencia | Requiere fuente, quote o revisión adicional | No |
+
 ## Evidencias pendientes
 
 | Fecha | Bloque | Repo | Engram | Vault | Resultado |

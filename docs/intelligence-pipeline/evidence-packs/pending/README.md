@@ -34,3 +34,5 @@ This folder contains Evidence Packs that are waiting for human review. They are 
 ## Guardrail
 
 Pending packs are review inputs only. Moving a pack out of this folder or changing its decision fields requires explicit human approval in a separate checkpoint.
+
+Course docs, Obsidian dashboards, and Engram memories may point to this folder as a review queue, but they must keep each pack as pending input until the review decision changes. Do not use a pending pack as approved curriculum evidence.

@@ -100,6 +100,22 @@ captured
 
 Only `approved` packs can become metadata candidates. Only `integrated` packs are considered part of the general metadata base.
 
+## Course review queue boundary
+
+Evidence Packs can inform course candidates only through the human review queue. Until a pack has an explicit `review_decision`, course docs may reference it as pending input, but must not present its claims as approved lessons, metadata, dashboards, or Engram knowledge.
+
+For course restructuring, the safe route is:
+
+```txt
+pending_human_review pack
+→ review queue entry
+→ explicit human decision
+→ approved evidence register entry
+→ course integration with pack ID reference
+```
+
+Do not relocate, reclassify, or integrate pending packs as part of a docs cleanup. Integration is a separate checkpoint.
+
 ## Operating mode
 
 The default mode is **on-demand analysis**:

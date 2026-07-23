@@ -17,23 +17,26 @@ Cada bloque importante debe poder responder:
 
 ## Matriz viva
 
-| Bloque   | Repo                                                | Engram topic                                        | Vault                                                 | Estado       |
-| -------- | --------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------- | ------------ |
-| DOTS-0   | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md`              | `course/dots/foundation`                            | [[DOTS-TRACKER]]                                      | #status/todo |
-| DOTS-1   | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md`              | `course/dots/shell`                                 | [[DOTS-TRACKER]]                                      | #status/todo |
-| DOTS-4   | `docs/MINI_PROJECTS_PLAN.md`                        | `course/dots/ai-layer`                              | [[gentleman-dots-workshop]]                           | #status/todo |
-| AGENTS-0 | `AGENTS.md`, `docs/AGENTS_MD_COURSE_INTEGRATION.md` | `course/agents-md/foundation`                       | [[AGENTS-MD-TRACKER]]                                 | #status/todo |
-| AGENTS-1 | `AGENTS.md`, `.github/pull_request_template.md`     | `course/agents-md/audit`                            | [[AGENTS-MD-TRACKER]]                                 | #status/todo |
-| AH-0     | `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`        | `course/agent-harnesses/foundation`                 | [[AGENT-HARNESSES-TRACKER]], [[agent-harnesses]]      | #status/todo |
-| AH-1     | `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`        | `course/agent-harnesses/pi-gentle-pi-gentle-engram` | [[AGENT-HARNESSES-TRACKER]], [[agent-harnesses]]      | #status/todo |
-| AH-2     | `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`        | `course/agent-harnesses/subagent-visibility`        | [[AGENT-HARNESSES-TRACKER]], [[sub-agent-statusline]] | #status/todo |
-| AH-3     | `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`        | `course/agent-harnesses/telemetry-calibration`      | [[AGENT-HARNESSES-TRACKER]], [[metronous]]            | #status/todo |
-| AH-4     | `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`        | `course/agent-harnesses/closed-loop`                | [[AGENT-HARNESSES-TRACKER]], [[agent-harnesses]]      | #status/todo |
-| AH-5     | `docs/VPS_CONNECTION_COURSE_INTEGRATION.md`         | `course/vps-connection/foundation`                  | [[AGENT-HARNESSES-TRACKER]], [[vps-connection]]       | #status/todo |
-| AH-5b    | `docs/VPS_ENGRAM_CLOUD_COURSE_RUNBOOK.md`           | `course/engram-cloud-vps/foundation`                | [[AGENT-HARNESSES-TRACKER]], [[engram-cloud-vps]]     | #status/todo |
-| AH-6     | `docs/API_BRIDGE_COURSE_INTEGRATION.md`             | `course/api-bridge/pattern`                         | [[AGENT-HARNESSES-TRACKER]], [[api-bridge-pattern]]   | #status/todo |
-| CP-0     | `docs/PROFESSIONAL_CRITERIA_COURSE_INTEGRATION.md`  | `course/professional-criteria/technical-critique`   | [[professional-criteria]]                             | #status/todo |
-| GE-3     | pendiente policy-as-code                            | `sdd/ge-3-caso-real/*`                              | [[GE-3-TRACKER]]                                      | #status/todo |
+| Lane | Bloque / módulo | Repo | Rama o commit evidence | Engram topic | Vault | Estado |
+| --- | --- | --- | --- | --- | --- | --- |
+| Foundations | DOTS-0 | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` | Commit `docs:` o checkpoint de práctica | `course/dots/foundation` | [[DOTS-TRACKER]] | #status/todo |
+| Foundations | DOTS-1 | `docs/GENTLEMAN_DOTS_LEARNING_PATH.md` | Commit `docs:` o checkpoint de práctica | `course/dots/shell` | [[DOTS-TRACKER]] | #status/todo |
+| Foundations | CP-0 | `docs/PROFESSIONAL_CRITERIA_COURSE_INTEGRATION.md` | Commit `docs:` por criterio aplicado | `course/professional-criteria/technical-critique` | [[professional-criteria]] | #status/todo |
+| SDD+Engram | EN-1 a EN-4 | `docs/ENGRAM_RECOVERY_RUNBOOK.md`, `docs/ENGRAM_CONTEXT_MAP.md`, `openspec/changes/**` | Commits por fase o work unit SDD | `course/engram/*`, `sdd/<change>/*` | [[engram-memory]], [[sdd-operating-model]] | #status/doing |
+| Git+Review | GE-3 | `.github/pull_request_template.md`, `docs/MATRIZ_TRAZABILIDAD_CURSO.md`, policy docs | Rama `tech/tp-*` o PR trazable | `sdd/ge-3-caso-real/*` | [[GE-3-TRACKER]] | #status/todo |
+| Agent Harnesses | AGENTS-0 / AGENTS-1 | `AGENTS.md`, `docs/AGENTS_MD_COURSE_INTEGRATION.md` | Commit `docs:` o PR metodológico | `course/agents-md/foundation`, `course/agents-md/audit` | [[AGENTS-MD-TRACKER]] | #status/todo |
+| Agent Harnesses | AH-0 a AH-6 | `docs/AGENT_HARNESSES_COURSE_INTEGRATION.md`, `docs/VPS_*`, `docs/API_BRIDGE_*` | Commit `docs:` separado por harness | `course/agent-harnesses/*`, `course/vps-connection/*`, `course/api-bridge/*` | [[AGENT-HARNESSES-TRACKER]], [[agent-harnesses]] | #status/todo |
+| Research+Evidence Governance | Review queue y transcript lineage | `docs/intelligence-pipeline/**`, `docs/ObsidianVaults-GentleAI-Course/40-EVIDENCE/Indexes/EVIDENCE-REGISTER.md` | Sólo después de decisión humana explícita | `course/evidence/*`, `course/transcripts/*`, `course/intelligence/*` | [[INTELLIGENCE-DASHBOARD]], [[EVIDENCE-REGISTER]] | #status/todo |
+| Transfer+Infrastructure | Qontera, VPS, Engram Cloud, API Bridge | `docs/VPS_*`, `docs/API_BRIDGE_*`, handoff docs por repo dueño | Ramas por repo dueño; no mezclar infraestructura con curso local | `course/qontera/*`, `course/vps-connection/*`, `course/engram-cloud-vps/*` | [[vps-connection]], [[engram-cloud-vps]], [[api-bridge-pattern]] | #status/todo |
+
+## Gates de consistencia
+
+| Gate | Debe conectar | Evidencia |
+| --- | --- | --- |
+| Evidence review | Intelligence dashboard -> review queue -> evidence register | Pack pendiente o decisión humana registrada |
+| Transcript lineage | Scratch/manifiesto -> módulo candidato | Lineage o extracto revisado; no dump bruto |
+| Dashboard sync | Roadmap -> course dashboard -> master traceability | Lanes, módulos y gates con nombres consistentes |
+| Branch/module traceability | Módulo -> repo path -> rama/commit -> Engram -> vault | Fila completa antes de cerrar el bloque |
 
 ## Enlaces operativos
 

@@ -64,3 +64,5 @@ human_decision:
 ## Boundary
 
 This trial validates the pipeline format. It does not approve continuous collection, forum scraping, social-media polling, or VPS workers.
+
+Transcript-derived course ideas must stay behind the review queue until a human approves the specific Evidence Pack or selected excerpt. Course material should reference lineage/manifests, not bulk scratch transcripts.
