@@ -47,10 +47,19 @@ rama sin mergear: no se está cargando.
 sesiones corrieron con instrucciones genuinamente distintas. La independencia del
 contraste es real, no nominal. Aplica a este repo; reverificar en los demás.
 
-### H2 — Gobernanza ausente de `main` (alto)
+### H2 — ~~Gobernanza ausente de `main`~~ — **RETRACTADO 2026-07-23**
 
-`AGENTS.md` (`0ddccd2`) y `.opencode/agent/` (`eb1888e`) viven solo en ramas sin mergear.
-Cualquier agente que opere sobre `main` lo hace sin contrato de identidad cargado.
+> **Este hallazgo era falso.** Se emitió contra el `main` **local**, que estaba
+> desactualizado. Verificado después contra el remoto: **PR #13 mergeó
+> `docs/admin-workspace-standard` a `main` el 2026-07-02**, y `AGENTS.md` está presente
+> hoy en `Qontera-Group/qontera-admin-wb:main` (`gh api .../contents/AGENTS.md` → 200).
+>
+> Causa raíz: se usó `git ls-tree -r main` sobre el ref local sin contrastar contra
+> `git ls-remote` ni la API. Ver H8.
+
+Texto original, conservado para trazabilidad: «`AGENTS.md` (`0ddccd2`) y
+`.opencode/agent/` (`eb1888e`) viven solo en ramas sin mergear. Cualquier agente que opere
+sobre `main` lo hace sin contrato de identidad cargado.»
 
 Ramas candidatas, ambas con diff puramente aditivo:
 
@@ -59,10 +68,10 @@ Ramas candidatas, ambas con diff puramente aditivo:
 | `docs/admin-workspace-standard` | `0 1` | AGENTS.md +49, operating standard +79, PR template +16, README |
 | `docs/admin-read-only-cockpit-governance` | `14 2` | `.opencode/agent` +45, cross-repo-orchestration +149 |
 
-**Bloqueo:** `docs/admin-workspace-standard` **conflictúa con PR #14** en
-`.github/PULL_REQUEST_TEMPLATE.md` (verificado con `git merge-tree`). Requiere resolución
-del owner antes de mergear. No se abrieron esas PRs desde el repo auditor: es decisión de
-Admin.
+**Nota sobre el conflicto reportado:** se anunció un choque entre PR #14 y
+`docs/admin-workspace-standard` en `.github/PULL_REQUEST_TEMPLATE.md`. Ese cálculo se hizo
+contra el `main` local desactualizado. Contra el remoto real, GitHub computa PR #14 como
+**+38 / −0, sin conflicto** — porque la rama de gobernanza ya estaba mergeada (PR #13).
 
 ### H3 — Trabajo de gobernanza sin respaldo (resuelto)
 
@@ -103,6 +112,52 @@ existe en Admin. Ambos orquestadores lo marcaron como conflicto de contrato y se
 inferir — comportamiento correcto y la mejor señal de calidad de ambos informes.
 
 Corregido en `pruebaengram:docs/workspace/CROSS_REPO_AUDIT_REQUEST.md`.
+
+### H8 — El auditor confundió ref local con estado del repositorio (crítico, metodológico)
+
+Detectado el 2026-07-23 por los verificadores Claude de Infra y Web, no por el auditor.
+
+Toda la auditoría inicial se emitió contra refs **locales** (`git ls-tree -r main`,
+`git rev-list main...HEAD`) sin contrastar una sola vez contra el remoto. Estado real
+verificado con `git ls-remote` y `gh api`:
+
+| Repo | `main` local | `main` remoto | Desvío |
+|---|---|---|---|
+| `qontera-service-workspace-contract` | `f968b3b` | `f968b3b` | ninguno |
+| `qontera-app` | `a32c3c3` | `69b49e4` | local **adelante** 2 (correcto: sin pushear) |
+| `qontera-admin-wb` | `e1d0b37` | `500a7f6` | local **atrasado** |
+| `qontera-platform-infrastructure` | `00904da` | `9b78eed` | local **atrasado** 2 merges |
+| `qontera-web` | `efcd046` | `33d54b9` | **sin ancestro común** |
+
+Cuatro de cinco desincronizados. Solo `qontera-service-workspace-contract` estaba al día,
+y es el único repo cuyos hallazgos no requirieron revisión.
+
+**Hallazgos anulados por esta causa:** H2 de este informe; el pedido P4 a Infra (pedía
+pushear y abrir PR de un estándar mergeado por PR #5 el 2026-07-02); y el análisis completo
+de `qontera-web` (ver H9).
+
+**Corrección permanente:** ninguna afirmación sobre el estado de un repositorio se emite
+sin contraste contra el remoto. Incorporado como paso obligatorio en
+`CROSS_REPO_AUDIT_REQUEST.md`.
+
+### H9 — `qontera-web`: el clon local está huérfano del repositorio publicado (crítico)
+
+Detectado por el verificador Claude de Web. Verificado de forma independiente por el
+auditor:
+
+- Ningún commit del clon local existe en el remoto. `gh api .../commits/{efcd046, 9b3890e,
+  66d53b4, 66e4f80}` → **422 "No commit found"** en los cuatro.
+- El remoto tiene 4 ramas, ninguna coincide con el clon.
+- La raíz del `main` remoto es `feat: bootstrap qontera-web-2` (2026-06-13): el repositorio
+  fue reconstruido desde cero sobre el mismo nombre.
+- Las dos historias no comparten ancestro.
+
+**Riesgo inmediato:** un `push --force` desde el clon local destruiría los 13 commits
+publicados — config de deploy Docker, tests, `openspec/`, contrato de API, y tres PRs
+mergeadas. El `[ahead 1]` que reporta `git status` compara contra un ref muerto.
+
+Todo el análisis previo de `qontera-web` describe un repositorio que ya no es el publicado.
+Queda anulado hasta resolver cuál de los dos es canónico.
 
 ## Calidad comparada de los orquestadores
 

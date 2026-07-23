@@ -93,6 +93,29 @@ respuesta plausible.
 
 ## Verificación del auditor
 
+### Paso 0 — obligatorio, antes que cualquier otra cosa
+
+**Contrastar contra el remoto.** Los refs locales mienten. En la auditoría del 2026-07-23,
+4 de 5 repos tenían `main` local desincronizado y se emitieron hallazgos falsos por
+leer `git ls-tree -r main` sin verificar contra origin.
+
+```bash
+git -C <repo> rev-parse main
+git ls-remote --heads <url> refs/heads/main      # no muta refs; git fetch sí
+gh api repos/<org>/<repo>/contents/<ruta> --jq .name
+gh pr list --repo <org>/<repo> --state all --limit 10
+```
+
+Casos que este paso detecta y ningún comando local puede detectar:
+- rama mergeada en el remoto pero ausente del `main` local desactualizado;
+- clon huérfano cuyos commits no existen en el remoto (`gh api .../commits/<sha>` → 422);
+- ref `origin/main` local apuntando a un commit ya inexistente.
+
+Nunca usar `git fetch` para esto en un repo ajeno: muta remote-tracking refs.
+`git ls-remote` y `gh api` son de solo lectura.
+
+### Resto de la verificación
+
 Toda afirmación falsable del informe se contrasta contra disco antes de dictaminar.
 Mínimo a verificar:
 
