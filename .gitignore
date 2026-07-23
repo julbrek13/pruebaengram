@@ -24,6 +24,20 @@ pnpm-debug.log*
 # OS / editor noise
 .DS_Store
 
+# Claude Code usage reports (scan ~/.claude/projects across all repos;
+# may contain other clients' project names and prompt fragments)
+session-report-*.html
+session-report*.json
+claude-code-receipts-*.md
+claude-code-receipts-*.html
+
+# Obsidian local UI state (per-machine, not vault content)
+docs/ObsidianVaults-GentleAI-Course/.obsidian/workspace.json
+docs/ObsidianVaults-GentleAI-Course/.obsidian/appearance.json
+
+# Local skill registry cache
+.atl/.skill-registry.cache.json
+
 # VS Code (keep shared workspace config)
 .vscode/*
 !.vscode/settings.json
