@@ -28,10 +28,30 @@ confirmaron `CLAUDE.md` ausente vía `gh api` → 404. Ningún diff tocó nada f
 con `status:approved`, requisito obligatorio de la política cargada en el runtime.
 
 La auditoría había inferido esto del pasado (13 PRs abiertos por un humano, ninguno con
-issue ni labels). Ahora está medido en vivo, sobre un cambio aditivo de 13 líneas sin
-riesgo. **El bloqueo es de `~/.config/opencode/AGENTS.md` y de las skills en
-`~/.config/opencode/skills/`, no de ningún repositorio** — por eso ningún repo puede
-satisfacerlo ni modificarlo.
+issue ni labels). Ahora está medido en vivo, sobre un cambio aditivo de 13 líneas sin riesgo.
+
+**Atribución corregida el 2026-07-24** por el orquestador de `pruebaengram`. Se escribió que
+el bloqueo venía de `~/.config/opencode/AGENTS.md` **y** de las skills. Es falso en la primera
+mitad: ese `AGENTS.md` global no menciona issues ni PRs; su única regla pertinente es «Never
+add Co-Authored-By or AI attribution to commits. Use conventional commits only».
+
+El bloqueo viene **exclusivamente de dos skills globales**, con texto imperativo:
+
+| Skill | Texto |
+|---|---|
+| `branch-pr` | «Every PR MUST link an approved issue — no exceptions» / «Verify issue has `status:approved` label» |
+| `issue-creation` | «A maintainer MUST add `status:approved` before any PR can be opened» |
+
+Ninguna distingue por tamaño, por tipo de cambio ni por gobernanza. No existe excepción
+documentada: `branch-pr` dice literalmente «no exceptions». Los `size:exception` locales son
+excepciones de tamaño/TDD de SDD, no al requisito de issue aprobado.
+
+Alcance verificado: las skills son **globales al runtime**, así que cualquier repo que cargue
+esa instalación las recibe. OpenCode fusiona el `AGENTS.md` global con el del proyecto de
+forma aditiva, y en `pruebaengram` no hay override local que exceptúe la regla. El orquestador
+declaró el límite de su afirmación: no puede descartar reglas locales adicionales en los
+owner-repos sin inspeccionarlos, pero sí afirma que ninguna regla local elimina textualmente
+el «MUST / no exceptions» de las skills globales.
 
 E2 pasa de hallazgo histórico a bloqueo operativo verificado.
 
@@ -565,9 +585,18 @@ bloquearon el mismo cambio aditivo de 13 líneas por el mismo requisito: issue c
 sin `.github/ISSUE_TEMPLATE` (404), sin las labels requeridas (solo las 9 por defecto),
 cero issues en la historia de los cinco repos.
 
-**Dónde vive la política:** `~/.config/opencode/AGENTS.md` y
-`~/.config/opencode/skills/{branch-pr,issue-creation}/`. Fuera de todo repositorio, sin
-versionar, no viaja con el clon. Ningún repo puede satisfacerla ni modificarla.
+**Dónde vive la política**, verificado con el orquestador el 2026-07-24:
+`~/.config/opencode/skills/branch-pr/` e `issue-creation/`. **No** en el `AGENTS.md` global,
+que no menciona issues ni PRs. Texto literal: «Every PR MUST link an approved issue — no
+exceptions» y «A maintainer MUST add `status:approved` before any PR can be opened».
+
+**Y esto es lo que más importa para la decisión:** esas skills viven en la configuración
+personal del operador, en su máquina. No están versionadas, no viajan con el clon, y no son
+una política de la organización — son la preferencia de una instalación, expresada como
+`MUST` absoluto. Otra persona del equipo, con otra instalación, no tendría este requisito.
+
+Lo que el ecosistema tiene hoy no es una política de PR incumplida: es la ausencia de una
+política organizacional, más un requisito local que se comporta como si lo fuera.
 
 **Consecuencia estructural:** el camino de escritura por agente no existe. No se rompió —
 nunca estuvo cableado. Todo PR del ecosistema requiere un humano que salte la política.

@@ -10,6 +10,25 @@ Entrada más reciente arriba.
 ---
 
 ```txt
+SYNC 2026-07-24 — pruebaengram:tech/tp-3-flujo-ramas → orquestador OpenCode del mismo repo
+Evento:            Cambio en las reglas de orquestación
+Qué cambia:        Guardia de identidad en todo prompt que escribe; contraste obligatorio
+                   del snapshot de arranque contra el disco; retractación de R6 (sin
+                   inventario previo SÍ se puede probar preservación: git es
+                   content-addressed).
+Impacto cross-repo:Ninguna escritura pendiente. Los 4 owner-repos con rama pusheada, sin PR.
+Verificado remoto: sí — ls-remote y gh api por ejecutor y verificador en los 4 repos
+Acuse del otro modelo (recibido, ciclo cerrado):
+                   - Sin solapamiento: su sesión fue de lectura. Señala que los 2 cambios
+                     de .obsidian/ deben quedar fuera de todo commit de esta rama. Cumplido.
+                   - CORRIGE al auditor: el AGENTS.md global NO impone el issue aprobado.
+                     El bloqueo es exclusivo de las skills branch-pr e issue-creation, que
+                     viven en la config personal del operador. Registrado en R1 y en la
+                     escalación al PM.
+Pendiente humano:  política de PR (PM) y test limpio de autoload
+```
+
+```txt
 SYNC 2026-07-23 — 4 owner-repos: ramas docs/add-claude-md*
 Evento:            Escritura en owner-repos + evidencia que afecta las reglas de PR
 Qué cambia:        Los 4 ejecutores OpenCode agregaron CLAUDE.md (+13/-0) en rama. Ninguno
