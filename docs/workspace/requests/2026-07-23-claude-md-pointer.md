@@ -257,6 +257,11 @@ No mergees. El merge es decisión humana.
 
 # Parte B — Prompts para Claude Code
 
+> **OBSOLETOS (2026-07-23).** Ningún repo abrió PR: los cuatro ejecutores bloquearon por
+> falta de issue aprobado. Estos prompts verifican un PR inexistente. Reemplazados por la
+> ronda B de `2026-07-23-claude-md-pointer-results.md`. Se conservan como evidencia de lo
+> que se envió.
+
 Rol: **verificador**. Read-only, no escribe, no corrige. Enviar **solo después** de que
 volvió el PR del repo correspondiente.
 
