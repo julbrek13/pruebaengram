@@ -53,7 +53,7 @@ Tarea acotada y aditiva: verificar si este repo tiene CLAUDE.md y, si falta, agr
 
 Paso 0 — obligatorio antes de afirmar nada:
 Los refs locales mienten. Contrastá contra el remoto antes de concluir que el archivo falta.
-  git ls-remote --heads <url-del-repo> refs/heads/main
+  git ls-remote --heads origin refs/heads/main
   gh api repos/Qontera-Group/qontera-platform-infrastructure/contents/CLAUDE.md --jq .name
 En la auditoría del 2026-07-23, 4 de 5 repos tenían main local desactualizado.
 
@@ -103,7 +103,7 @@ Tarea acotada y aditiva: verificar si este repo tiene CLAUDE.md y, si falta, agr
 
 Paso 0 — obligatorio antes de afirmar nada:
 Los refs locales mienten. Contrastá contra el remoto antes de concluir que el archivo falta.
-  git ls-remote --heads <url-del-repo> refs/heads/main
+  git ls-remote --heads origin refs/heads/main
   gh api repos/Qontera-Group/qontera-admin-wb/contents/CLAUDE.md --jq .name
 En la auditoría del 2026-07-23, 4 de 5 repos tenían main local desactualizado. Este repo
 fue uno de ellos: su main local estaba atrasado y produjo un hallazgo falso.
@@ -156,7 +156,7 @@ Tarea acotada y aditiva: verificar si este repo tiene CLAUDE.md y, si falta, agr
 
 Paso 0 — obligatorio antes de afirmar nada:
 Los refs locales mienten. Contrastá contra el remoto antes de concluir que el archivo falta.
-  git ls-remote --heads <url-del-repo> refs/heads/main
+  git ls-remote --heads origin refs/heads/main
   gh api repos/Qontera-Group/qontera-app/contents/CLAUDE.md --jq .name
 
 Atención específica de este repo, verificado el 2026-07-23: main local estaba 2 commits
@@ -209,7 +209,7 @@ Tarea acotada y aditiva: verificar si este repo tiene CLAUDE.md y, si falta, agr
 
 Paso 0 — obligatorio antes de afirmar nada:
 Contrastá contra el remoto antes de concluir que el archivo falta.
-  git ls-remote --heads <url-del-repo> refs/heads/main
+  git ls-remote --heads origin refs/heads/main
   gh api repos/Qontera-Group/qontera-service-workspace-contract/contents/CLAUDE.md --jq .name
 
 Atención específica de este repo, verificado el 2026-07-23: hay 12 archivos en working tree
