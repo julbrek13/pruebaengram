@@ -103,6 +103,24 @@ Todo pedido cross-repo se entrega con:
 Regla de secuencia derivada del estándar: cuando el pedido escribe, ejecutor y verificador
 **nunca** salen juntos. El verificador se envía después de que volvió el PR.
 
+### Guardia de identidad — primer paso de todo prompt que escribe
+
+El transporte manual falla: el 2026-07-23 un prompt dirigido a
+`qontera-platform-infrastructure` se pegó en la sesión de `qontera-app`. El ejecutor frenó,
+pero **frenó porque el commit citado no existía, no porque el repo no fuera el suyo** —
+declarar la identidad en la primera línea no alcanzó, porque nadie le pidió verificarla.
+Con datos que hubieran coincidido por casualidad, el push ajeno se ejecutaba.
+
+Todo prompt de escritura abre con:
+
+```txt
+Paso de identidad, antes que nada: confirmá que el repositorio en el que estás corriendo es
+<repo>. Si no lo es, no ejecutes nada más y decime en qué repo estás. Este prompt no aplica
+a ningún otro repositorio.
+```
+
+El costo es una línea. El daño que evita es una escritura en el repo equivocado.
+
 ## Regla que hace verificable al protocolo
 
 > Un evento de umbral sin su bloque en `HYBRID_SYNC_LOG.md` es un hallazgo de la próxima
@@ -135,6 +153,24 @@ gh api repos/<org>/<repo>/contents/<ruta> --jq .name
 ```
 
 En la auditoría del 2026-07-23, 4 de 5 repos tenían `main` local desincronizado.
+
+### Y el snapshot de arranque también miente
+
+Segundo orden del mismo problema, medido el 2026-07-24 en **4 de 4** sesiones verificadoras:
+la rama que el runtime reporta al iniciar puede no ser la que tiene el disco. El desfase
+observado llegó a ~51 minutos, y en un caso el disco nunca estuvo en la rama que el snapshot
+declaraba.
+
+Todo verificador contrasta antes de usar el snapshot como premisa:
+
+```bash
+git symbolic-ref HEAD        # rama real, ahora
+git status --short           # estado real, ahora
+git reflog -n 5              # qué pasó entre el arranque y el primer comando
+```
+
+Un hallazgo emitido sobre la rama del snapshot, sin este contraste, describe un repositorio
+que puede no existir.
 
 ## Bloqueo vigente
 
