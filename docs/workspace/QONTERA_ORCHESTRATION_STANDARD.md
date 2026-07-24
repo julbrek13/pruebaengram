@@ -5,7 +5,8 @@ Qontera cuando intervienen orquestadores de más de un proveedor.
 
 Deriva de la auditoría cruzada del 2026-07-23 (`docs/qontera/audits/`), que verificó ocho
 informes de cinco repos contra evidencia en disco. Complementa
-`CROSS_REPO_HANDOFF.md` (coordinación) y `CROSS_REPO_AUDIT_REQUEST.md` (auditoría).
+`CROSS_REPO_HANDOFF.md` (coordinación), `CROSS_REPO_AUDIT_REQUEST.md` (auditoría) y
+`HYBRID_SYNC_PROTOCOL.md` (cuándo se entera el otro modelo).
 
 ## Los tres roles
 
@@ -20,6 +21,12 @@ informes de cinco repos contra evidencia en disco. Complementa
 No es preferencia de proveedor. Los `.opencode/agent/*.md` versionados son la identidad que
 ese runtime carga efectivamente. Las sesiones Claude en owner-repos declararon, las cuatro,
 que no cargan ningún archivo del repo: operan solo desde el prompt.
+
+> **Premisa bajo verificación (2026-07-23).** Esa ceguera puede ser un archivo faltante y no
+> una propiedad del runtime: Claude Code carga `CLAUDE.md` automáticamente y `AGENTS.md` no,
+> y ningún owner-repo tiene `CLAUDE.md`. Pedido abierto en
+> `requests/2026-07-23-claude-md-pointer.md`. Si se confirma, la ventaja del ejecutor
+> OpenCode queda reducida a `permission.bash` y esta sección se corrige.
 
 Para **escribir** conviene el runtime que corre bajo el contrato versionado del repo. El
 caso más claro es `qontera-service-workspace-contract`, cuyo agente define
