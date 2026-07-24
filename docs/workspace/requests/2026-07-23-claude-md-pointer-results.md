@@ -174,7 +174,31 @@ estado que no existe.
 Regla incorporada a `HYBRID_SYNC_PROTOCOL.md`: todo verificador contrasta el snapshot contra
 `git symbolic-ref HEAD` y `git status` reales antes de usarlo como premisa.
 
-### R8 — El test de autoload: tres inválidos y uno no concluyente
+### R8-bis — Test limpio: autoload CONFIRMADO (2026-07-24)
+
+Sesión nueva en `service-workspace-contract`, sin *bridge*, arrancada con `CLAUDE.md` ya
+commiteado en la rama activa, y primer mensaje ciego (no nombró el archivo). Resultado:
+
+> «Hay exactamente uno: CLAUDE.md. Cómo llegó: **inyectado por el runtime al iniciar la
+> sesión.** Aparece dentro de un bloque `<system-reminder>` bajo `# claudeMd` […] Yo no lo
+> leí con ninguna herramienta.»
+
+Y esta vez **el snapshot coincidió con el disco**, archivo por archivo — la condición que
+faltó en las cuatro sesiones anteriores. Con esa variable controlada, el archivo se cargó.
+
+**Queda probada la hipótesis (B):** el autoload de `CLAUDE.md` ocurre. Los cuatro negativos
+previos eran artefactos del snapshot desactualizado (R9), no evidencia contra el mecanismo.
+
+Consecuencia sobre el diseño: **una fuente, dos entradas, confirmado de punta a punta.**
+OpenCode entra por `AGENTS.md`; Claude entra por `CLAUDE.md` inyectado y el puntero lo
+devuelve al mismo contrato. La línea 3 de los cuatro archivos —«Claude Code carga este
+archivo automáticamente al iniciar sesión»— **es verdadera.** No hay que reescribir nada.
+
+Cierra también la sección «premisa bajo verificación» de `QONTERA_ORCHESTRATION_STANDARD.md`:
+la asimetría de runtimes es real y el puntero la resuelve. La ventaja del ejecutor OpenCode
+que subsiste es `permission.bash`, no la carga de contrato.
+
+### R8 (histórico) — Los cuatro tests previos: tres inválidos y uno no concluyente
 
 El verificador respondió que **no** cargó `CLAUDE.md` automáticamente, y probó por qué el
 resultado no cuenta como refutación:

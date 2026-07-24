@@ -19,14 +19,16 @@ informes de cinco repos contra evidencia en disco. Complementa
 ### Por qué el ejecutor es OpenCode
 
 No es preferencia de proveedor. Los `.opencode/agent/*.md` versionados son la identidad que
-ese runtime carga efectivamente. Las sesiones Claude en owner-repos declararon, las cuatro,
-que no cargan ningún archivo del repo: operan solo desde el prompt.
+ese runtime carga efectivamente.
 
-> **Premisa bajo verificación (2026-07-23).** Esa ceguera puede ser un archivo faltante y no
-> una propiedad del runtime: Claude Code carga `CLAUDE.md` automáticamente y `AGENTS.md` no,
-> y ningún owner-repo tiene `CLAUDE.md`. Pedido abierto en
-> `requests/2026-07-23-claude-md-pointer.md`. Si se confirma, la ventaja del ejecutor
-> OpenCode queda reducida a `permission.bash` y esta sección se corrige.
+> **Corregido y cerrado (2026-07-24).** La versión anterior decía que las sesiones Claude
+> «no cargan ningún archivo del repo». Era falso, y el error era del auditor: esas cuatro
+> sesiones arrancaron con un snapshot desactualizado (R9) y por eso no había archivo que
+> cargar. Un test limpio lo probó (R8-bis en `requests/2026-07-23-claude-md-pointer-results.md`):
+> con `CLAUDE.md` commiteado en la rama activa y snapshot al día, Claude Code lo inyecta
+> automáticamente al iniciar. La asimetría es un archivo faltante, no una propiedad del
+> runtime, y el `CLAUDE.md` puntero la resuelve. **La ventaja del ejecutor OpenCode que
+> subsiste es `permission.bash`**, no la carga de contrato.
 
 Para **escribir** conviene el runtime que corre bajo el contrato versionado del repo. El
 caso más claro es `qontera-service-workspace-contract`, cuyo agente define
